@@ -10,9 +10,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_085057) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_091122) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accommodations", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "address"
+    t.float "longitude"
+    t.float "latitude"
+    t.integer "nb_of_guests"
+    t.integer "nb_of_bedrooms"
+    t.integer "nb_of_beds"
+    t.integer "nb_of_bathrooms"
+    t.boolean "garden"
+    t.boolean "swimming_pool"
+    t.boolean "balcony"
+    t.integer "nb_of_tvs"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_accommodations_on_user_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "industry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exchanges", force: :cascade do |t|
+    t.date "check_in"
+    t.date "check_out"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.bigint "exchange_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exchange_id"], name: "index_messages_on_exchange_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "modalities", force: :cascade do |t|
+    t.integer "duration"
+    t.date "check_in"
+    t.date "check_out"
+    t.string "keys"
+    t.boolean "petsitting"
+    t.string "transportation"
+    t.string "others"
+    t.integer "progress"
+    t.bigint "accommodation_id", null: false
+    t.bigint "exchange_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["accommodation_id"], name: "index_modalities_on_accommodation_id"
+    t.index ["exchange_id"], name: "index_modalities_on_exchange_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +92,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_085057) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "bio"
+    t.bigint "company_id", null: false
+    t.string "job"
+    t.string "seniority"
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accommodations", "users"
+  add_foreign_key "messages", "exchanges"
+  add_foreign_key "messages", "users"
+  add_foreign_key "modalities", "accommodations"
+  add_foreign_key "modalities", "exchanges"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "users", "companies"
 end
