@@ -5,14 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :company
+  accepts_nested_attributes_for :company
   has_one :accommodation
   has_many :reviews
   has_many :messages
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true
-  validates :job, presence: true
-  validates :seniority, presence: true
   #validation password
 end
