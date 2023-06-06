@@ -1,0 +1,12 @@
+<div class="search-form-control form-group">
+  <%= form_with url: accommodations_path, method: :get, class: "d-flex search-form-control form-group" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control custom-placeholder",
+          placeholder: "Where do you want to go ?"
+      %>
+    <%= button_tag(type: "submit", class: "btn btn-flat") do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
+  <% end %>
+</div>
