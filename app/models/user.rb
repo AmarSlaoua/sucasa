@@ -5,10 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :company
-  accepts_nested_attributes_for :company
-  has_one :accommodation
-  has_many :reviews
-  has_many :messages
 
-  #validation password
+  accepts_nested_attributes_for :company
+
+  has_one :accommodation, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+
+  has_one_attached :photo
 end

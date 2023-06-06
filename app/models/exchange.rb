@@ -1,4 +1,4 @@
 class Exchange < ApplicationRecord
-  has_many :modalities
-  has_many :messages
+  has_many :modalities, dependent: :destroy
+  has_many :messages, dependent: :destroy
 end
