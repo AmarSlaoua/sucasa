@@ -1,0 +1,145 @@
+// SHOW ACCOMMODATION
+// photos
+.main-photo {
+  width: 1000px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  .main-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+  }
+}
+
+.secondary-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-basis: 40%;
+  .secondary-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+  }
+}
+
+// photos taille max mon macbook
+@media screen and (max-width: 1024px) {
+  .photos-accommodation-index {
+    flex-direction: column;
+  }
+  .main-photo,
+  .secondary-photo {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+// photos taille min mon macbook
+@media screen and (min-width: 1024px) {
+  .photos-accommodation-index {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .main-photo {
+    max-width: 800px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+
+  .main-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .secondary-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-basis: 25.5%;
+  }
+
+  .secondary-photo {
+    flex-basis: 100%;
+    border-radius: 30px;
+  }
+
+  .secondary-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+  }
+}
+
+// user+accommodation infos
+.container{
+  .pp-details {
+    margin-left: 2%;
+    color: black;
+    .separator {
+      border-top: 1px solid #c8c8c8;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      margin-right: 10%;
+    }
+    i {
+      color: #ffaa64;
+    }
+    h6 {
+      font-weight: bolder;
+      margin-left: 5%;
+      }
+    p {
+        color: rgb(59, 59, 59);
+        font-weight: lighter;
+        margin-right: 10%;
+      }
+    .user-bio {
+        display: flex;
+        align-items: center;
+        margin-top: 3%;
+        text-align: right;
+        .desc-user h6{
+          margin-right: 10%;
+          margin-bottom: 2%;
+        }
+        .avatar-pp {
+          border-radius: 50%;
+          margin-bottom: 0%;
+          margin-right: 19px;
+          vertical-align: top;
+        }
+      }
+  }
+  .container-pp {
+    margin-top: 3%;
+  }
+  h4{
+    font-weight: bolder;
+    color: black;
+  }
+  .container-first-infos h1{
+    font-weight: bolder;
+    color: black;
+  }
+  .acc-desc {
+    margin-left: 6%;
+    h6 {
+      margin-left: 0px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.flex-pp-details-booking{
+  display: flex;
+  align-items: center;
+}
+
+.container-booking-block2{
+  margin-right: 37%;
+}

@@ -1,12 +1,50 @@
-.navbar-lewagon {
+.navbar-sucasa {
   justify-content: space-between;
   background: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-sucasa .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-sucasa .navbar-brand img {
+  width: 120px;
+  margin-left: 2%;
+}
+
+.logo-img {
+  width: 500px;
+  height: auto;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  border-color: white;
+  box-shadow: 0 0 7px 0.1px #bcbcbc;
+}
+
+.dropdown-menu a{
+  padding: 15px;
+}
+
+.separator-nav{
+  border-top: 1px solid #e3e3e3;
+}
+
+.nav-link{
+color: rgb(110, 110, 110);
+margin-right: 10px;
+}
+
+.nav-link:hover {
+color: #262626;
+margin-right: 10px;
+}
+
+.avatar {
+  cursor: pointer;
 }

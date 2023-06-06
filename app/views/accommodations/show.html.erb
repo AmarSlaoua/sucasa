@@ -1,0 +1,42 @@
+<%= render 'components/navbar' %>
+
+<%# product page %>
+<div class="main-container">
+  <div class="container-pp">
+    <div class="container">
+      <div class="container-first-infos">
+        <h1>Title</h1>
+        <h5>Address ·  Nb_of_guests</h5>
+      </div>
+      <div class="photos-accommodation-index">
+        <div class="main-photo">
+          <%= image_tag "accommodation4.jpg", height: 610, width: 810, crop: :fill, class: "image-clickable" %>
+        </div>
+      </div>
+      <div class="flex-pp-details-booking">
+        <div class="container-pp-details-block1">
+          <div class="pp-details">
+            <div class="user-bio">
+              <div class="desc-user">
+                <h6><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Name | Job</h6>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti iste cum blanditiis quam assumenda neque. Ipsum nam in voluptates aut magnam, magni porro autem, doloribus, perferendis modi voluptate provident dicta!</p>
+              </div>
+              <%= image_tag "avatar_default.jpg", height: 50, width: 50, crop: :fill, class: "avatar-pp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+            <div class="acc-desc">
+            <div class="separator"></div>
+              <h6><i class="fa-solid fa-house"></i>&nbsp;&nbsp;&nbsp;&nbsp;Where you'll stay</h6>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus labore atque illum, officia molestias exercitationem recusandae similique veniam facere, ut perferendis unde odio, incidunt ipsa inventore! Quasi officiis enim illum.</p>
+              <div class="separator"></div>
+            </div>
+          </div>
+        </div>
+        <div class="container-booking-block2">
+          <%# Booking %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'components/footer' %>

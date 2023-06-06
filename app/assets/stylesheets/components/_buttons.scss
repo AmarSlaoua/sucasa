@@ -1,0 +1,80 @@
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  display: flex;
+  right: 0;
+  width: 100%;
+  max-width: 180px;
+  height: 55px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+  background-color: rgb(237, 237, 237);
+
+}
+
+#see-more-btn-home {
+  margin-right: 6%;
+}
+
+
+.container-pp .btn-pp {
+  color: #ffffff;
+  background-color: lightgrey;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  position:absolute;
+  display: flex;
+  width: 100%;
+  max-width: 180px;
+  height: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+}
+
+.btn-pp:hover {
+  opacity: 0.6;
+  background-color: lightgrey;
+}
+
+.banner-hp .btn-pp .btn{
+  color: #ffffff;
+  background-color: lightgrey;
+  padding: 5px 40px;
+  border-radius: 20px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  position:absolute;
+  display: flex;
+  width: 100%;
+  max-width: 150px;
+  height: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 6px;
+}
+
+
+.banner-hp .btn-pp .btn:hover{
+  opacity: 0.9;
+  background-color: lightgrey;
+  color: #4A4A4A;
+}
+
+.container-pp .btn-pp {
+  margin-bottom: 20%;
+}
