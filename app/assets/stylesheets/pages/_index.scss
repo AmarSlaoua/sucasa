@@ -8,3 +8,25 @@
 @import url(components/_searchbar.css);
 @import url(components/_footer.css);
 @import url(components/_navbar.scss);
+@import url(components/_wrapper.scss);
+
+// Accommodation/index Title+Subtitle
+.container {
+  .container-all-accommodations{
+    .title-subtitle {
+      display: flex;
+      align-items: center;
+      }
+    .title-subtitle p {
+      margin-top: 3%;
+      margin-left: 1%;
+    }
+  }
+  .container-all-accommodations h4 {
+    padding-top: 2%;
+    color: #000000;
+  }
+  .container-all-accommodations p {
+    color: #747474;
+  }
+}
