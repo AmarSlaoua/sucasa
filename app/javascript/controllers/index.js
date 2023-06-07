@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import ExchangeSubscriptionController from "./exchange_subscription_controller"
+application.register("exchange-subscription", ExchangeSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
