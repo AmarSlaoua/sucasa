@@ -14,4 +14,9 @@ class Accommodation < ApplicationRecord
   validates :swimming_pool, inclusion: { in: [true, false] }
   validates :balcony, inclusion: { in: [true, false] }
   validates :nb_of_tvs, presence: true
+  validate :validate_at_least_one_photo
+
+  def validate_at_least_one_photo
+    errors.add(:photos, ": You must upload at least 1 photo !") if photos.blank?
+  end
 end

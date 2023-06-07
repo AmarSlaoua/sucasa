@@ -2,9 +2,9 @@
 
 puts "Deleting db ..."
 
+Review.delete_all
 Message.delete_all
 Modality.delete_all
-Review.delete_all
 Exchange.delete_all
 Accommodation.delete_all
 User.delete_all
