@@ -10,3 +10,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/show";
+
+body {
+  margin-top: 4%;
+  margin-bottom: 10%;
+  background-color: #E7E7E7;
+}
+
+.main-container, .container {
+  margin-left: 60px;
+  margin-right: 60px;
+}

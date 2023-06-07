@@ -1,2 +1,34 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'components/navbar' %>
+<%= render 'components/banner' %>
+
+<div class="main-container">
+  <%# title for listing cards %>
+  <div class="title-container">
+    <br>
+    <h4>Handpicked houses</h4>
+    <h6>Discover all the Home exchange and home standing offers</h6>
+  </div>
+
+<%= render 'components/card' %>
+
+<%# generic banner hp %>
+<div class="banner-hp">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1683735779537-80cc2d52ce29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1691&q=80);">
+    <div class="container">
+      <h1><strong>Discover the world together</strong></h1>
+      <p>Experience a unique way to travel, strengthen bonds, and create lifelong memories.</p>
+      <div class="btn-pp">
+        <%= link_to "Discover", "/accommodations", class: "btn" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="map-accommodations-lp">
+  <div class="map-container">
+    <div class="map-wraper">
+      <%# map %>
+    </div>
+  </div>
+  <%= render 'components/footer' %>
+</div>
