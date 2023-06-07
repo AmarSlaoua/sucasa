@@ -23,10 +23,6 @@ class AccommodationsController < ApplicationController
     end
   end
 
-  def destroy
-
-  end
-
   private
 
   def accommodation_params
