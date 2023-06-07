@@ -350,7 +350,7 @@ picture8 = URI.open("https://cdn.apartmenttherapy.info/image/upload/v1554209861/
 picture9 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-50250873/original/785842db-7736-4bde-a9cb-c649e99f50a8.jpeg?im_w=1200")
 picture10 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-798490574765766838/original/89371196-d780-4a9c-a107-3d47e4b94451.jpeg?im_w=1200")
 picture11 = URI.open("https://a0.muscache.com/im/pictures/769cd8c2-8c91-437d-8555-57e824189c8a.jpg?im_w=1200")
-picture12 = URI.open("https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+picture12 = URI.open("https://oportfolio.co.uk/wp-content/uploads/2022/09/airbnb-mortgage.jpg")
 
 acco1 = Accommodation.new(
   user_id: fu1.id,
@@ -664,8 +664,6 @@ puts "..."
 
 puts "3 super accommodations created !"
 
-
-
 ############################################### EXCHANGES #################################################################
 
 puts "creating 3 exchanges, all super users exchange their homes with each other..."
@@ -695,6 +693,7 @@ e3.save!
 puts "..."
 
 ############################################### MODALITIES #################################################################
+
 puts "creating 6 modalities, 2 for each exchange ..."
 
 m1_e1 = Modality.new(
