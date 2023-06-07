@@ -8,6 +8,7 @@ class AccommodationsController < ApplicationController
 
   def show
     @accommodation = Accommodation.find(params[:id])
+    @exchange = Exchange.new
   end
 
   def new

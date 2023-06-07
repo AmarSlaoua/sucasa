@@ -1,0 +1,18 @@
+<h1>Your exchange</h1>
+
+<% if @other_user_modality.review.nil? %>
+  <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
+  <%= f.input :content %>
+  <%= f.submit "Offer an exchange !" %>
+  <% end %>
+<% else %>
+<div>
+  <ul>
+    <li><%= @other_user_modality.accommodation.user.first_name %></li>
+    <li><%= @other_user_modality.duration %> days.</li>
+    <li><%= @other_user_modality.review.content %></li>
+  </ul>
+</div>
+<% end %>

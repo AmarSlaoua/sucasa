@@ -33,6 +33,12 @@
         </div>
         <div class="container-booking-block2">
           <%# Booking %>
+
+          <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
+          <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
+          <%= f.submit "Offer an exchange !" %>
+          <% end %>
+
         </div>
       </div>
     </div>
