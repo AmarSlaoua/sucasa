@@ -14,8 +14,6 @@ gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
-gem "cloudinary"
-gem "dotenv-rails", groups: [:development, :test]
 
 
 
@@ -23,12 +21,8 @@ gem "dotenv-rails", groups: [:development, :test]
 gem "jsbundling-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-gem "devise"
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
-gem "pundit"
-gem "geocoder"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
@@ -89,7 +83,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem 'faker'
-
-gem 'flatpickr'
