@@ -10,27 +10,17 @@ class AccommodationsController < ApplicationController
     @accommodation = Accommodation.find(params[:id])
   end
 
-  def new
-  end
-
   def edit
     @accommodation = current_user.accommodation
-  end
-
-  def create
   end
 
   def update
     @accommodation = current_user.accommodation
     if @accommodation.update(accommodation_params)
-      redirect_to @accommodation, notice: "Les informations du logement ont été mises à jour."
+      redirect_to @accommodation, notice: "Infos has been updated !"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
-  end
-
-  def destroy
-
   end
 
   private
