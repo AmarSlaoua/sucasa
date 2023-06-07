@@ -35,6 +35,7 @@ class AccommodationsController < ApplicationController
                                           :nb_of_beds,
                                           :garden,
                                           :swimming_pool,
-                                          :balcony)
+                                          :balcony,
+                                           photos: [])
   end
 end

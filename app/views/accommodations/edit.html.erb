@@ -10,7 +10,7 @@
     <%= f.input :garden %>
     <%= f.input :balcony %>
     <%= f.input :swimming_pool %>
-    <%= f.input :photos %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
     <%= f.submit "Enregistrer les modifications" %>
 <% end %>
