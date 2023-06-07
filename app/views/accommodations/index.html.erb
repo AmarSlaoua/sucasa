@@ -1,3 +1,5 @@
+
+
 <div class="wrapper">
   <div class="navbar-lp">
     <%= render 'components/navbar' %>
@@ -18,4 +20,10 @@
       </div>
     </div>
   </div>
+
+  <% @accommodations.each do |accommodation| %>
+  <%= accommodation.title %>
+  <%= accommodation.user.first_name %>
+  <% end %>
+
 <%= render 'components/footer' %>
