@@ -6,11 +6,18 @@
     <div class="container">
       <div class="container-first-infos">
         <h1><%= @accommodation.title %></h1>
-        <h5><%=@accommodation.address %> - <%= @accommodation.nb_of_guests %> guests</h5>
+        <h5><%=@accommodation.address %> · <%= @accommodation.nb_of_guests %> guests</h5>
       </div>
       <div class="photos-accommodation-index">
         <div class="main-photo">
           <%= cl_image_tag @accommodation.photos.first.key, height: 610, width: 810, crop: :fill, class: "image-clickable" %>
+        </div>
+        <div class="secondary-photos">
+          <% @accommodation.photos[1..-1].each do |photo| %>
+            <div class="secondary-photo">
+              <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill, class: "image-clickable" %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="secondary-photos">
@@ -28,16 +35,33 @@
           <div class="pp-details">
             <div class="user-bio">
               <div class="desc-user">
-                <h6><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Name | Job</h6>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti iste cum blanditiis quam assumenda neque. Ipsum nam in voluptates aut magnam, magni porro autem, doloribus, perferendis modi voluptate provident dicta!</p>
+                <div class="flex-photo-user-name">
+                  <h5><%= @accommodation.user.first_name %> <%= @accommodation.user.last_name.upcase %></h5>
+                  <% if @accommodation.user.photo.key == nil%>
+                    <%= image_tag "avatar_default.jpg", height: 50, width: 50, crop: :fill, class: "avatar-pp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% else %>
+                    <%= cl_image_tag @accommodation.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar-pp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% end %>
+                </div>
+                <div class="separator"></div>
+                <p><%= @accommodation.user.bio %></p>
+                <div class="flex-container">
+                  <div class="user-item user-1">
+                    <i class="fa-solid fa-briefcase"></i><p><%= @accommodation.user.job %> </p>
+                  </div>
+                  <div class="user-item user-2">
+                    <i class="fa-solid fa-calendar"></i><p><%= @accommodation.user.seniority %> years of services </p>
+                  </div>
+                  <div class="user-item user-3">
+                    <i class="fa-solid fa-globe"></i><p><%= @accommodation.user.company.name %> </p>
+                  </div>
+                </div>
               </div>
-              <%= image_tag "avatar_default.jpg", height: 50, width: 50, crop: :fill, class: "avatar-pp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             </div>
             <div class="acc-desc">
             <div class="separator"></div>
-              <h6><i class="fa-solid fa-house"></i>&nbsp;&nbsp;&nbsp;&nbsp;Where you'll stay</h6>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus labore atque illum, officia molestias exercitationem recusandae similique veniam facere, ut perferendis unde odio, incidunt ipsa inventore! Quasi officiis enim illum.</p>
-              <div class="separator"></div>
+              <h5>Where you'll stay</h5>
+              <p><%= @accommodation.description %></p>
             </div>
           </div>
         </div>
@@ -49,6 +73,45 @@
           <%= f.submit "Offer an exchange !" %>
           <% end %>
 
+        </div>
+      </div>
+      <div class="container-pp-details-block3">
+        <div class="flex-container">
+          <% if @accommodation.nb_of_bedrooms.present? %>
+            <div class="equipement-item equipement-1">
+              <i class="fa-solid fa-person-shelter"></i><p><%= @accommodation.nb_of_bedrooms %> bedrooms </p>
+            </div>
+          <% end %>
+          <% if @accommodation.nb_of_beds.present? %>
+            <div class="equipement-item equipement-2">
+              <i class="fa-solid fa-bed"></i><p><%= @accommodation.nb_of_beds  %> beds </p>
+            </div>
+          <% end %>
+          <% if @accommodation.nb_of_bathrooms.present? %>
+            <div class="equipement-item equipement-3">
+              <i class="fa-solid fa-shower"></i><p><%= @accommodation.nb_of_bathrooms %> bathrooms </p>
+            </div>
+          <% end %>
+          <% if @accommodation.garden.present? %>
+            <div class="equipement-item equipement-4">
+              <i class="fa-solid fa-tree"></i><p><%= @accommodation.garden %> garden </p>
+            </div>
+          <% end %>
+          <% if @accommodation.swimming_pool.present? %>
+            <div class="equipement-item equipement-5">
+              <i class="fa-solid fa-water-ladder"></i><p><%= @accommodation.swimming_pool %> swimming pool </p>
+            </div>
+          <% end %>
+          <% if @accommodation.balcony.present? %>
+            <div class="equipement-item equipement-6">
+              <i class="fa-solid fa-tree-city"></i><p><%= @accommodation.balcony %> balcony </p>
+            </div>
+          <% end %>
+          <% if @accommodation.nb_of_tvs.present? %>
+            <div class="equipement-item equipement-7">
+              <i class="fa-solid fa-tv"></i><p><%= @accommodation.nb_of_tvs %> TV </p>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
