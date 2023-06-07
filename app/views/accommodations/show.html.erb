@@ -20,6 +20,16 @@
           <% end %>
         </div>
       </div>
+      <div class="secondary-photos">
+        <% @accommodation.photos[1..-1].each do |photo| %>
+          <div class="secondary-photo">
+            <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill, class: "image-clickable" %>
+          </div>
+        <% end %>
+      </div>
+      <% if current_user == @accommodation.user %> <!-- Vérifiez si l'utilisateur actuel est le propriétaire du logement -->
+        <%= link_to "Modifier les informations du logement", edit_accommodation_path(@accommodation), method: :get %>
+      <% end %>
       <div class="flex-pp-details-booking">
         <div class="container-pp-details-block1">
           <div class="pp-details">
@@ -57,6 +67,12 @@
         </div>
         <div class="container-booking-block2">
           <%# Booking %>
+
+          <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
+          <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
+          <%= f.submit "Offer an exchange !" %>
+          <% end %>
+
         </div>
       </div>
       <div class="container-pp-details-block3">

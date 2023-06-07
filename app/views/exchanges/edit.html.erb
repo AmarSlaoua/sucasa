@@ -1,0 +1,25 @@
+<h1>Plan your exchange</h1>
+
+<div class="row">
+  <div class="container col-6">
+    <h2>Modalities</h2>
+    <% @exchange_modalities.each do |modality| %>
+    <div>
+      <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality)) do |f|%>
+      <%= f.input :duration %>
+      <%= f.input :check_in %>
+      <%= f.input :check_out %>
+      <%= f.input :keys %>
+      <%= f.input :petsitting %>
+      <%= f.input :transportation %>
+      <%= f.input :others %>
+      <%= f.submit "Submit" %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <div class="container col-6">
+  <h2>Messages</h2>
+  </div>
+  <%= link_to "Validate exchange", exchange_path(@exchange) %>
+</div>
