@@ -24,7 +24,9 @@ class ExchangesController < ApplicationController
   def edit
     @exchange = Exchange.find(params[:id])
     # @modality_current_user = Modality.where(exchange: @exchange).sample
+    @message = Message.new
     @exchange_modalities = Modality.where(exchange: @exchange)
+    @other_user = User.find(Modality.find_by("exchange_id = ? AND accommodation_id != ?", @exchange.id, current_user.accommodation.id).accommodation.user_id)
   end
 
   def show

@@ -12,11 +12,10 @@ Rails.application.routes.draw do
 
   resources :exchanges, only: %i[edit show] do
     resources :modalities, only: %i[create]
+    resources :messages, only: %i[create]
   end
 
   resources :modalities, only: %i[update progress] do
     resources :reviews, only: %i[create update edit]
   end
-
-  resources :messages, only: %i[create]
 end
