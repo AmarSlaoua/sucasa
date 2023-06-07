@@ -1,4 +1,14 @@
 // SHOW ACCOMMODATION
+// separator
+.separator {
+  border-top: 1px solid #c8c8c8;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 1%;
+}
+.desc-user{
+
+}
 // photos
 .main-photo {
   width: 1000px;
@@ -45,7 +55,7 @@
   }
 
   .main-photo {
-    max-width: 800px;
+    max-width: 820px;
     margin-right: 10px;
     margin-bottom: 20px;
   }
@@ -78,40 +88,37 @@
 // user+accommodation infos
 .container{
   .pp-details {
-    margin-left: 2%;
+    margin-left: 8%;
     color: black;
-    .separator {
-      border-top: 1px solid #c8c8c8;
-      margin-top: 40px;
-      margin-bottom: 40px;
-      margin-right: 10%;
-    }
     i {
       color: #ffaa64;
     }
-    h6 {
+    h6, h5 {
       font-weight: bolder;
-      margin-left: 5%;
+      margin-left: 0%;
+      margin-bottom: 4%;
       }
     p {
         color: rgb(59, 59, 59);
         font-weight: lighter;
-        margin-right: 10%;
       }
     .user-bio {
         display: flex;
         align-items: center;
-        margin-top: 3%;
         text-align: right;
         .desc-user h6{
-          margin-right: 10%;
-          margin-bottom: 2%;
+          margin-top: 8%;
+          margin-right: 7%;
+
         }
         .avatar-pp {
           border-radius: 50%;
-          margin-bottom: 0%;
-          margin-right: 19px;
           vertical-align: top;
+        }
+        .avatar-pp:hover {
+          color: black;
+          transition: 0.4s;
+          transform: scale3d(1.015, 1.015, 2)
         }
       }
   }
@@ -126,8 +133,11 @@
     font-weight: bolder;
     color: black;
   }
+  .container-first-infos{
+    margin-top: 8%;
+    margin-bottom: 3%;
+  }
   .acc-desc {
-    margin-left: 6%;
     h6 {
       margin-left: 0px;
       margin-bottom: 30px;
@@ -142,4 +152,95 @@
 
 .container-booking-block2{
   margin-right: 37%;
+}
+
+// icons blocks
+.flex-container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  .fa-solid {
+    color: #ffaa64;
+    font-size: 20px;
+    margin-right: 7%;
+  }
+}
+
+// accommodation equipements blocks
+.equipement-1, .equipement-2, .equipement-3, .equipement-4, .equipement-5, .equipement-6, .equipement-7{
+  border: 0.8px solid rgb(131, 131, 131);
+  padding: 10px;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.equipement-item {
+  height: 95px;
+  width: 16%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.equipement-item p {
+  margin-top: 17px;
+  font-size: smaller;
+  font-weight: bolder;
+  color: rgb(57, 57, 57);
+}
+
+// accommodation user blocks
+.user-1, .user-2, .user-3{
+  border: 0.8px solid rgb(131, 131, 131);
+  padding: 10px;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.flex-container .user-item {
+  height: 95px;
+  width: 199px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.flex-container .user-item p {
+  margin-top: 17px;
+  font-size: smaller;
+  font-weight: bolder;
+  color: rgb(57, 57, 57);
+}
+
+.flex-photo-user-name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.flex-photo-user-name h5 {
+  margin-left: 10px;
+  margin-bottom: 0;
+  margin-top: 5%;
+  margin-right: 2%;
+}
+
+.container-pp-details-block3,
+  .container-pp-details-block2{
+  padding-left: 56px;
+}
+
+.container-pp-details-block1{
+  margin-right: 9%;
+}
+
+.container-pp .separator {
+  border-top: 1px solid #c8c8c8;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-right: 1%;
 }

@@ -1,17 +1,20 @@
 <div class="cards-container">
+  <% @accommodations.each do |accommodation| %>
+    <%= link_to accommodation do %>
       <div class="card-trip">
         <div>
-          <%= image_tag "accommodation4.jpg", height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag accommodation.photos[0].key, height: 270, width: 400, crop: :fill %>
         </div>
         <div class="card-trip-infos">
           <div>
-            <h2>Name | Job</h2>
-            <p>address</p>
+            <h2> <%= accommodation.address.split.last %></h2>
+            <p><%= accommodation.user.first_name %> · <%= accommodation.user.job %></p>
           </div>
-          <div class="job">
-            <p>?</p>
+          <div class="name-job">
           </div>
-          <img src="https://media.licdn.com/dms/image/C4D03AQFf-cbAMq29oQ/profile-displayphoto-shrink_800_800/0/1635967433795?e=1691625600&v=beta&t=GvmBreGOd03r5uTbK2hon1SPsA9pk5TM-lX4Uaf4XBQ" class="card-trip-user avatar-bordered">
+          <%= cl_image_tag accommodation.user.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered"  %>
         </div>
       </div>
+    <% end %>
+  <% end %>
 </div>
