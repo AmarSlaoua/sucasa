@@ -27,5 +27,9 @@
       </div>
     </div>
 
-  <%= render 'components/footer' %>
-</div>
+  <% @accommodations.each do |accommodation| %>
+  <%= accommodation.title %>
+  <%= accommodation.user.first_name %>
+  <% end %>
+
+<%= render 'components/footer' %>

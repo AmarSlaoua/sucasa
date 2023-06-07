@@ -5,8 +5,8 @@
   <div class="container-pp">
     <div class="container">
       <div class="container-first-infos">
-        <h1>Title</h1>
-        <h5>Address ·  Nb_of_guests</h5>
+        <h1><%= @accommodation.title %></h1>
+        <h5><%=@accommodation.address %> - <%= @accommodation.nb_of_guests %> guests</h5>
       </div>
       <div class="photos-accommodation-index">
         <div class="main-photo">
