@@ -1,0 +1,14 @@
+<h1>Modifier les informations du logement</h1>
+
+<%= simple_form_for @accommodation, url: "/accommodations/#{@accommodation.id})", method: :patch do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :nb_of_guests %>
+    <%= f.input :nb_of_bedrooms %>
+    <%= f.input :nb_of_beds %>
+    <%= f.input :nb_of_bathrooms %>
+    <%= f.input :garden %>
+    <%= f.input :balcony %>
+    <%= f.input :swimming_pool %>
+    <%= f.submit "Enregistrer les modifications" %>
+<% end %>
