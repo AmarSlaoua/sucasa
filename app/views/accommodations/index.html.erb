@@ -24,6 +24,7 @@
   <% @accommodations.each do |accommodation| %>
   <%= accommodation.title %>
   <%= accommodation.user.first_name %>
+  <%= accommodation.id %>
   <% end %>
 
 <%= render 'components/footer' %>

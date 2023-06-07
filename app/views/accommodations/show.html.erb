@@ -13,6 +13,9 @@
           <%= image_tag "accommodation4.jpg", height: 610, width: 810, crop: :fill, class: "image-clickable" %>
         </div>
       </div>
+      <% if current_user == @accommodation.user %> <!-- Vérifiez si l'utilisateur actuel est le propriétaire du logement -->
+        <%= link_to "Modifier les informations du logement", edit_accommodation_path(@accommodation), method: :get %>
+      <% end %>
       <div class="flex-pp-details-booking">
         <div class="container-pp-details-block1">
           <div class="pp-details">
