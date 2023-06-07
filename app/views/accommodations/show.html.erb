@@ -10,8 +10,15 @@
       </div>
       <div class="photos-accommodation-index">
         <div class="main-photo">
-          <%= image_tag "accommodation4.jpg", height: 610, width: 810, crop: :fill, class: "image-clickable" %>
+          <%= cl_image_tag @accommodation.photos.first.key, height: 610, width: 810, crop: :fill, class: "image-clickable" %>
         </div>
+      </div>
+      <div class="secondary-photos">
+        <% @accommodation.photos[1..-1].each do |photo| %>
+          <div class="secondary-photo">
+            <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill, class: "image-clickable" %>
+          </div>
+        <% end %>
       </div>
       <% if current_user == @accommodation.user %> <!-- Vérifiez si l'utilisateur actuel est le propriétaire du logement -->
         <%= link_to "Modifier les informations du logement", edit_accommodation_path(@accommodation), method: :get %>
