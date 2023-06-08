@@ -68,7 +68,6 @@ class ExchangesController < ApplicationController
   def create
     @accommodation = Accommodation.find(params[:exchange][:accommodation_id])
     @exchange = Exchange.new(exchange_params)
-
     if @exchange.save
       create_modality(current_user.accommodation.id)
       create_modality(@accommodation.id)
@@ -99,8 +98,8 @@ class ExchangesController < ApplicationController
 
   def exchange_params
     params.require(:exchange).permit(
-      :check_in_date,
-      :check_out_date,
+      :check_in,
+      :check_out,
       :duration
     )
   end

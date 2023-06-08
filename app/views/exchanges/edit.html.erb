@@ -38,20 +38,19 @@
     <div class="col-4">
       <h2>Modalities</h2>
       <% @exchange_modalities.each do |modality| %>
-      <div>
-        <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality)) do |f|%>
-        <%= f.input :duration %>
-        <%= f.input :check_in %>
-        <%= f.input :check_out %>
-        <%= f.input :keys %>
-        <%= f.input :petsitting %>
-        <%= f.input :transportation %>
-        <%= f.input :others %>
-        <%= f.submit "Submit" %>
-        <% end %>
-      </div>
+        <div>
+          <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' }) do |f|%>
+          <%= f.input :duration, placeholder: "How long do you want to exchange ?" %>
+          <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %>
+          <%= f.input :keys, placeholder: "How about the keys ? 🗝" %>
+          <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %>
+          <%= f.input :transportation, placeholder: "Does your host can use your transportation ? 🚲" %>
+          <%= f.input :others, placeholder: "Anything else to tell your colleague ? 🤔" %>
+          <%= f.submit "Submit" %>
+          <% end %>
+        </div>
       <% end %>
-    <%= link_to "Validate exchange", exchange_path(@exchange) %>
+      <%= link_to "Validate exchange", exchange_path(@exchange) %>
     </div>
   </div>
 </div>
