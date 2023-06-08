@@ -87,8 +87,9 @@
 
 // user+accommodation infos
 .container{
+  margin-left:6%;
   .pp-details {
-    margin-left: 8%;
+    margin-left: 2%;
     color: black;
     i {
       color: #ffaa64;
@@ -151,7 +152,12 @@
 }
 
 .container-booking-block2{
-  margin-right: 37%;
+  border: 0.8px solid rgb(131, 131, 131);
+  padding: 10%;
+  margin-right: 10%;
+  background-color: white;
+  border-radius: 20px;
+  padding-top: 30%;
 }
 
 // icons blocks
@@ -231,11 +237,11 @@
 
 .container-pp-details-block3,
   .container-pp-details-block2{
-  padding-left: 56px;
+  padding-left: 1%;
 }
 
 .container-pp-details-block1{
-  margin-right: 9%;
+  margin-right: 4%;
 }
 
 .container-pp .separator {
