@@ -1,5 +1,11 @@
-<h1>Modifier les informations du logement</h1>
-
+<%= render 'components/navbar' %>
+<div class="super-accommodation-form">
+  <div class="image-container-login">
+    <%= image_tag "edit-form.png", class: "logo-img" %>
+  </div>
+  <div class="accommodation-form">
+    <div class="accommodation-text">
+    <h2>Modifier les informations du logement</h2>
 <%= simple_form_for @accommodation, url: "/accommodations/#{@accommodation.id})", method: :patch do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
@@ -14,3 +20,7 @@
 
     <%= f.submit "Enregistrer les modifications" %>
 <% end %>
+    </div>
+  </div>
+</div>
+<%= render 'components/footer' %>
