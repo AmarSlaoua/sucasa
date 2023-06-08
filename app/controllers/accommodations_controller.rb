@@ -1,8 +1,17 @@
 class AccommodationsController < ApplicationController
   def index
+    # @accommodations = Accommodation.all
+    # if params[:query].present?
+    #   @accommodations = @accommodations.where("address ILIKE ?", "%#{params[:query]}%").all
+    # end
     @accommodations = Accommodation.all
-    if params[:query].present?
-      @accommodations = @accommodations.where("address ILIKE ?", "%#{params[:query]}%").all
+    @markers = @accommodations.geocoded.map do |accommodation|
+      {
+        lat: accommodation.latitude,
+        lng: accommodation.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { accommodation: accommodation }),
+        marker_html: render_to_string(partial: "marker", locals: { accommodation: accommodation })
+      }
     end
   end
 

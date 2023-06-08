@@ -15,15 +15,22 @@
       </div>
     </div>
   </div>
+</div>
 
   <div class="container">
-      <div class="container-all-accommodations">
-        <div class="title-subtitle">
+    <div class="container-all-accommodations">
+      <div class="title-subtitle">
         <h4>All Accommodations</h4>
         <p>Discover all our accommodations<em>from Paris to Tokyo.</em></p>
-        </div>
-        <%= render 'components/card' %>
       </div>
+      <%= render 'components/card' %>
+    </div>
+  </div>
+
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
 <%= render 'components/footer' %>
