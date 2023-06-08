@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :exchanges, only: %i[create]
   end
 
-  resources :exchanges, only: %i[edit show] do
+  resources :exchanges, only: %i[index edit show] do
     resources :modalities, only: %i[create]
     resources :messages, only: %i[create]
   end
