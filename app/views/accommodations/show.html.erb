@@ -105,6 +105,19 @@
           <% end %>
         </div>
       </div>
+      <div class="container-pp-details-block3">
+        <h5><%= @accommodation.user.first_name %> has already done <%= @reviews.length %> exchanges</h5>
+        <% @reviews.each do |review| %>
+        <div>
+        <h6>Comment #<%= @reviews.index(review) + 1 %></h6>
+          <ul>
+            <li>From: <%= review.user.first_name %></li>
+            <li>Exchange duration: <%= review.modality.duration %> days</li>
+            <li>Comment: "<%= review.content %>"</li>
+          </ul>
+        </div>
+        <% end %>
+      <div class="flex-container">
       <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
       <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
       <%= f.submit "Offer an exchange !" %>

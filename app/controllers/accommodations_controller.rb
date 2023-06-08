@@ -9,6 +9,11 @@ class AccommodationsController < ApplicationController
   def show
     @accommodation = Accommodation.find(params[:id])
     @exchange = Exchange.new
+    @modalities = Modality.where("accommodation_id = ?", @accommodation.id)
+    @reviews = []
+    @modalities.each do |modality|
+      @reviews << modality.review unless modality.review.nil?
+    end
   end
 
   def edit
