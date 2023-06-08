@@ -787,7 +787,7 @@ puts "6 modalities created !"
 puts "creating 6 reviews, 2 for each exchange ..."
 
 r1 = Review.new(
-  user_id: somya.id,
+  user_id: romain.id,
   content: "Best trip ever. See you at the office !!",
   modality_id: m1_e1.id
 )
@@ -803,7 +803,7 @@ r2.save!
 puts "..."
 
 r3 = Review.new(
-  user_id: romain.id,
+  user_id: amar.id,
   content: "Best way to visit the region and by far ! It was our first home exchange... and certainly not the last",
   modality_id: m1_e2.id
 )
@@ -827,7 +827,7 @@ r5.save!
 puts "..."
 
 r6 = Review.new(
-  user_id: amar.id,
+  user_id: somya.id,
   content: "Thank you Romain !!! What a lovely home you have. Having a car to go around with easy parking was a blast I must say",
   modality_id: m2_e3.id
 )
