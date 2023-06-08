@@ -5,7 +5,7 @@ class ModalitiesController < ApplicationController
   def update
     @modality = Modality.find(params[:id])
     if @modality.update(params_modalities)
-      redirect_to root_path
+      redirect_to edit_exchange_path(@modality.exchange)
     else
       render :edit, status: :unprocessable_entity
     end
