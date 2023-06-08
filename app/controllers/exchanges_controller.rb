@@ -1,4 +1,12 @@
 class ExchangesController < ApplicationController
+  def index
+    @my_exchanges = []
+    @modalities = current_user.accommodation.modalities
+    @modalities.each do |modality|
+      @my_exchanges << modality.exchange
+    end
+  end
+
   def create
     @accommodation = Accommodation.find(params[:exchange][:accommodation_id])
     @exchange = Exchange.new(exchange_params)
