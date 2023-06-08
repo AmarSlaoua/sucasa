@@ -21,17 +21,18 @@
             <% else %>
             <%= image_tag "avatar_default.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%# modif %>
-              <%= link_to "Messages", "my/chatrooms/1", class: "dropdown-item" %>
+          <% if current_user == nil %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Sign-in!!", new_user_session_path, class: "dropdown-item" %>
+            </div>
+          <% else %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# modif %>
-              <%= link_to "My bookings", "/my/bookings", class: "dropdown-item" %>
-              <div class="separator-nav"></div>
-              <%= link_to "Add a new accommodation", "/my/accommodations/new", class: "dropdown-item" %>
-              <%= link_to "Edit my accommodations", "/my/accommodations", class: "dropdown-item" %>
+              <%= link_to "My exchanges", edit_exchange_path(Exchange.find(current_user.accommodation.modalities.last.exchange_id)), class: "dropdown-item" %>
               <div class="separator-nav"></div>
               <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
+          <% end %>
           </li>
       </ul>
     </div>

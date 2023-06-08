@@ -2,7 +2,7 @@
 <div class="container">
   <h1>Plan your exchange</h1>
   <div class="row">
-    <div class="container col-3">
+    <div class="col-3">
       <% @exchanges_infos.each do |exchange| %>
         <%= link_to edit_exchange_path(exchange[0]) do %>
           <div class="div p-3">
@@ -18,7 +18,7 @@
       <% end %>
     </div>
 
-    <div class="container chatroom col-5"
+    <div class="chatroom col-5"
           data-controller="exchange-subscription"
           data-exchange-subscription-exchange-id-value="<%= @exchange.id %>">
       <h1>Plan your exchange with <%= @other_user.first_name %> !</h1>
@@ -35,7 +35,7 @@
       <% end %>
     </div>
 
-    <div class="container col-4">
+    <div class="col-4">
       <h2>Modalities</h2>
       <% @exchange_modalities.each do |modality| %>
       <div>
