@@ -17,6 +17,7 @@ gem "puma", "~> 5.0"
 
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
+gem "geocoder"
 
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]

@@ -1,0 +1,18 @@
+<%= simple_form_for @accommodation, url: "/accommodations/#{@accommodation.id})", method: :patch do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :address,
+      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+    %>
+    <%= f.input :nb_of_guests %>
+    <%= f.input :nb_of_bedrooms %>
+    <%= f.input :nb_of_beds %>
+    <%= f.input :nb_of_bathrooms %>
+    <%= f.input :garden %>
+    <%= f.input :balcony %>
+    <%= f.input :swimming_pool %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
+    <%= f.submit "Enregistrer les modifications" %>
+<% end %>
