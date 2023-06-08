@@ -63,31 +63,35 @@
         </div>
         <div class="flex-container-review">
         <div class="container-booking-block2">
-          <h5><%= @accommodation.user.first_name %> has already done <%= @reviews.length %> exchanges</h5>
+          <% if @reviews.length == 0 %>
+            <h5><%= @accommodation.user.first_name %> has never done an exchange yet. Be their first !</h5>
+          <% else %>
+          <h5><%= @accommodation.user.first_name %> has already done <%= pluralize(@reviews.length, 'exchange') %></h5>
           <% @reviews.each do |review| %>
             <div>
               <div class="separator"></div>
-              <div class="main-infos-reviews">
-                <div class="photo-user-review">
-                  <%= cl_image_tag review.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+                <div class="main-infos-reviews">
+                  <div class="photo-user-review">
+                    <%= cl_image_tag review.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+                  </div>
+                  <div class="name-duration-review">
+                    <h6><%= review.user.first_name %></h6>
+                    <p>Exchanged during <%= review.modality.duration %> days</p>
+                  </div>
                 </div>
-                <div class="name-duration-review">
-                  <h6><%= review.user.first_name %></h6>
-                  <p>Exchanged during <%= review.modality.duration %> days</p>
+                <div class="comment">
+                  <p><%= review.content %></p>
                 </div>
-              </div>
-              <div class="comment">
-                <p><%= review.content %></p>
               </div>
             </div>
+            <% end %>
           <% end %>
-        </div>
-        <div class="offer-button">
-          <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
-            <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
-            <%= f.submit "Offer an exchange !" %>
-          <% end %>
-        </div>
+          <div class="offer-button">
+            <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
+              <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
+              <%= f.submit "Offer an exchange !" %>
+            <% end %>
+          </div>
       </div>
     </div>
       <div class="container-pp-details-block3">
