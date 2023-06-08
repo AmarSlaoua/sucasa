@@ -23,7 +23,7 @@
           <% end %>
           <% if current_user == nil %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Sign-in!!", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "Sign-in", new_user_session_path, class: "dropdown-item" %>
             </div>
           <% else %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
