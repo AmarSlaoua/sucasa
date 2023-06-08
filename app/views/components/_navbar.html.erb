@@ -23,12 +23,16 @@
           <% end %>
           <% if current_user == nil %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Sign-in!!", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "Sign-in", new_user_session_path, class: "dropdown-item" %>
             </div>
           <% else %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# modif %>
-              <%= link_to "My exchanges", edit_exchange_path(Exchange.find(current_user.accommodation.modalities.last.exchange_id)), class: "dropdown-item" %>
+              <% if current_user.accommodation.modalities.last.nil? %>
+                <%= link_to "Look for an exchange !", accommodations_path, class: "dropdown-item" %>
+              <% else %>
+                <%= link_to "My exchanges", edit_exchange_path(Exchange.find(current_user.accommodation.modalities.last.exchange_id)), class: "dropdown-item" %>
+              <% end %>
               <div class="separator-nav"></div>
               <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>

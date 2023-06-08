@@ -1,28 +1,28 @@
 <%= render "components/navbar" %>
-<div class="container">
-  <h1>Plan your exchange</h1>
+<div class="container-msg">
   <div class="row">
     <div class="col-3">
-      <% @exchanges_infos.each do |exchange| %>
-        <%= link_to edit_exchange_path(exchange[0]) do %>
-          <div class="div p-3">
-            <%= cl_image_tag exchange[1].photo.key, crop: :fill, class:"avatar" %>
-            <div class="div">
-              <%= exchange[1].first_name %>
-            </div>
-            <div class="div">
-              <%= exchange[2] %>
-            </div>
+  <h4><br>Messages<br></h4>
+
+  <% @exchanges_infos.each do |exchange| %>
+    <%= link_to edit_exchange_path(exchange[0]) do %>
+      <div class="div p-3">
+        <div class="d-flex align-items-center">
+          <%= cl_image_tag exchange[1].photo.key, crop: :fill, class: "avatar mr-3" %>
+          <div class="div-left">
+            <div class="name-msg-left"><%= exchange[1].first_name %></div>
+            <div class="msg-left"><%= exchange[2] %></div>
           </div>
-          <% end %>
-      <% end %>
-    </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
     <div class="chatroom col-5"
           data-controller="exchange-subscription"
           data-exchange-subscription-exchange-id-value="<%= @exchange.id %>">
-      <h1>Plan your exchange with <%= @other_user.first_name %> !</h1>
-
+      <h4><br><%= @other_user.first_name %> <br><br> </h4>
       <div class="messages" data-exchange-subscription-target="messages">
         <% @exchange.messages.each do |message| %>
           <%= render "messages/message", message: message %>
@@ -36,22 +36,24 @@
     </div>
 
     <div class="col-4">
-      <h2>Modalities</h2>
+      <h4><br>Modalities <br><br></h4>
       <% @exchange_modalities.each do |modality| %>
-      <div>
-        <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality)) do |f|%>
-        <%= f.input :duration %>
-        <%= f.input :check_in %>
-        <%= f.input :check_out %>
-        <%= f.input :keys %>
-        <%= f.input :petsitting %>
-        <%= f.input :transportation %>
-        <%= f.input :others %>
-        <%= f.submit "Submit" %>
-        <% end %>
-      </div>
+        <div>
+          <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' }) do |f|%>
+          <%= f.input :duration, placeholder: "How long do you want to exchange ?" %>
+          <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %>
+          <%= f.input :keys, placeholder: "How about the keys ? 🗝" %>
+          <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %>
+          <%= f.input :transportation, placeholder: "Does your host can use your transportation ? 🚲" %>
+          <%= f.input :others, placeholder: "Anything else to tell your colleague ? 🤔" %>
+          <%= f.submit "+ Submit" %>
+          <div class="separator"></div>
+          <% end %>
+        </div>
       <% end %>
-    <%= link_to "Validate exchange", exchange_path(@exchange) %>
+      <div class="link-validate">
+      <%= link_to "Validate exchange", exchange_path(@exchange) %>
+    </div>
     </div>
   </div>
 </div>

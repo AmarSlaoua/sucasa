@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import ExchangeSubscriptionController from "./exchange_subscription_controller"
 application.register("exchange-subscription", ExchangeSubscriptionController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
