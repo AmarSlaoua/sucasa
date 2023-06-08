@@ -5,6 +5,203 @@
 // input and has no visual effect. Here we try to fix matters by
 // applying the clear to the div wrapping the first following radio button
 // or checkbox.
+// In bootstrap 5 legend floats left and requires the following element
+// to be cleared. In a radio button or checkbox group the element after
+// the legend will be the automatically generated hidden input; the fix
+// in https://github.com/twbs/bootstrap/pull/30345 applies to the hidden
+// input and has no visual effect. Here we try to fix matters by
+// applying the clear to the div wrapping the first following radio button
+// or checkbox.
 legend ~ div.form-check:first-of-type {
   clear: left;
+}
+
+.container-accommodation-form {
+  background-color: white;
+}
+
+.accommodation-form {
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 7%;
+}
+
+.accommodation-form input[type="text"],
+.accommodation-form textarea,
+.accommodation-form select {
+  border-radius: 12px;
+  padding: 10px;
+  border: white;
+}
+
+
+.accommodation-form input:focus{
+  border: 3px solid #ffaa64;
+  opacity: 0.6;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-color: white;
+}
+
+.accommodation-form input[type="submit"] {
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 500;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  margin-top: 10px;
+  background-color: #ffaa64;
+  color: white ;
+  border: white;
+}
+
+.accommodation-form input[type="submit"]:hover {
+  opacity: 0.6;
+  background-color: #ffaa64;
+}
+
+
+
+.accommodation-form h6 {
+  color: #747474;;
+}
+
+.accommodation-form h2 {
+  font-weight:bolder;
+}
+
+.accommodation-text {
+  margin-bottom: 6%;
+}
+
+.accommodation-form input {
+  border: white;
+  border-radius: 12px;
+}
+
+.accommodation-form input:hover
+ {
+  border: 3px solid #ffaa64;
+  opacity: 0.6;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-color: white;
+  webkit-transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, -webkit-box-shadow 200ms ease;
+  transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, -webkit-box-shadow 200ms ease;
+  transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, box-shadow 200ms ease;
+  transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, box-shadow 200ms ease, -webkit-box-shadow 200ms ease;  outline: none;
+}
+
+.other-links a {
+  text-decoration: none;
+  color: #ffaa64;
+}
+.other-links {
+  margin-top: 10px;
+  margin-left: 9px;
+}
+
+.other-links a:hover {
+opacity: 0.8;
+}
+
+
+
+
+.super-accommodation-form{
+  background-color: white;
+  display: flex;
+  align-items: center;
+
+  legend ~ div.form-check:first-of-type {
+    clear: left;
+  }
+
+  .accommodation-form {
+    flex: 1; /* Pour que le formulaire occupe tout l'espace disponible */
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+
+  .accommodation-form input[type="text"],
+  .accommodation-form textarea,
+  .accommodation-form select {
+    border-radius: 12px;
+    padding: 10px;
+    border: white;
+  }
+
+
+  .accommodation-form input:focus{
+    border: 3px solid #ffaa64;
+    opacity: 0.6;
+    outline: none !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    background-color: white;
+  }
+
+  .accommodation-form input[type="submit"] {
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-weight: 500;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    margin-top: 10px;
+    background-color: #ffaa64;
+    color: white ;
+    border: white;
+  }
+
+  .accommodation-form input[type="submit"]:hover {
+    opacity: 0.6;
+    background-color: #ffaa64;
+  }
+
+  .accommodation-form h6 {
+    color: #747474;;
+  }
+
+  .accommodation-form h2 {
+    font-weight:bolder;
+  }
+
+  .accommodation-text {
+    margin-bottom: 6%;
+    margin-right: 16%;
+  }
+
+  .accommodation-form input {
+    border: white;
+    border-radius: 12px;
+  }
+
+  .accommodation-form input[type="text"]:hover
+  {
+    border: 3px solid #ffaa64;
+    opacity: 0.6;
+    outline: none !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    background-color: white;
+    webkit-transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, -webkit-box-shadow 200ms ease;
+    transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, -webkit-box-shadow 200ms ease;
+    transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, box-shadow 200ms ease;
+    transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, box-shadow 200ms ease, -webkit-box-shadow 200ms ease;  outline: none;
+  }
+
+  .other-links a {
+    text-decoration: none;
+    color: #ffaa64;
+  }
+  .other-links {
+    margin-top: 10px;
+    margin-left: 9px;
+  }
+
+  .other-links a:hover {
+  opacity: 0.8;
+  }
+
+  .image-container-login {
+    margin-left: 10%;
+  }
 }
