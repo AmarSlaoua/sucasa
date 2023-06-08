@@ -89,11 +89,12 @@
 // user+accommodation infos
 .container{
   margin-left:6%;
+  margin-right: 3%;
   .pp-details {
     margin-left: 4%;
     color: black;
     i {
-      color: #ffaa64;
+      color: #454545;
     }
     h6, h5 {
       font-weight: bolder;
@@ -156,7 +157,7 @@
   padding: 0;
   text-align: center;
   .fa-solid {
-    color: #ffaa64;
+    color: #454545;
     font-size: 20px;
     margin-right: 7%;
   }
@@ -316,7 +317,7 @@ border-radius: 20px;
 padding: 15px;
 padding-left: 100px;
 padding-right: 100px;
-background-color: #ffaa64;
+background-color: #F2C14E;
 box-shadow: 0 0 30px 2px #d0d0d0;
 }
 
@@ -326,7 +327,7 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 }
 
 .offer-button input[type="submit"]{
-  background: #ffaa64;
+  background: transparent;
   color: white;
 }
 
