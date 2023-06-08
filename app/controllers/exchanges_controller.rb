@@ -93,7 +93,6 @@ class ExchangesController < ApplicationController
     # @other_user_modality = Modality.find_by("exchange_id = ? AND accommodation_id != ?", Exchange.find(params[:id]).id, current_user.accommodation.id)
     @date_today = Date.today
     @other_user_modality = find_other_user_modality(params[:id])
-
   end
 
   private
