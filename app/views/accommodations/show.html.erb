@@ -1,7 +1,7 @@
 <%= render 'components/navbar' %>
 
 <%# product page %>
-<div class="main-container">
+<div class="main-container-pp">
   <div class="container-pp">
     <div class="container">
       <div class="container-first-infos">
@@ -22,7 +22,7 @@
       </div>
       <% if current_user == @accommodation.user %>
         <%= link_to edit_accommodation_path(@accommodation), method: :get do %>
-          <p>Edit <i class="fa-solid fa-pen-to-square"></i></p>
+          <p id="edit">Edit <i class="fa-solid fa-pen-to-square"></i></p>
         <% end %>
       <% end %>
       <div class="flex-pp-details-booking">
@@ -61,12 +61,35 @@
             </div>
           </div>
         </div>
+        <div class="flex-container-review">
         <div class="container-booking-block2">
-          <p>Reviews</p>
-
-
+          <h5><%= @accommodation.user.first_name %> has already done <%= @reviews.length %> exchanges</h5>
+          <% @reviews.each do |review| %>
+            <div>
+              <div class="separator"></div>
+              <div class="main-infos-reviews">
+                <div class="photo-user-review">
+                  <%= cl_image_tag review.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+                </div>
+                <div class="name-duration-review">
+                  <h6><%= review.user.first_name %></h6>
+                  <p>Exchanged during <%= review.modality.duration %> days</p>
+                </div>
+              </div>
+              <div class="comment">
+                <p><%= review.content %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="offer-button">
+          <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
+            <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
+            <%= f.submit "Offer an exchange !" %>
+          <% end %>
         </div>
       </div>
+    </div>
       <div class="container-pp-details-block3">
         <div class="flex-container">
           <% if @accommodation.nb_of_bedrooms.present? %>
@@ -106,24 +129,6 @@
           <% end %>
         </div>
       </div>
-      <div class="container-pp-details-block3">
-        <h5><%= @accommodation.user.first_name %> has already done <%= @reviews.length %> exchanges</h5>
-        <% @reviews.each do |review| %>
-        <div>
-        <h6>Comment #<%= @reviews.index(review) + 1 %></h6>
-          <ul>
-            <li>From: <%= review.user.first_name %></li>
-            <li>Exchange duration: <%= review.modality.duration %> days</li>
-            <li>Comment: "<%= review.content %>"</li>
-          </ul>
-        </div>
-        <% end %>
-      <div class="flex-container">
-      <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
-      <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
-      <%= f.submit "Offer an exchange !" %>
-        <% end %>
-    </div>
   </div>
 </div>
 

@@ -1,4 +1,7 @@
 // SHOW ACCOMMODATION
+.main-container-pp {
+  margin: 40px;
+}
 // separator
 .separator {
   border-top: 1px solid #c8c8c8;
@@ -6,9 +9,7 @@
   margin-bottom: 30px;
   margin-right: 1%;
 }
-.desc-user{
 
-}
 // photos
 .main-photo {
   width: 1000px;
@@ -89,7 +90,7 @@
 .container{
   margin-left:6%;
   .pp-details {
-    margin-left: 2%;
+    margin-left: 4%;
     color: black;
     i {
       color: #ffaa64;
@@ -146,19 +147,7 @@
   }
 }
 
-.flex-pp-details-booking{
-  display: flex;
-  align-items: center;
-}
 
-.container-booking-block2{
-  border: 0.8px solid rgb(131, 131, 131);
-  padding: 10%;
-  margin-right: 10%;
-  background-color: white;
-  border-radius: 20px;
-  padding-top: 30%;
-}
 
 // icons blocks
 .flex-container {
@@ -175,7 +164,7 @@
 
 // accommodation equipements blocks
 .equipement-1, .equipement-2, .equipement-3, .equipement-4, .equipement-5, .equipement-6, .equipement-7{
-  border: 0.8px solid rgb(131, 131, 131);
+  border: 0.8px solid rgb(193, 193, 193);
   padding: 10px;
   border-radius: 20px;
   margin-right: 20px;
@@ -199,7 +188,7 @@
 
 // accommodation user blocks
 .user-1, .user-2, .user-3{
-  border: 0.8px solid rgb(131, 131, 131);
+  border: 0.8px solid rgb(193, 193, 193);
   padding: 10px;
   border-radius: 20px;
   margin-right: 20px;
@@ -240,8 +229,12 @@
   padding-left: 1%;
 }
 
+.container-pp-details-block3{
+  margin-left: 1%;
+}
+
 .container-pp-details-block1{
-  margin-right: 4%;
+  margin-right: 6%;
 }
 
 .container-pp .separator {
@@ -249,4 +242,104 @@
   margin-top: 20px;
   margin-bottom: 40px;
   margin-right: 1%;
+}
+
+// reviews
+
+.photo-user-review{
+  margin-right: 10px;
+}
+
+.flex-pp-details-booking{
+  display: flex;
+  align-items: flex-start
+}
+
+.flex-container-review{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-right: 10%;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.container-booking-block2{
+  border: 0.8px solid #bababa;
+  background-color: white;
+  border-radius: 20px;
+  padding: 8%;
+  width: 380px;
+  height: 40%;
+  box-shadow: 0 0 30px 2px #d0d0d0;
+  margin-top: 20px;
+  h5{
+    font-weight: bolder;
+    font-size: 18px;
+  }
+  .comment {
+    font-size: small;
+  }
+  .main-infos-reviews{
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    h6 {
+      margin: 0%;
+      font-weight: bolder;
+      color: #838383;
+    }
+    p {
+      font-weight: lighter;
+      font-size: smaller;
+    }
+  }
+}
+
+.flex-container-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.offer-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Add some spacing below the container */
+}
+
+
+.offer-button{
+  border: 0.8px solid #b6b6b6;
+border-radius: 20px;
+padding: 15px;
+padding-left: 100px;
+padding-right: 100px;
+background-color: #ffaa64;
+box-shadow: 0 0 30px 2px #d0d0d0;
+}
+
+.offer-button:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.offer-button input[type="submit"]{
+  background: #ffaa64;
+  color: white;
+}
+
+.container-pp{
+    a{
+    text-decoration: none;
+    opacity: 0.8;
+  }
+    a:hover{
+      text-decoration: none;
+      color: #060606;
+      }
+}
+#edit{
+  margin-left: 84%;
 }
