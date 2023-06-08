@@ -15,20 +15,24 @@
   <div class="container">
     <div class="container-all-accommodations">
       <%= render 'components/card' %>
-      <%# <%= render 'components/card' %>
+      <div class="btn-simple-frame">
+        <%= link_to "See more", "/accommodations", class: "cards-link" %>
+      </div>
     </div>
-  </div>
-
-  <%# generic banner hp %>
-  <div class="banner-hp">
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1683735779537-80cc2d52ce29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1691&q=80);">
-      <div class="container">
-        <h1><strong>Discover the world together</strong></h1>
-        <p>Experience a unique way to travel, strengthen bonds, and create lifelong memories.</p>
-        <div class="btn-pp">
-          <%= link_to "Discover", "/accommodations", class: "btn" %>
+    <%# banner-hp %>
+    <div class="banner-hp">
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1683735779537-80cc2d52ce29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1691&q=80);">
+        <div class="container">
+          <h1><strong>Discover the world together</strong></h1>
+          <p>Experience a unique way to travel, strengthen bonds, and create lifelong memories.</p>
+          <div class="btn-pp">
+            <%= link_to "Discover", "/accommodations", class: "btn" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <%# generic banner hp %>
+
   <%= render 'components/footer' %>

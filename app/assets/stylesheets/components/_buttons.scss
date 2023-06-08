@@ -29,7 +29,7 @@
 
 .container-pp .btn-pp {
   color: #ffffff;
-  background-color: lightgrey;
+  background-color: #ffaa64;
   padding: 8px 24px;
   border-radius: 20px;
   font-weight: lighter;
@@ -47,12 +47,12 @@
 
 .btn-pp:hover {
   opacity: 0.6;
-  background-color: lightgrey;
+  background-color: #ffaa64;
 }
 
 .banner-hp .btn-pp .btn{
   color: #ffffff;
-  background-color: lightgrey;
+  background-color: #ffaa64;
   padding: 5px 40px;
   border-radius: 20px;
   font-weight: lighter;
@@ -71,10 +71,22 @@
 
 .banner-hp .btn-pp .btn:hover{
   opacity: 0.9;
-  background-color: lightgrey;
-  color: #4A4A4A;
+  background-color: #ffaa64;
+  color: #ffffff;
 }
 
 .container-pp .btn-pp {
   margin-bottom: 20%;
+}
+
+// cards link hp
+.cards-link{
+  margin-left: 89%;
+  color: #676767;
+  text-decoration: none;
+}
+
+.cards-link:hover{
+  opacity: 0.8;
+  color:#676767;
 }
