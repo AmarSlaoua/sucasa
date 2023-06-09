@@ -1,58 +1,58 @@
-  <%= render 'components/navbar' %>
+<%= render 'components/navbar' %>
+
+<div class="wrapper">
   <%= render 'components/banner' %>
 
   <div class="main-container">
-    <%# title for listing cards %>
+      <%# title for listing cards %>
     <div class="title-container">
       <br>
       <h4>Handpicked Houses</h4>
       <h6>Discover all the Home exchange and home standing offers</h6>
     </div>
 
-
-
-  <%# card %>
-  <div class="container">
-    <div class="container-all-accommodations">
-      <%= render 'components/card' %>
-      <div class="btn-simple-frame">
-        <%= link_to "See more", "/accommodations", class: "cards-link" %>
+    <%# card %>
+    <div class="container">
+      <div class="container-all-accommodations">
+        <%= render 'components/card' %>
+        <div class="btn-simple-frame">
+          <%= link_to "See more", "/accommodations", class: "cards-link" %>
+        </div>
       </div>
-    </div>
-    <%# banner-hp %>
-    <div class="banner-hp">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1683735779537-80cc2d52ce29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1691&q=80);">
-        <div class="container">
-          <h1><strong>Discover the world together</strong></h1>
-          <p>Experience a unique way to travel, strengthen bonds, and create lifelong memories.</p>
-          <div class="btn-pp">
-            <%= link_to "Discover", "/accommodations", class: "btn" %>
+      <%# banner-hp %>
+      <div class="banner-hp">
+        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1683735779537-80cc2d52ce29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1691&q=80);">
+          <div class="container">
+            <h1><strong>Discover the world together</strong></h1>
+            <p>Experience a unique way to travel, strengthen bonds, and create lifelong memories.</p>
+            <div class="btn-pp">
+              <%= link_to "Discover", "/accommodations", class: "btn" %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-<%# article %>
-<div class="flex-article">
-  <div class="artcile-img">
-    <%= image_tag "article.jpg", height: 390, width: 590, crop: :fill, class: "article-img" %>
-  </div>
-  <div class="article-text">
-    <div class="flex-article-photo-title">
-      <%= image_tag "avatar_default.jpg", height: 65, width: 65, crop: :fill, class: "avatar-hp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <h5><b>Somya · Sucasa Expert</b> <br>
-      Shares her experience</h5>
+  <%# article %>
+  <div class="flex-article">
+    <div class="artcile-img">
+      <%= image_tag "article.jpg", height: 390, width: 590, crop: :fill, class: "article-img" %>
     </div>
-    <p>
-      Sucasa truly transformed the way I travel. The platform's community of like-minded explorers, combined with their secure and user-friendly interface, makes the home exchange process a breeze. Whether you're a seasoned traveler or someone looking for a new adventure, I highly recommend Sucasa for your next vacation.
-      <br> <br> So, if you're ready to embark on a journey of discovery, immerse yourself in new cultures, and build lifelong connections, I encourage you to explore Sucasa.
-    </p>
-    <div class="btn-article">
-      <%= link_to "Read", "/accommodations", class: "btn-article" %>
+    <div class="article-text">
+      <div class="flex-article-photo-title">
+        <%= image_tag "placeholder-somya.jpeg", height: 65, width: 65, crop: :fill, class: "avatar-hp dropdown-toggle", id: "article-user-avatar", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <h5><b>Somya · Sucasa Expert</b> <br>
+        Shares her experience</h5>
+      </div>
+      <p>
+        Sucasa truly transformed the way I travel. The platform's community of like-minded explorers, combined with their secure and user-friendly interface, makes the home exchange process a breeze. Whether you're a seasoned traveler or someone looking for a new adventure, I highly recommend Sucasa for your next vacation.
+        <br> <br> So, if you're ready to embark on a journey of discovery, immerse yourself in new cultures, and build lifelong connections, I encourage you to explore Sucasa.
+      </p>
+      <div class="btn-article">
+        <%= link_to "Read", "/accommodations", class: "btn-article" %>
+      </div>
     </div>
   </div>
-</div>
 
 <%# card block 2 %>
 <div class="title-container">
@@ -62,7 +62,7 @@
 </div>
 <div class="cards-container-block-2">
   <div class="cards-container">
-    <% @accommodations.each do |accommodation| %>
+    <% @accommodations_beds.each do |accommodation| %>
       <% if accommodation.nb_of_beds > 2 %>
         <%= link_to accommodation do %>
           <div class="card-trip">
@@ -70,21 +70,22 @@
               <%= cl_image_tag accommodation.photos[0].key, height: 270, width: 400, crop: :fill %>
             </div>
             <div class="card-trip-infos">
-              <div>
-                <h2><%= accommodation.address.split.last %></h2>
-                <p><%= accommodation.user.first_name %> · <%= accommodation.user.job %></p>
+                <div>
+                  <h2><%= accommodation.address.split.last %></h2>
+                  <p><%= accommodation.user.first_name %> · <%= accommodation.user.job %></p>
+                </div>
+                <div class="name-job">
+                </div>
+                <%= cl_image_tag accommodation.user.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered"  %>
               </div>
-              <div class="name-job">
-              </div>
-              <%= cl_image_tag accommodation.user.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered"  %>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="btn-simple-frame">
-    <%= link_to "See more", "/accommodations", class: "cards-link" %>
+    </div>
+    <div class="btn-simple-frame">
+      <%= link_to "See more", "/accommodations", class: "cards-link" %>
+    </div>
   </div>
 </div>
 <%= render 'components/footer' %>

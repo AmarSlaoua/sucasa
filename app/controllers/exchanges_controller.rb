@@ -94,6 +94,13 @@ class ExchangesController < ApplicationController
     # @other_user_modality = Modality.find_by("exchange_id = ? AND accommodation_id != ?", Exchange.find(params[:id]).id, current_user.accommodation.id)
     @date_today = Date.today
     @other_user_modality = find_other_user_modality(params[:id])
+    accommodation = @other_user_modality.accommodation
+    @markers = [{
+      lat: accommodation.latitude,
+      lng: accommodation.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { accommodation: accommodation }),
+      marker_html: render_to_string(partial: "marker", locals: { accommodation: accommodation })
+    }]
   end
 
   private
