@@ -1,57 +1,103 @@
-<h1>Your exchange</h1>
-
-<% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
-  <div class="container">
-    <h3>Comment on your exchange with <%= @other_user_modality.accommodation.user.first_name %> !</h3>
-      <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
-      <%= f.input :content %>
-      <%= f.submit "Publish comment" %>
+<%= render 'components/navbar' %>
+<div class="map-exchange-valid">
+  <div class="map-exchange-flex-1">
+    <div class="exchange-show">
+      <h3>Your Stay at  <%= @other_user_modality.accommodation.user.first_name %>'s</h3>
+      <% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
+        <div class="container">
+          <h3>Comment on your exchange with <%= @other_user_modality.accommodation.user.first_name %> !</h3>
+            <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
+            <%= f.input :content %>
+            <%= f.submit "Publish comment" %>
+            <% end %>
+        </div>
       <% end %>
+
+      <div class="container-exchange-show">
+        <div class="container">
+                <div class="main-photo photo-exchange">
+                  <%= cl_image_tag @other_user_modality.accommodation.photos.first.key, height: 310, width: 490, crop: :fill, class: "image-clickable" %>
+                </div>
+
+          <div class ="m-3 exchange">
+            <div class="exchange-first-block">
+              <h5>Main infos</h5>
+              <div class="flex-valid-exchange-main-infos">
+                <div class="valid-block valid-exchange-duration">
+                  <h6>Duration</h6>
+                  <p><%= @other_user_modality.duration %> days</p>
+                </div>
+                <div class="valid-block valid-exchange-arrival">
+                  <h6>Arrival</h6>
+                  <p><%= @other_user_modality.check_in %></p>
+                </div>
+                <div class="valid-block valid-block-last valid-exchange-departure">
+                  <h6>Departure</h6>
+                  <p><%= @other_user_modality.check_out %></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="exchange-second-block">
+              <h5>Modalities</h5>
+              <div class="flex-valid-exchange-secondary-infos">
+                <div class="valid-block valid-exchange-keys">
+                  <h6>Keys</h6>
+                <p> <%= @other_user_modality.keys %> </p>
+                </div>
+                <div class="valid-block valid-exchange-petsitting">
+                  <h6>Petsitting</h6>
+                  <p> <%= @other_user_modality.petsitting %></p>
+                </div>
+                <div class="valid-block valid-exchange-transportation">
+                  <h6>Transportation</h6>
+                  <p><%= @other_user_modality.transportation %></p>
+                </div>
+                      <div class="valid-block valid-block-last valid-exchange-others">
+                  <h6>Others</h6>
+                  <p> <%= @other_user_modality.others %> </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="exchange-third-block">
+              <div class="exchange-other-infos">
+                <div class="exchange-user-info">
+                  <h5>Your buddy</h5>
+                  <p> <%= @other_user_modality.accommodation.user.first_name %> <%= @other_user_modality.accommodation.user.last_name.upcase %> | <%= @other_user_modality.accommodation.user.job %></p>
+                </div>
+                <div class="separator"></div>
+                <div class="exchange-acco-details">
+                  <h5>Accommodation details</h5>
+                  <p><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;&nbsp;<b>Address</b></p>
+                  <p> <%= @other_user_modality.accommodation.address %></p>
+                  <div class="separator"></div>
+                  <p><i class="fa-solid fa-person-shelter"></i>&nbsp;&nbsp;&nbsp; <b>Number of bedrooms</b></p>
+                  <p><%= @other_user_modality.accommodation.nb_of_bedrooms %> bedrooms</p>
+                  <div class="separator"></div>
+                  <p><i class="fa-solid fa-bed"></i> &nbsp;&nbsp;&nbsp;<b>Number of beds</b></p>
+                  <p><%= @other_user_modality.accommodation.nb_of_beds %> beds</p>
+                  <div class="separator"></div>
+                  <p><i class="fa-solid fa-shower"></i> &nbsp;&nbsp;&nbsp;<b>Number of bathrooms</b></p>
+                  <p><%= @other_user_modality.accommodation.nb_of_bathrooms %> bathrooms</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<div class="container">
-
-  <div class ="m-3">
-    <h3>About the modalities</h3>
-    <ul>
-      <li><%= @other_user_modality.duration %></li>
-      <li><%= @other_user_modality.check_in %></li>
-      <li><%= @other_user_modality.check_out %></li>
-      <li><%= @other_user_modality.keys %></li>
-      <li><%= @other_user_modality.petsitting %></li>
-      <li><%= @other_user_modality.transportation %></li>
-      <li><%= @other_user_modality.others %></li>
-    </ul>
-  </div>
-
-  <div class ="m-3">
-    <h3>About the other user</h3>
-    <ul>
-     <li><%= @other_user_modality.accommodation.user.first_name %></li>
-      <li><%= @other_user_modality.accommodation.user.last_name %></li>
-      <li><%= @other_user_modality.accommodation.user.job %></li>
-      <li><%= @other_user_modality.accommodation.user.seniority %></li>
-      <li><%= @other_user_modality.accommodation.user.bio %></li>
-    </ul>
-  </div>
-
-  <div class ="m-3">
-    <h3>About the other accommodation</h3>
-    <ul>
-      <li><%= @other_user_modality.accommodation.title %></li>
-      <li><%= @other_user_modality.accommodation.description %></li>
-      <li><%= @other_user_modality.accommodation.address %></li>
-      <li><%= @other_user_modality.accommodation.nb_of_bedrooms %></li>
-      <li><%= @other_user_modality.accommodation.nb_of_beds %></li>
-      <li><%= @other_user_modality.accommodation.nb_of_bathrooms %></li>
-      <li><%= @other_user_modality.accommodation.garden %></li>
-      <li><%= @other_user_modality.accommodation.swimming_pool %></li>
-      <li><%= @other_user_modality.accommodation.balcony %></li>
-      <li><%= @other_user_modality.accommodation.nb_of_tvs %></li>
-    </ul>
-  </div>
-
+    <div class="map-container">
+      <div class="map-wraper">
+        <div style="width: 100%; height: 800px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
 </div>
+<%= render 'components/footer' %>

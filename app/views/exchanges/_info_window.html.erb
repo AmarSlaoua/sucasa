@@ -1,0 +1,7 @@
+<div class="info-map-window">
+  <%= link_to accommodation_path(accommodation), style: "outline: none;" do %>
+      <%= cl_image_tag accommodation.photos[0].key, height: 130, width: 220, crop: :fill %>
+      <h6 class="title"><%= accommodation.title %></h6>
+      <h6> 📍 <%= accommodation.address %> </h6>
+  <% end %>
+</div>

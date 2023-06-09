@@ -54,22 +54,22 @@
     </div>
   </div>
 
-  <%# card block 2 %>
-  <div class="title-container">
-    <br>
-    <h4>Spacious Accommodations for Groups</h4>
-    <h6>Discover a selection of accommodations for 3 guests and more.</h6>
-  </div>
-  <div class="cards-container-block-2">
-    <div class="cards-container">
-      <% @accommodations.each do |accommodation| %>
-        <% if accommodation.nb_of_beds > 2 %>
-          <%= link_to accommodation do %>
-            <div class="card-trip">
-              <div>
-                <%= cl_image_tag accommodation.photos[0].key, height: 270, width: 400, crop: :fill %>
-              </div>
-              <div class="card-trip-infos">
+<%# card block 2 %>
+<div class="title-container">
+  <br>
+  <h4>Spacious Accommodations for Groups</h4>
+  <h6>Discover a selection of accommodations for 3 guests and more.</h6>
+</div>
+<div class="cards-container-block-2">
+  <div class="cards-container">
+    <% @accommodations_beds.each do |accommodation| %>
+      <% if accommodation.nb_of_beds > 2 %>
+        <%= link_to accommodation do %>
+          <div class="card-trip">
+            <div>
+              <%= cl_image_tag accommodation.photos[0].key, height: 270, width: 400, crop: :fill %>
+            </div>
+            <div class="card-trip-infos">
                 <div>
                   <h2><%= accommodation.address.split.last %></h2>
                   <p><%= accommodation.user.first_name %> · <%= accommodation.user.job %></p>
