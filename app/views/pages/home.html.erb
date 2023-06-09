@@ -62,7 +62,7 @@
 </div>
 <div class="cards-container-block-2">
   <div class="cards-container">
-    <% @accommodations.each do |accommodation| %>
+    <% @accommodations_beds.each do |accommodation| %>
       <% if accommodation.nb_of_beds > 2 %>
         <%= link_to accommodation do %>
           <div class="card-trip">
