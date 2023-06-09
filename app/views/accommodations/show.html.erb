@@ -1,139 +1,142 @@
 <%= render 'components/navbar' %>
 
 <%# product page %>
-<div class="main-container-pp">
-  <div class="container-pp">
-    <div class="container">
-      <div class="container-first-infos">
-        <h1><%= @accommodation.title %></h1>
-        <h5><%=@accommodation.address %> · <%= @accommodation.nb_of_guests %> guests</h5>
-      </div>
-      <div class="photos-accommodation-index">
-        <div class="main-photo">
-          <%= cl_image_tag @accommodation.photos.first.key, height: 610, width: 810, crop: :fill, class: "image-clickable" %>
+<div class="wrapper">
+  <div class="main-container-pp">
+    <div class="container-pp">
+      <div class="container">
+        <div class="container-first-infos">
+          <h1><%= @accommodation.title %></h1>
+          <h5><%=@accommodation.address %> · <%= @accommodation.nb_of_guests %> guests</h5>
         </div>
-        <div class="secondary-photos">
-          <% @accommodation.photos[1..-1].each do |photo| %>
-            <div class="secondary-photo">
-              <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill, class: "image-clickable" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <% if current_user == @accommodation.user %>
-        <%= link_to edit_accommodation_path(@accommodation), method: :get do %>
-          <p id="edit">Edit <i class="fa-solid fa-pen-to-square"></i></p>
-        <% end %>
-      <% end %>
-      <div class="flex-pp-details-booking">
-        <div class="container-pp-details-block1">
-          <div class="pp-details">
-            <div class="user-bio">
-              <div class="desc-user">
-                <div class="flex-photo-user-name">
-                  <h5><%= @accommodation.user.first_name %> <%= @accommodation.user.last_name.upcase %></h5>
-                  <% if @accommodation.user.photo.key == nil%>
-                    <%= image_tag "avatar_default.jpg", height: 50, width: 50, crop: :fill, class: "avatar-pp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                  <% else %>
-                    <%= cl_image_tag @accommodation.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar-pp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                  <% end %>
-                </div>
-                <div class="separator"></div>
-                  <h5>About me</h5>
-                <p><%= @accommodation.user.bio %></p>
-                <div class="flex-container">
-                  <div class="user-item user-1">
-                    <i class="fa-solid fa-briefcase"></i><p><%= @accommodation.user.job %> </p>
-                  </div>
-                  <div class="user-item user-2">
-                    <i class="fa-solid fa-calendar"></i><p><%= @accommodation.user.seniority %> years of services </p>
-                  </div>
-                  <div class="user-item user-3">
-                    <i class="fa-solid fa-globe"></i><p><%= @accommodation.user.company.name %> </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="acc-desc">
-            <div class="separator"></div>
-              <h5>Where you'll stay</h5>
-              <p><%= @accommodation.description %></p>
-            </div>
+        <div class="photos-accommodation-index">
+          <div class="main-photo">
+            <%= cl_image_tag @accommodation.photos.first.key, height: 610, width: 810, crop: :fill, class: "image-clickable" %>
           </div>
-        </div>
-        <div class="flex-container-review">
-          <div class="container-booking-block2">
-            <% if @reviews.length == 0 %>
-              <h5><%= @accommodation.user.first_name %> has never done an exchange.<br> Be their first ! 🗝️</h5>
-            <% else %>
-            <h5><%= @accommodation.user.first_name %> has already done <%= pluralize(@reviews.length, 'exchange') %></h5>
-            <% @reviews.each do |review| %>
-              <div>
-                <div class="separator">
-                </div>
-                <div class="main-infos-reviews">
-                  <div class="photo-user-review">
-                    <%= cl_image_tag review.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
-                  </div>
-                  <div class="name-duration-review">
-                    <h6><%= review.user.first_name %></h6>
-                    <p><%= review.user.job %> · Exchanged during <%= review.modality.duration %> days</p>
-                  </div>
-                </div>
-                <div class="comment">
-                  <p><%= review.content %></p>
-                </div>
+          <div class="secondary-photos">
+            <% @accommodation.photos[1..-1].each do |photo| %>
+              <div class="secondary-photo">
+                <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill, class: "image-clickable" %>
               </div>
-              <% end %>
             <% end %>
-            </div>
-            <div class="offer-button">
-              <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
-                <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
-                <%= f.submit "Offer an exchange !" %>
-              <% end %>
           </div>
         </div>
-      </div>
-      <div class="container-pp-details-block3">
-        <div class="flex-container">
-          <% if @accommodation.nb_of_bedrooms.present? %>
-            <div class="equipement-item equipement-1">
-              <i class="fa-solid fa-person-shelter"></i><p><%= @accommodation.nb_of_bedrooms %> bedrooms </p>
-            </div>
+        <% if current_user == @accommodation.user %>
+          <%= link_to edit_accommodation_path(@accommodation), method: :get do %>
+            <p id="edit">Edit <i class="fa-solid fa-pen-to-square"></i></p>
           <% end %>
-          <% if @accommodation.nb_of_beds.present? %>
-            <div class="equipement-item equipement-2">
-              <i class="fa-solid fa-bed"></i><p><%= @accommodation.nb_of_beds  %> beds </p>
+        <% end %>
+        <div class="flex-pp-details-booking">
+          <div class="container-pp-details-block1">
+            <div class="pp-details">
+              <div class="user-bio">
+                <div class="desc-user">
+                  <div class="flex-photo-user-name">
+                    <h5><%= @accommodation.user.first_name %> <%= @accommodation.user.last_name.upcase %></h5>
+                    <% if @accommodation.user.photo.key == nil%>
+                      <%= image_tag "avatar_default.jpg", height: 50, width: 50, crop: :fill, class: "avatar-pp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% else %>
+                      <%= cl_image_tag @accommodation.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar-pp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% end %>
+                  </div>
+                  <div class="separator"></div>
+                    <h5>About me</h5>
+                  <p><%= @accommodation.user.bio %></p>
+                  <div class="flex-container">
+                    <div class="user-item user-1">
+                      <i class="fa-solid fa-briefcase"></i><p><%= @accommodation.user.job %> </p>
+                    </div>
+                    <div class="user-item user-2">
+                      <i class="fa-solid fa-calendar"></i><p><%= @accommodation.user.seniority %> years of services </p>
+                    </div>
+                    <div class="user-item user-3">
+                      <i class="fa-solid fa-globe"></i><p><%= @accommodation.user.company.name %> </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="acc-desc">
+              <div class="separator"></div>
+                <h5>Where you'll stay</h5>
+                <p><%= @accommodation.description %></p>
+              </div>
             </div>
-          <% end %>
-          <% if @accommodation.nb_of_bathrooms.present? %>
-            <div class="equipement-item equipement-3">
-              <i class="fa-solid fa-shower"></i><p><%= @accommodation.nb_of_bathrooms %> bathrooms </p>
+          </div>
+          <div class="flex-container-review">
+            <div class="container-booking-block2">
+              <% if @reviews.length == 0 %>
+                <h5><%= @accommodation.user.first_name %> has never done an exchange.<br> Be their first ! 🗝️</h5>
+              <% else %>
+              <h5><%= @accommodation.user.first_name %> has already done <%= pluralize(@reviews.length, 'exchange') %></h5>
+              <% @reviews.each do |review| %>
+                <div>
+                  <div class="separator">
+                  </div>
+                  <div class="main-infos-reviews">
+                    <div class="photo-user-review">
+                      <%= cl_image_tag review.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+                    </div>
+                    <div class="name-duration-review">
+                      <h6><%= review.user.first_name %></h6>
+                      <p><%= review.user.job %> · Exchanged during <%= review.modality.duration %> days</p>
+                    </div>
+                  </div>
+                  <div class="comment">
+                    <p><%= review.content %></p>
+                  </div>
+                </div>
+                <% end %>
+              <% end %>
+              </div>
+              <div class="offer-button">
+                <%= simple_form_for(@exchange, as: :exchange, method: :post, url: accommodation_exchanges_path(@accommodation)) do |f|%>
+                  <%= f.hidden_field :accommodation_id, value: @accommodation.id %>
+                  <%= f.submit "Offer an exchange !" %>
+                <% end %>
             </div>
-          <% end %>
-          <% if @accommodation.garden.present? %>
-            <div class="equipement-item equipement-4">
-              <i class="fa-solid fa-tree"></i><p><% @accommodation.garden %> Garden </p>
-            </div>
-          <% end %>
-          <% if @accommodation.swimming_pool.present? %>
-            <div class="equipement-item equipement-5">
-              <i class="fa-solid fa-water-ladder"></i><p><% @accommodation.swimming_pool %> Swimming pool </p>
-            </div>
-          <% end %>
-          <% if @accommodation.balcony.present? %>
-            <div class="equipement-item equipement-6">
-              <i class="fa-solid fa-tree-city"></i><p><% @accommodation.balcony %> Balcony </p>
-            </div>
-          <% end %>
-          <% if @accommodation.nb_of_tvs.present? %>
-            <div class="equipement-item equipement-7">
-              <i class="fa-solid fa-tv"></i><p><%= @accommodation.nb_of_tvs %> TV </p>
-            </div>
-          <% end %>
+          </div>
         </div>
-      </div>
+        <div class="container-pp-details-block3">
+          <div class="flex-container">
+            <% if @accommodation.nb_of_bedrooms.present? %>
+              <div class="equipement-item equipement-1">
+                <i class="fa-solid fa-person-shelter"></i><p><%= @accommodation.nb_of_bedrooms %> bedrooms </p>
+              </div>
+            <% end %>
+            <% if @accommodation.nb_of_beds.present? %>
+              <div class="equipement-item equipement-2">
+                <i class="fa-solid fa-bed"></i><p><%= @accommodation.nb_of_beds  %> beds </p>
+              </div>
+            <% end %>
+            <% if @accommodation.nb_of_bathrooms.present? %>
+              <div class="equipement-item equipement-3">
+                <i class="fa-solid fa-shower"></i><p><%= @accommodation.nb_of_bathrooms %> bathrooms </p>
+              </div>
+            <% end %>
+            <% if @accommodation.garden.present? %>
+              <div class="equipement-item equipement-4">
+                <i class="fa-solid fa-tree"></i><p><% @accommodation.garden %> Garden </p>
+              </div>
+            <% end %>
+            <% if @accommodation.swimming_pool.present? %>
+              <div class="equipement-item equipement-5">
+                <i class="fa-solid fa-water-ladder"></i><p><% @accommodation.swimming_pool %> Swimming pool </p>
+              </div>
+            <% end %>
+            <% if @accommodation.balcony.present? %>
+              <div class="equipement-item equipement-6">
+                <i class="fa-solid fa-tree-city"></i><p><% @accommodation.balcony %> Balcony </p>
+              </div>
+            <% end %>
+            <% if @accommodation.nb_of_tvs.present? %>
+              <div class="equipement-item equipement-7">
+                <i class="fa-solid fa-tv"></i><p><%= @accommodation.nb_of_tvs %> TV </p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
   </div>
 </div>
+
 <%= render 'components/footer' %>
