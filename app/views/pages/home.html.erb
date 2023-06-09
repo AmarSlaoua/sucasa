@@ -5,7 +5,7 @@
     <%# title for listing cards %>
     <div class="title-container">
       <br>
-      <h4>Handpicked houses</h4>
+      <h4>Handpicked Houses</h4>
       <h6>Discover all the Home exchange and home standing offers</h6>
     </div>
 
@@ -33,6 +33,58 @@
     </div>
   </div>
 
-  <%# generic banner hp %>
+<%# article %>
+<div class="flex-article">
+  <div class="artcile-img">
+    <%= image_tag "article.jpg", height: 390, width: 590, crop: :fill, class: "article-img" %>
+  </div>
+  <div class="article-text">
+    <div class="flex-article-photo-title">
+      <%= image_tag "Somya.jpeg", height: 65, width: 65, crop: :fill, class: "avatar-hp dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <h5><b>Somya · Sucasa Expert</b> <br>
+      Shares her experience</h5>
+    </div>
+    <p>
+      Sucasa truly transformed the way I travel. The platform's community of like-minded explorers, combined with their secure and user-friendly interface, makes the home exchange process a breeze. Whether you're a seasoned traveler or someone looking for a new adventure, I highly recommend Sucasa for your next vacation.
+      <br> <br> So, if you're ready to embark on a journey of discovery, immerse yourself in new cultures, and build lifelong connections, I encourage you to explore Sucasa.
+    </p>
+    <div class="btn-article">
+      <%= link_to "Read", "/accommodations", class: "btn-article" %>
+    </div>
+  </div>
+</div>
 
-  <%= render 'components/footer' %>
+<%# card block 2 %>
+<div class="title-container">
+  <br>
+  <h4>Spacious Accommodations for Groups</h4>
+  <h6>Discover a selection of accommodations for 3 guests and more.</h6>
+</div>
+<div class="cards-container-block-2">
+  <div class="cards-container">
+    <% @accommodations.each do |accommodation| %>
+      <% if accommodation.nb_of_beds > 2 %>
+        <%= link_to accommodation do %>
+          <div class="card-trip">
+            <div>
+              <%= cl_image_tag accommodation.photos[0].key, height: 270, width: 400, crop: :fill %>
+            </div>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= accommodation.address.split.last %></h2>
+                <p><%= accommodation.user.first_name %> · <%= accommodation.user.job %></p>
+              </div>
+              <div class="name-job">
+              </div>
+              <%= cl_image_tag accommodation.user.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered"  %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="btn-simple-frame">
+    <%= link_to "See more", "/accommodations", class: "cards-link" %>
+  </div>
+</div>
+<%= render 'components/footer' %>
