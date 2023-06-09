@@ -1,10 +1,10 @@
 class AccommodationsController < ApplicationController
   def index
     # @accommodations = Accommodation.all
-    # if params[:query].present?
-    #   @accommodations = @accommodations.where("address ILIKE ?", "%#{params[:query]}%").all
-    # end
     @accommodations = Accommodation.all
+    if params[:query].present?
+      @accommodations = @accommodations.near(params[:query].to_s, 2000).all
+    end
     @markers = @accommodations.geocoded.map do |accommodation|
       {
         lat: accommodation.latitude,
