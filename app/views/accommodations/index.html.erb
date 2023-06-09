@@ -1,21 +1,21 @@
 <div class="navbar-lp">
   <%= render 'components/navbar' %>
 </div>
-
-<div class="search_lp">
-    <%# search %>
-    <%= render 'components/search' %>
-</div>
-<div class="banner-lp-img">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1664261421791-c25c5760f577?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80);">
-    <div class="container">
-      <div class="banner-lp">
-        <h1><strong>Sucasa</strong></h1>
-        <p>Your dream getaway awaits on our unique home-sharing platform.</p>
+<div class="wrapper">
+  <div class="search_lp">
+      <%# search %>
+      <%= render 'components/search' %>
+  </div>
+  <div class="banner-lp-img">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1664261421791-c25c5760f577?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80);">
+      <div class="container">
+        <div class="banner-lp">
+          <h1><strong>Sucasa</strong></h1>
+          <p>Your dream getaway awaits on our unique home-sharing platform.</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
  <div class="map-accommodations-lp">
   <div class="container">
@@ -27,6 +27,7 @@
       <%= render 'components/card' %>
     </div>
   </div>
+
   <div class="map-container">
     <div class="map-wraper">
       <div style="width: 100%; height: 800px;"
@@ -37,4 +38,5 @@
     </div>
   </div>
 </div>
+
 <%= render 'components/footer' %>

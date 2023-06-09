@@ -98,10 +98,9 @@
 
 
 .link-validate{
-  margin-bottom: 35px;
-  position: fixed;
+  // margin-bottom: 35px;
   bottom: 0;
-  width: 21.3%;
+  // width: 100%;
 }
 
 .link-validate a{
@@ -109,10 +108,11 @@
   color: white;
   border-radius: 10px;
   padding: 12px;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-left: 9%;
-  opacity: 0.7;
+  // padding-left: 50px;
+  // padding-right: 50px;
+  margin-left: 20%;
+  opacity: 1;
+
 }
 
 .link-validate a:hover{
@@ -212,10 +212,10 @@
 }
 
 .messages p{
-margin-bottom: 25px;
-color: #3d3d3d;
-font-weight: lighter;
-font-size: 14px;
+  margin-bottom: 25px;
+  color: #3d3d3d;
+  font-weight: lighter;
+  font-size: 14px;
 }
 
 .align-items-center{
@@ -233,7 +233,7 @@ font-size: 14px;
 }
 
 .p-3 .align-items-center:hover{
-background-color: #f3f3f3;
+  background-color: #f3f3f3;
 }
 
 .container-msg{
