@@ -81,6 +81,8 @@ class ExchangesController < ApplicationController
     @exchange = Exchange.find(params[:id])
     @message = Message.new
     @exchange_modalities = Modality.where(exchange: @exchange)
+    @my_modality = find_my_modality(@exchange.id)
+    @other_user_modality = find_other_user_modality(@exchange.id)
     @other_user = find_other_user(@exchange)
     find_my_exchanges
     @exchanges_infos = build_exchanges_info
@@ -114,6 +116,10 @@ class ExchangesController < ApplicationController
 
   def find_other_user_modality(exchange_id)
     Modality.find_by("exchange_id = ? AND accommodation_id != ?", exchange_id, current_user.accommodation.id)
+  end
+
+  def find_my_modality(exchange_id)
+    Modality.find_by("exchange_id = ? AND accommodation_id = ?", exchange_id, current_user.accommodation.id)
   end
 
   def find_my_exchanges
