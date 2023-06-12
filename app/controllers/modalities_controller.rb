@@ -4,7 +4,7 @@ class ModalitiesController < ApplicationController
 
   def update
     @modality = Modality.find(params[:id])
-    if @modality.check_in == true
+    if params[:modality][:check_in] != ""
       check_in, check_out = params[:modality][:check_in].split(' to ')
       @modality.check_in = Date.parse(check_in)
       @modality.check_out = Date.parse(check_out)
