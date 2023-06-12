@@ -21,7 +21,7 @@ file3 = URI.open("https://img.freepik.com/icones-gratuites/mac-os_318-10374.jpg"
 
 c1 = Company.new(
   name: "Carrefour",
-  industry: "Retail",
+  industry: "Retail"
 )
 c1.photo.attach(io: file1, filename: "logocarrefour.jpg", content_type: "image/jpg")
 c1.save!
@@ -29,7 +29,7 @@ puts "..."
 
 c2 = Company.new(
   name: "BioBurger",
-  industry: "Fast-food",
+  industry: "Fast-food"
 )
 c2.photo.attach(io: file2, filename: "logobioburger.jpg", content_type: "image/jpg")
 c2.save!
@@ -37,7 +37,7 @@ puts "..."
 
 c3 = Company.new(
   name: "Apple",
-  industry: "Tech",
+  industry: "Tech"
 )
 c3.photo.attach(io: file3, filename: "logoapple.jpg", content_type: "image/jpg")
 c3.save!
@@ -49,26 +49,26 @@ puts "3 fake companies created !"
 
 puts "Creating 15 fake users..."
 
-pp1 = URI.open("https://t4.ftcdn.net/jpg/01/29/43/85/360_F_129438556_1ugKA7Fk1EiR7uar9ZGaQ3wYfaWSM25E.jpg")
-pp2 = URI.open("https://images.iphonephotographyschool.com/24755/portrait-photography.jpg")
-pp3 = URI.open("https://img.freepik.com/photos-gratuite/jeune-femme-reveuse-lunettes-soleil-avant_197531-16739.jpg")
-pp4 = URI.open("https://bidunart.com/wp-content/uploads/2019/11/Portrait157a-819x1024.jpg")
-pp5 = URI.open("https://phototrend.fr/wp-content/uploads/2015/02/portrait2-940x627.jpg")
-pp6 = URI.open("https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg")
-pp7 = URI.open("https://t4.ftcdn.net/jpg/01/29/43/85/360_F_129438556_1ugKA7Fk1EiR7uar9ZGaQ3wYfaWSM25E.jpg")
-pp8 = URI.open("https://www.peerspace.com/resources/wp-content/uploads/best-vancouver-portrait-photographers.png")
-pp9 = URI.open("https://i.pinimg.com/originals/39/e9/b3/39e9b39628e745a39f900dc14ee4d9a7.jpg")
-pp10 = URI.open("https://t3.ftcdn.net/jpg/02/22/85/16/360_F_222851624_jfoMGbJxwRi5AWGdPgXKSABMnzCQo9RN.jpg")
-pp11 = URI.open("https://www.myposter.de/magazin/wp-content/uploads/2016/06/Portrait-junger-Mann-frontal-shutterstock_62464225_kl.jpg")
-pp12 = URI.open("https://apprendre-la-photo.fr/wp-content/uploads/2011/06/photo-portrait_vieil-homme_laurent-breillat-407x610.jpg")
-pp13 = URI.open("https://www.sophiebourgeixphotographe.com/wp-content/uploads/2018/03/photos_portrait_Aix_en_provence_berenice05.jpg")
-pp14 = URI.open("https://www.myposter.fr/magazin/wp-content/uploads/2016/06/Portrait-junge-Frau-Brille-shutterstock_118972231_kl.jpg")
-pp15 = URI.open("https://cdn.mos.cms.futurecdn.net/3kZ3hc2YMB6LXiPohtyfKa.jpg")
+pp1 = URI.open("https://avatars.githubusercontent.com/u/130504907?v=4")
+pp2 = URI.open("https://media.licdn.com/dms/image/C5603AQHt6A6O0trmNg/profile-displayphoto-shrink_800_800/0/1517839980887?e=2147483647&v=beta&t=w088gT-EsnExEo6RtRHpylKlUYDY215BOB-81WRYCrA")
+pp3 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1683008769/aoe1v4frlvgve2uei7f4.jpg")
+pp4 = URI.open("https://media.gettyimages.com/id/1139722168/fr/photo/milieu-adulte-dhomme-souriant-sur-le-fond-gris.jpg?s=612x612&w=gi&k=20&c=XRJrRbYB9kWitMJtBeZIPpxLsdq3-1TqGlSGjkwOgSE=")
+pp5 = URI.open("https://img.freepik.com/photos-premium/femme-sourire-son-visage_266745-287.jpg?w=2000")
+pp6 = URI.open("https://img.freepik.com/photos-premium/femme-sourire-son-visage-sourit_910718-48.jpg?w=2000")
+pp7 = URI.open("https://media.istockphoto.com/id/966638378/fr/photo/portrait-dun-homme-latino-souriant.jpg?s=612x612&w=0&k=20&c=llIfoWoEuXfQ_is3HTaU9NgR6R7xLw-vDltJxTt6WIA=")
+pp8 = URI.open("https://media.istockphoto.com/id/1309489745/fr/photo/verticale-de-jeune-cadre-indien-heureux-dhomme-daffaires-regardant-lappareil-photo.jpg?s=612x612&w=0&k=20&c=zjajgq8VVEK_XFZt2fG0xHB3mTbUoXTUqpxr217CUG0=")
+pp9 = URI.open("https://img.freepik.com/photos-premium/jeune-femme-sourire-son-visage_853677-496.jpg?w=2000")
+pp10 = URI.open("https://media.istockphoto.com/id/1182146844/fr/photo/jeune-homme-de-sourire-avec-des-tatouages-restant-sur-un-fond-gris.jpg?s=612x612&w=0&k=20&c=IShl3prqjWVQZRkQY_XGlqCY8v7CaelMOaPHShTdk3c=")
+pp11 = URI.open("https://media.istockphoto.com/id/1275841749/fr/photo/jeune-homme-de-sourire-ayant-la-conf%C3%A9rence-en-ligne-de-la-maison.jpg?s=612x612&w=0&k=20&c=BsD8coODAb3vtCfFyXiBrJHiuG7sGwXMwNfdqD46oiY=")
+pp12 = URI.open("https://www.portraitprofessionnel.fr/wp-content/uploads/2022/02/Photographe_profesionnel_portrait_studio_corporate.jpg")
+pp13 = URI.open("https://upload.wikimedia.org/wikipedia/commons/b/bc/Dewaere-portrait.jpg")
+pp14 = URI.open("https://www.galeriephotographe.com/wp-content/uploads/2020/04/shootings-photo-de-profil-reseaux-sociaux-et-professionnel-a-colmar_018.jpg")
+pp15 = URI.open("https://isabellerobak.com/wp-content/uploads/2023/01/portrait-professionnel-isabelle-robak.jpg")
 
 somya = User.new(
   first_name: "Somya",
   last_name: "Abbar",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  bio: "Hello everyone! My name is Somya, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "somya@sucasa.com",
@@ -84,7 +84,7 @@ puts "..."
 romain = User.new(
   first_name: "Romain",
   last_name: "Deflo",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  bio: "Hello everyone! My name is Romain, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "romain@sucasa.com",
@@ -100,7 +100,7 @@ puts "..."
 amar = User.new(
   first_name: "Amar",
   last_name: "Slaoua",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  bio: "Hello everyone! My name is Amar, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "amar@sucasa.com",
@@ -116,7 +116,7 @@ puts "..."
 fu1 = User.new(
   first_name: "Louis",
   last_name: "Poisson",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  bio: "Hello everyone! My name is Louis, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "louis@mail.com",
@@ -132,7 +132,7 @@ puts "..."
 fu2 = User.new(
   first_name: "Alice",
   last_name: "Perrin",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  bio: "Hello everyone! My name is Alice, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "alice@mail.com",
@@ -148,13 +148,13 @@ puts "..."
 fu3 = User.new(
   first_name: "Julie",
   last_name: "Techene",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  bio: "Hello everyone! My name is Julie, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "julie@mail.com",
   password: "123456",
   company_id: c1.id,
-  job: "Musician",
+  job: "Product owner",
   seniority: rand(1..10),
 )
 fu3.photo.attach(io: pp6, filename: "ppfu3.jpg", content_type: "image/jpg")
@@ -163,14 +163,14 @@ puts "..."
 
 fu4 = User.new(
   first_name: "Franck",
-  last_name: "LeBoeuf",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  last_name: "Dubois",
+  bio: "Hello everyone! My name is Franck, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "franck@mail.com",
   password: "123456",
   company_id: c1.id,
-  job: "Footballer",
+  job: "Sales manager",
   seniority: rand(1..10),
 )
 fu4.photo.attach(io: pp7, filename: "ppfu4.jpg", content_type: "image/jpg")
@@ -179,14 +179,14 @@ puts "..."
 
 fu5 = User.new(
   first_name: "Karim",
-  last_name: "Benzema",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  last_name: "Badraoui",
+  bio: "Hello everyone! My name is Karim, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "karim@mail.com",
   password: "123456",
   company_id: c1.id,
-  job: "Athlete",
+  job: "Head of product",
   seniority: rand(1..10),
 )
 fu5.photo.attach(io: pp8, filename: "ppfu5.jpg", content_type: "image/jpg")
@@ -195,14 +195,14 @@ puts "..."
 
 fu6 = User.new(
   first_name: "Serena",
-  last_name: "Williams",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  last_name: "Stones",
+  bio: "Hello everyone! My name is Serena, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
   email: "serena@mail.com",
   password: "123456",
   company_id: c1.id,
-  job: "Consultant",
+  job: "Head of sales",
   seniority: rand(1..10),
 )
 fu6.photo.attach(io: pp9, filename: "ppfu6.jpg", content_type: "image/jpg")
@@ -210,15 +210,15 @@ fu6.save!
 puts "..."
 
 fu7 = User.new(
-  first_name: "LeBron",
-  last_name: "James",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  first_name: "Chris",
+  last_name: "Smith",
+  bio: "Hello everyone! My name is Chris, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
-  email: "lebron@mail.com",
+  email: "chris@mail.com",
   password: "123456",
   company_id: c1.id,
-  job: "GOAT",
+  job: "Artistic director",
   seniority: rand(1..10),
 )
 fu7.photo.attach(io: pp10, filename: "ppfu7.jpg", content_type: "image/jpg")
@@ -226,15 +226,15 @@ fu7.save!
 puts "..."
 
 fu8 = User.new(
-  first_name: "Patrick",
-  last_name: "Bruel",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  first_name: "Guillaume",
+  last_name: "Dermel",
+  bio: "Hello everyone! My name is Guillaume, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
-  email: "patrick@mail.com",
+  email: "guillaume@mail.com",
   password: "123456",
   company_id: c1.id,
-  job: "Poker player",
+  job: "Process manager",
   seniority: rand(1..10),
 )
 fu8.photo.attach(io: pp11, filename: "ppfu8.jpg", content_type: "image/jpg")
@@ -242,15 +242,15 @@ fu8.save!
 puts "..."
 
 fu9 = User.new(
-  first_name: "Kaaris",
-  last_name: "Kaaris",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  first_name: "Lamia",
+  last_name: "Slaoua",
+  bio: "Hello everyone! My name is Lamia, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
-  email: "kaaris@mail.com",
+  email: "lamia@mail.com",
   password: "123456",
   company_id: c1.id,
-  job: "Rapper",
+  job: "Graphist",
   seniority: rand(1..10),
 )
 fu9.photo.attach(io: pp12, filename: "ppfu9.jpg", content_type: "image/jpg")
@@ -258,15 +258,15 @@ fu9.save!
 puts "..."
 
 fu10 = User.new(
-  first_name: "Brad",
-  last_name: "Pitt",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  first_name: "Sergio",
+  last_name: "Lesieur",
+  bio: "Hello everyone! My name is Sergio, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
-  email: "brad@mail.com",
+  email: "sergio@mail.com",
   password: "123456",
   company_id: c2.id,
-  job: "Actor",
+  job: "Brand manager",
   seniority: rand(1..10),
 )
 fu10.photo.attach(io: pp13, filename: "ppfu10.jpg", content_type: "image/jpg")
@@ -274,15 +274,15 @@ fu10.save!
 puts "..."
 
 fu11 = User.new(
-  first_name: "Mickey",
-  last_name: "Mouse",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  first_name: "Solène",
+  last_name: "Garnier",
+  bio: "Hello everyone! My name is Solène, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
-  email: "mickey@mail.com",
+  email: "solene@mail.com",
   password: "123456",
   company_id: c2.id,
-  job: "Security",
+  job: "QA engineer",
   seniority: rand(1..10),
 )
 fu11.photo.attach(io: pp14, filename: "ppfu11.jpg", content_type: "image/jpg")
@@ -290,15 +290,15 @@ fu11.save!
 puts "..."
 
 fu12 = User.new(
-  first_name: "Elon",
+  first_name: "Maxime",
   last_name: "Musk",
-  bio: "Hello everyone! My name is Claire, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
+  bio: "Hello everyone! My name is Maxime, and I'm a passionate traveler. I love exploring new places and living like a local. I've been a member of this home exchange platform for several years now and have had some incredible experiences.
         My home is located in a charming neighborhood, surrounded by greenery and close to all amenities. It offers a comfortable and cozy space to welcome visitors. I've carefully decorated each room, and I'm confident you'll feel right at home.
         As a host, I'm attentive to the needs of my guests and strive to provide a memorable stay. I'm happy to share local tips and recommendations to make your visit unforgettable. Let's exchange homes and embark on a wonderful journey together!",
-  email: "elon@mail.com",
+  email: "maxime@mail.com",
   password: "123456",
   company_id: c2.id,
-  job: "Business angel",
+  job: "Sales",
   seniority: rand(1..10),
 )
 fu12.photo.attach(io: pp15, filename: "ppfu12.jpg", content_type: "image/jpg")
@@ -339,18 +339,91 @@ t11 = "Nice loft near the seaside"
 t12 = "Little country house with a ranch"
 
 
-picture1 = URI.open("https://a0.muscache.com/im/pictures/9b1faeae-d151-42ea-a498-18d9db4afe4b.jpg?im_w=1200")
-picture2 = URI.open("https://a0.muscache.com/im/pictures/bb9ebad6-6048-41a8-8947-555d6527b94f.jpg?im_w=1200")
-picture3 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-534484668691956237/original/c592b1eb-8f33-432d-a536-9c29906dd3cb.jpeg?im_w=1440")
-picture4 = URI.open("https://a0.muscache.com/im/pictures/prohost-api/Hosting-852103052054519896/original/5e197e8c-e611-4fb6-bb23-370908cbc1dc.jpeg?im_w=1200")
-picture5 = URI.open("https://a0.muscache.com/im/pictures/0d1e5797-8f47-418f-acee-475f3b9c22c0.jpg?im_w=1200")
-picture6 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-671622319399090627/original/37e0ed75-118f-402e-95c7-2c62512acdd5.jpeg?im_w=1200")
-picture7 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-724287706736603735/original/68e4dc6a-14f5-49dd-8f30-3f53386ac2bd.jpeg?im_w=1440")
-picture8 = URI.open("https://cdn.apartmenttherapy.info/image/upload/v1554209861/at/house%20tours%20stock%20archive/312b3933109935c5f33f6b8ec4a271669eb2d78a.jpg")
-picture9 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-50250873/original/785842db-7736-4bde-a9cb-c649e99f50a8.jpeg?im_w=1200")
-picture10 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-798490574765766838/original/89371196-d780-4a9c-a107-3d47e4b94451.jpeg?im_w=1200")
-picture11 = URI.open("https://a0.muscache.com/im/pictures/769cd8c2-8c91-437d-8555-57e824189c8a.jpg?im_w=1200")
-picture12 = URI.open("https://oportfolio.co.uk/wp-content/uploads/2022/09/airbnb-mortgage.jpg")
+picture1 = URI.open("https://hips.hearstapps.com/hmg-prod/images/apartment-living-room-design-ideas-hbx040122nextwave-013-1656001210.jpg")
+picture2 = URI.open("https://apartmentsnwsanantonio.com/wp-content/uploads/2018/12/Apartment-Rentals-San-Antonio-Bedroom.jpg")
+picture3 = URI.open("https://hips.hearstapps.com/hmg-prod/images/martha-mulholland-standard-architecture-malibu-house-094-edit-1647617137.jpg")
+picture4 = URI.open("https://i.pinimg.com/originals/15/4f/e4/154fe4a84ed87ff5b5cff0b55f6f136a.jpg")
+
+pictures1 = [picture1, picture2, picture3, picture4]
+
+
+picture5 = URI.open("https://cdn.mos.cms.futurecdn.net/vcKypmJpoxLHNrtjDyJnVa.jpg")
+picture6 = URI.open("https://houstonapartmentsoneldridge.com/wp-content/uploads/2018/12/Apartments-for-rent-houston-tx-bedroom-1024x638.jpg")
+picture7 = URI.open("https://www.bhg.com/thmb/-fMaB0U41bSke7O7bhH1cMl3g2s=/1244x0/filters:no_upscale():strip_icc()/black-white-modern-bathroom-plants-9a32b43a-8b9d4a315d88430882bfeef9c5d25d68.jpg")
+picture8 = URI.open("https://www.howdens.com/-/media/howdens/assets/clh_asset_products/clh_asset_levela_108418/clh_asset_levelb_25522207/clh_asset_levelc_25519481/clh_asset_leveld_25522002/ass_25411377/ass_25411377_1_1.jpg")
+
+pictures2 = [picture5, picture6, picture7, picture8]
+
+picture9 = URI.open("https://www.bhg.com/thmb/dgy0b4w_W0oUJUxc7M4w3H4AyDo=/1866x0/filters:no_upscale():strip_icc()/living-room-gallery-shelves-l-shaped-couch-ELeyNpyyqpZ8hosOG3EG1X-b5a39646574544e8a75f2961332cd89a.jpg")
+picture10 = URI.open("https://www.mydomaine.com/thmb/Cu5oA50vLVBUli6VUrsV8DjKIPI=/1920x0/filters:no_upscale():strip_icc()/spacejoy-nEtpvJjnPVo-unsplash1-8dc2f48f6c334ceca4f264dc608c5707.jpg")
+picture11 = URI.open("https://www.thespruce.com/thmb/J53yaSLGsDzkOOTYiXuP52oMJ8I=/2048x0/filters:no_upscale():max_bytes(150000):strip_icc()/modern-bathroom-design-ideas-4129371-hero-723611e159bb4a518fc4253b9175eba8.jpg")
+picture12 = URI.open("https://theeffortlesschic.com/wp-content/uploads/2021/03/Kitchen-Reveal-8.jpg")
+
+pictures3 = [picture9, picture10, picture11, picture12]
+
+picture13 = URI.open("https://i.ytimg.com/vi/RfYc0BUqkMs/maxresdefault.jpg")
+picture14 = URI.open("https://apartmentsforrentsanantonio.com/wp-content/uploads/2018/03/ea34b50820fd023ecd0b470de7444e90fe76e7d718b5114897f5c0_640.jpg")
+picture15 = URI.open("https://www.mydomaine.com/thmb/5pUHeJaBlbzo5QGN2UU-wPivc1s=/2986x0/filters:no_upscale():strip_icc()/9.Designerphotographerhouseofchais-93b0953f92dc4d21867cd0300585d5d0.jpg")
+picture16 = URI.open("https://regencyoaksseniorliving.com/wp-content/uploads/31508090-shutterstock_1075737842-1.jpg")
+
+pictures4 = [picture13, picture14, picture15, picture16]
+
+picture17 = URI.open("https://decoholic.org/wp-content/uploads/2022/05/small-Scandinavian-apartment.jpg")
+picture18 = URI.open("https://www.thespruce.com/thmb/oJGeEk9FPfjAbeWfDkjdb9Xk9TY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/perfect-studio-apartment-layouts-to-inspire-4124066-hero-86a20ac386734170914645029e7bb568.jpg")
+picture19 = URI.open("https://www.thespruce.com/thmb/NaaNGlBVj7TmFMtVaMWQTdfiPuw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/master-bathroom-design-ideas-4129362-hero-d896a889451341dfaa59c5b2beacf02d.jpg")
+picture20 = URI.open("https://premierhomesvic.com.au/wp/wp-content/uploads/2018/07/Delandra-Granny-Flat-Kitchen.jpg")
+
+pictures5 = [picture17, picture18, picture19, picture20]
+
+picture21 = URI.open("https://media.designcafe.com/wp-content/uploads/2021/11/08175133/cozy-small-apartment-ideas-for-your-home.jpg")
+picture22 = URI.open("https://www.residence-brehova.com/images/two-bedroom/detail/large/bedroom2_2.jpg")
+picture23 = URI.open("https://media.houseandgarden.co.uk/photos/640f159a3bcab740f371290e/1:1/w_2100,h_2100,c_limit/Tom-Cox-House-HG-Website-022-_DSF7461.jpg")
+picture24 = URI.open("https://www.howdens.com/-/media/howdens/assets/clh_asset_corporate/clh_asset_levela_109324/clh_asset_levelb_25298484/clh_asset_levelc_25363632/clh_asset_leveld_25409906/ass_25452510/ass_25452510_1_1.jpg")
+
+pictures6 = [picture21, picture22, picture23, picture24]
+
+picture25 = URI.open("https://cdn.mos.cms.futurecdn.net/qUybam4p8t3Mf4Mvm3WcTA.jpg")
+picture26 = URI.open("https://cdn.decoist.com/wp-content/uploads/2020/04/Separate-bedroom-in-the-one-bedroom-apartment-gives-you-ample-privacy-84410.jpg")
+picture27 = URI.open("https://img.staticmb.com/mbcontent/images/uploads/2023/2/bathroom-interior-design.jpg")
+picture28 = URI.open("https://blog.kitchenmagic.com/hs-fs/hubfs/RotM%20Feb%202020-6.jpg?width=800&name=RotM%20Feb%202020-6.jpg")
+
+pictures7 = [picture25, picture26, picture27, picture28]
+
+picture29 = URI.open("https://www.rentcafe.com/blog/wp-content/uploads/sites/62/2020/09/Small-Living-Room-Ideas-Decorate-vertically.jpg")
+picture30 = URI.open("https://uploads-ssl.webflow.com/5db0fce271caa26ad1ca0613/5e18cc88d27bcf43c704809b_1-bedroom-apartment.jpg")
+picture31 = URI.open("https://hips.hearstapps.com/hmg-prod/images/allisonknizekdesign-erikabiermanphoto-5-1674499280.jpg")
+picture32 = URI.open("https://cdn.apartmenttherapy.info/image/upload/v1556038329/at/house%20tours/archive/Farah%20Toronto/66075f0f7f5be8a1dee33b281cc3fc03c901788a.jpg")
+
+pictures8 = [picture29, picture30, picture31, picture32]
+
+picture33 = URI.open("https://www.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg")
+picture34 = URI.open("https://pyxis.nymag.com/v1/imgs/3b7/66f/9f550fcdabe47c4fd4f7943e4988993522-small-apartment-lede.jpg")
+picture35 = URI.open("https://www.bigbathroomshop.co.uk/info/blog/wp-content/uploads/2018/11/Untitled-design-2021-03-03T120021.327.jpg")
+picture36 = URI.open("https://i0.wp.com/realmumreview.com/wp-content/uploads/2021/10/kitchen-g93fa91515_1280.jpg")
+
+pictures9 = [picture33, picture34, picture35, picture36]
+
+picture37 = URI.open("https://nextluxury.com/wp-content/uploads/apartment-small-living-room-ideas-1.jpg")
+picture38 = URI.open("https://media.designcafe.com/wp-content/uploads/2020/04/07174357/bedroom-colour-combination-with-burnt-orange-and-purple-1-768x512.jpg")
+picture39 = URI.open("https://www.granddesignsmagazine.com/wp-content/uploads/2022/08/small-bathroom-wall-to-wall-bath.jpg")
+picture40 = URI.open("https://innkeeper.pws.co.uk/secondnature/media/Advice%20&%20Ideas/designing%20a%20small%20kitchen/18%20Porter%20Gloss%20White%20Alt%20Angle1%20V2%20(FLAT)%20(1).jpg")
+
+pictures10 = [picture37, picture38, picture39, picture40]
+
+picture41 = URI.open("https://cdn.apartmenttherapy.info/image/upload/v1556039518/at/house%20tours/archive/Tour%20a%20Colorful%20Home%20in%20Montreal/9ddf96cc0b523b9b9b00e60dfb9ded877fb6b88b.jpg")
+picture42 = URI.open("https://www.residence-brehova.com/images/one-bedroom/detail/large/bedroom_1.jpg")
+picture43 = URI.open("https://www.thespruce.com/thmb/tp8Bmu3oO2BNQWbp7iFR27v_PRw=/1100x0/filters:no_upscale():max_bytes(150000):strip_icc()/cottageandseabohobathroomwide-2ef1bea60361472599b2441f1a96f1d6.jpg")
+picture44 = URI.open("https://www.oppein-africa.com/wp-content/uploads/2019/11/Modern-Flat-Laminate-Beige-U-Shape-Kitchen-PLCC191312.jpg")
+
+pictures11 = [picture41, picture42, picture43, picture44]
+
+picture45 = URI.open("https://www.redfin.com/blog/wp-content/uploads/2022/04/Neutral-decor-apartment-.jpg")
+picture46 = URI.open("https://hips.hearstapps.com/hmg-prod/images/boho-bedroom-floral-wallpaper-1610551540.jpg")
+picture47 = URI.open("https://www.thespruce.com/thmb/XV_lLPySFdFY4d-VUixr8244P0I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/minimalist-bathroom-ideas-5121176-hero-cfadc3ce3546468c95c2fc1118346dd8.jpg")
+picture48 = URI.open("https://files.theinteriorsaddict.com/uploads/2017/07/Flat-pack-kitchen.jpg")
+
+pictures12 = [picture45, picture46, picture47, picture48]
+
 
 acco1 = Accommodation.new(
   user_id: fu1.id,
@@ -366,7 +439,10 @@ acco1 = Accommodation.new(
   balcony: 0,
   nb_of_tvs: rand(0..3)
 )
-acco1.photos.attach(io: picture1, filename: "pic1.jpg", content_type: "image/jpg")
+pictures1.each do |picture|
+  file = URI.open(picture)
+  acco1.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco1.save!
 puts "..."
 
@@ -384,7 +460,10 @@ acco2 = Accommodation.new(
   balcony: 1,
   nb_of_tvs: rand(0..3)
 )
-acco2.photos.attach(io: picture2, filename: "pic2.jpg", content_type: "image/jpg")
+pictures2.each do |picture|
+  file = URI.open(picture)
+  acco2.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco2.save!
 puts "..."
 
@@ -402,7 +481,10 @@ acco3 = Accommodation.new(
   balcony: 0,
   nb_of_tvs: rand(0..3)
 )
-acco3.photos.attach(io: picture3, filename: "pic3.jpg", content_type: "image/jpg")
+pictures3.each do |picture|
+  file = URI.open(picture)
+  acco3.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco3.save!
 puts "..."
 
@@ -420,7 +502,10 @@ acco4 = Accommodation.new(
   balcony: 1,
   nb_of_tvs: rand(0..3)
 )
-acco4.photos.attach(io: picture4, filename: "pic4.jpg", content_type: "image/jpg")
+pictures4.each do |picture|
+  file = URI.open(picture)
+  acco4.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco4.save!
 puts "..."
 
@@ -438,7 +523,10 @@ acco5 = Accommodation.new(
   balcony: 0,
   nb_of_tvs: rand(0..3)
 )
-acco5.photos.attach(io: picture5, filename: "pic5.jpg", content_type: "image/jpg")
+pictures5.each do |picture|
+  file = URI.open(picture)
+  acco5.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco5.save!
 puts "..."
 
@@ -456,7 +544,10 @@ acco6 = Accommodation.new(
   balcony: 0,
   nb_of_tvs: rand(0..3)
 )
-acco6.photos.attach(io: picture6, filename: "pic6.jpg", content_type: "image/jpg")
+pictures6.each do |picture|
+  file = URI.open(picture)
+  acco6.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco6.save!
 puts "..."
 
@@ -474,7 +565,10 @@ acco7 = Accommodation.new(
   balcony: 0,
   nb_of_tvs: rand(0..3)
 )
-acco7.photos.attach(io: picture7, filename: "pic7.jpg", content_type: "image/jpg")
+pictures7.each do |picture|
+  file = URI.open(picture)
+  acco7.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco7.save!
 puts "..."
 
@@ -492,7 +586,10 @@ acco8 = Accommodation.new(
   balcony: 0,
   nb_of_tvs: rand(0..3)
 )
-acco8.photos.attach(io: picture8, filename: "pic8.jpg", content_type: "image/jpg")
+pictures8.each do |picture|
+  file = URI.open(picture)
+  acco8.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco8.save!
 puts "..."
 
@@ -510,7 +607,10 @@ acco9 = Accommodation.new(
   balcony: 1,
   nb_of_tvs: rand(0..3)
 )
-acco9.photos.attach(io: picture9, filename: "pic9.jpg", content_type: "image/jpg")
+pictures9.each do |picture|
+  file = URI.open(picture)
+  acco9.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco9.save!
 puts "..."
 
@@ -528,7 +628,10 @@ acco10 = Accommodation.new(
   balcony: 0,
   nb_of_tvs: rand(0..3)
 )
-acco10.photos.attach(io: picture10, filename: "pic10.jpg", content_type: "image/jpg")
+pictures10.each do |picture|
+  file = URI.open(picture)
+  acco10.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco10.save!
 puts "..."
 
@@ -546,7 +649,10 @@ acco11 = Accommodation.new(
   balcony: 1,
   nb_of_tvs: rand(0..3)
 )
-acco11.photos.attach(io: picture11, filename: "pic11.jpg", content_type: "image/jpg")
+pictures11.each do |picture|
+  file = URI.open(picture)
+  acco11.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco11.save!
 puts "..."
 
@@ -564,7 +670,10 @@ acco12 = Accommodation.new(
   balcony: 0,
   nb_of_tvs: rand(0..3)
 )
-acco12.photos.attach(io: picture12, filename: "pic12.jpg", content_type: "image/jpg")
+pictures12.each do |picture|
+  file = URI.open(picture)
+  acco12.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+end
 acco12.save!
 puts "..."
 
@@ -580,18 +689,20 @@ sadd1 = "120 Avenue des Champs-Elysées, 75008 Paris"
 sadd2 = "75 Rue de la Parlette, 63000 Clermont-Ferrand"
 sadd3 = "18 Rue du Chaudronnier, 79000 Niort"
 
-sp1 = URI.open("https://i.pinimg.com/originals/72/5e/d6/725ed67a503311cfa08ea07fc3835981.jpg")
-sp2 = URI.open("https://media.architecturaldigest.com/photos/5d2f3540dea3bc0008636368/16:9/w_2580,c_limit/After-Photo-7.jpg")
-sp3 = URI.open("https://cdn.trendir.com/wp-content/uploads/old/archives/2015/12/07/1-kitchen-design-lofts-3-urban-ideas-snaidero.jpg")
-sp4 = URI.open("https://homedesignlover.com/wp-content/uploads/2016/04/4-loft-loft.jpg")
-sp5 = URI.open("https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGF1c3NtYW5pYW4lMjBhcHBhcnRtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60")
-sp6 = URI.open("https://images.unsplash.com/photo-1496180727794-817822f65950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aGF1c3NtYW5pYW4lMjBhcHBhcnRtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60")
-sp7 = URI.open("https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhhdXNzbWFuaWFuJTIwYXBwYXJ0bWVudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60")
-sp8 = URI.open("https://images.unsplash.com/photo-1556020685-ae41abfc9365?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGhhdXNzbWFuaWFuJTIwYXBwYXJ0bWVudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60")
-sp9 = URI.open("https://upload.wikimedia.org/wikipedia/commons/7/7d/Chambre_du_Dauphin%2C_Ch%C3%A2teau_de_Versailles_-_01.jpg")
-sp10 = URI.open("https://up.univ-nantes.fr/medias/photo/csm-ref-versailles-france-54ddd70ccd_1681720826219-jpg")
-sp11 = URI.open("https://www.chateaux-forts-de-france.fr/wp-content/uploads/2018/09/versailles-1.jpg")
-sp12 = URI.open("https://www.transilien.com/sites/transilien/files/styles/manual_crop/public/2021-12/galerie-des-glaces.jpg?h=9a7773c7&itok=KEDAnHsE")
+sp1 = URI.open("https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_01/3165836/paris-living-room.jpg")
+sp2 = URI.open("https://hips.hearstapps.com/hmg-prod/images/minimalist-bedrooms-romanekdesignstudiords-work-malibu-07-1591301745.jpg")
+sp3 = URI.open("https://fontanarchitecture.com/wp-content/uploads/2017/11/Adding-a-batrhoom.jpg")
+sp4 = URI.open("https://s42814.pcdn.co/wp-content/uploads/2020/04/0120_Westerly_Reveal_6C_Kitchen_Alt_Angles_Lights_on_15-1-scaled.jpg.optimal.jpg")
+
+sp5 = URI.open("https://media.architecturaldigest.com/photos/57a0f16da065cffc07e86697/4:3/w_2663,h_1997,c_limit/rental-apartment-decorating-ideas-01.jpg")
+sp6 = URI.open("https://cdn11.bigcommerce.com/s-s8pq4kiarm/images/stencil/1280x1280/products/1858/6747/adorna_ideaitaliabedroom_shot1_hero2-2_1_3__94884.1660043177.jpg")
+sp7 = URI.open("https://www.guestapartment.com/wp-content/uploads/2016/07/19-Paris-Ile-Saint-Louis-Seine-River-Properties-Luxury-Bathroom-Acacia.jpg")
+sp8 = URI.open("https://www.bhg.com/thmb/HIHRS69haDsoaRJTMYeYuXywv3k=/4000x0/filters:no_upscale():strip_icc()/Pink-kitchen-BPHo9SurqV5ADETPuQldyl-46ef8a6c11654ae08600af510025cdbb.jpg")
+
+sp9 = URI.open("https://cdn.homedit.com/wp-content/uploads/2016/07/Minsk-apartment-by-I-project-dining-space-adjacent-to-lounge.jpg")
+sp10 = URI.open("https://www.collinsdictionary.com/images/full/bed_large_724866226_1000.jpg")
+sp11 = URI.open("https://stylesatlife.com/wp-content/uploads/2020/01/small-apartment-bathroom-ideas.jpg")
+sp12 = URI.open("https://www.bhg.com/thmb/MaQDVndcD-FF3qtf9e50rmfVml4=/4000x0/filters:no_upscale():strip_icc()/bhg-modern-kitchen-8RbSHoA8aKT9tEG-DcYr56-039892da05774ea78f8682b3f693bb5d.jpg")
 
 super_pictures1 = [sp1, sp2, sp3, sp4]
 super_pictures2 = [sp5, sp6, sp7, sp8]
@@ -599,7 +710,7 @@ super_pictures3 = [sp9, sp10, sp11, sp12]
 
 
 
-super_acco_1 = Accommodation.new(
+super_acco_somya = Accommodation.new(
   user_id: somya.id,
   title: st1,
   description: "Welcome to our charming home! Located in a vibrant neighborhood, our accommodation offers a cozy and comfortable space for your stay. We've carefully designed every corner to create a warm and inviting atmosphere. With convenient amenities and a welcoming ambiance, our home is the perfect base for you to explore and experience the local culture. We can't wait to welcome you and make your stay unforgettable!",
@@ -615,12 +726,12 @@ super_acco_1 = Accommodation.new(
 )
 super_pictures1.each do |picture|
   file = URI.open(picture)
-  super_acco_1.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  super_acco_somya.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
 end
-super_acco_1.save!
+super_acco_somya.save!
 puts "..."
 
-super_acco_2 = Accommodation.new(
+super_acco_romain = Accommodation.new(
   user_id: romain.id,
   title: st2,
   description: "Welcome to our charming home! Located in a vibrant neighborhood, our accommodation offers a cozy and comfortable space for your stay. We've carefully designed every corner to create a warm and inviting atmosphere. With convenient amenities and a welcoming ambiance, our home is the perfect base for you to explore and experience the local culture. We can't wait to welcome you and make your stay unforgettable!",
@@ -636,12 +747,12 @@ super_acco_2 = Accommodation.new(
 )
 super_pictures2.each do |picture|
   file = URI.open(picture)
-  super_acco_2.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  super_acco_romain.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
 end
-super_acco_2.save!
+super_acco_romain.save!
 puts "..."
 
-super_acco_3 = Accommodation.new(
+super_acco_amar = Accommodation.new(
   user_id: amar.id,
   title: st3,
   description: "Welcome to our charming home! Located in a vibrant neighborhood, our accommodation offers a cozy and comfortable space for your stay. We've carefully designed every corner to create a warm and inviting atmosphere. With convenient amenities and a welcoming ambiance, our home is the perfect base for you to explore and experience the local culture. We can't wait to welcome you and make your stay unforgettable!",
@@ -657,9 +768,9 @@ super_acco_3 = Accommodation.new(
 )
 super_pictures3.each do |picture|
   file = URI.open(picture)
-  super_acco_3.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  super_acco_amar.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
 end
-super_acco_3.save!
+super_acco_amar.save!
 puts "..."
 
 puts "3 super accommodations created !"
@@ -697,84 +808,84 @@ puts "..."
 puts "creating 6 modalities, 2 for each exchange ..."
 
 m1_e1 = Modality.new(
-  accommodation_id: super_acco_1.id,
+  accommodation_id: super_acco_somya.id,
   exchange_id: e1.id,
   duration: 10,
   check_in: Date.parse("2023-01-10"),
   check_out: Date.parse("2023-01-20"),
-  keys: "office",
+  keys: "Office",
   petsitting: 1,
-  transportation: "car",
+  transportation: "Car",
   others: "other modality parameter",
 )
 m1_e1.save!
 puts "..."
 
 m2_e1 = Modality.new(
-  accommodation_id: super_acco_2.id,
+  accommodation_id: super_acco_romain.id,
   exchange_id: e1.id,
   duration: 10,
   check_in: Date.parse("2023-01-10"),
   check_out: Date.parse("2023-01-20"),
-  keys: "handover",
+  keys: "Handover",
   petsitting: 1,
-  transportation: "bike",
+  transportation: "Bike",
   others: "other modality parameter",
 )
 m2_e1.save!
 puts "..."
 
 m1_e2 = Modality.new(
-  accommodation_id: super_acco_1.id,
+  accommodation_id: super_acco_somya.id,
   exchange_id: e2.id,
   duration: 15,
   check_in: Date.parse("2022-07-15"),
   check_out: Date.parse("2023-07-30"),
-  keys: "office",
+  keys: "Office",
   petsitting: 0,
-  transportation: "car",
+  transportation: "Car",
   others: "other modality parameter",
 )
 m1_e2.save!
 puts "..."
 
 m2_e2 = Modality.new(
-  accommodation_id: super_acco_3.id,
+  accommodation_id: super_acco_amar.id,
   exchange_id: e2.id,
   duration: 15,
   check_in: Date.parse("2022-07-15"),
   check_out: Date.parse("2023-07-30"),
-  keys: "handover",
+  keys: "Handover",
   petsitting: 1,
-  transportation: "bike",
+  transportation: "Bike",
   others: "other modality parameter",
 )
 m2_e2.save!
 puts "..."
 
 m1_e3 = Modality.new(
-  accommodation_id: super_acco_2.id,
+  accommodation_id: super_acco_romain.id,
   exchange_id: e3.id,
   duration: 18,
   check_in: Date.parse("2023-08-12"),
   check_out: Date.parse("2023-08-30"),
-  keys: "office",
+  keys: "Office",
   petsitting: 0,
-  transportation: "car",
+  transportation: "Car",
   others: "other modality parameter",
 )
 m1_e3.save!
 puts "..."
 
 m2_e3 = Modality.new(
-  accommodation_id: super_acco_3.id,
+  accommodation_id: super_acco_amar.id,
   exchange_id: e3.id,
   duration: 18,
   check_in: Date.parse("2023-08-12"),
   check_out: Date.parse("2023-08-30"),
-  keys: "handover",
+  keys: "Handover",
   petsitting: 0,
-  transportation: "bike",
+  transportation: "Bike",
   others: "other modality parameter",
 )
 m2_e3.save!
@@ -811,8 +922,8 @@ r3.save!
 puts "..."
 
 r4 = Review.new(
-  user_id: romain.id,
-  content: "Nothing to say, everything was incredible, thanks again for all your advice",
+  user_id: somya.id,
+  content: "Nothing to say, everything was incredible, thanks again for all your advices",
   modality_id: m2_e2.id
 )
 r4.save!
@@ -820,15 +931,15 @@ puts "..."
 
 r5 = Review.new(
   user_id: amar.id,
-  content: "I absolutely loved the house and my stay overall. Somya was super nice and really made the city special for my wife and I",
+  content: "I absolutely loved the house and my stay overall. Romain was super nice and really made the city special for my wife and I",
   modality_id: m1_e3.id
 )
 r5.save!
 puts "..."
 
 r6 = Review.new(
-  user_id: somya.id,
-  content: "Thank you Romain !!! What a lovely home you have. Having a car to go around with easy parking was a blast I must say",
+  user_id: romain.id,
+  content: "Thank you !!! What a lovely home you have. Having a car to go around with easy parking was a blast I must say",
   modality_id: m2_e3.id
 )
 r6.save!
@@ -918,3 +1029,4 @@ me10_e1 = Message.new(
 me10_e1.save!
 
 puts "10 messages created !"
+puts "Seeding done ! "
