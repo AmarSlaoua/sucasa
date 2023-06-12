@@ -86,6 +86,7 @@ class ExchangesController < ApplicationController
     @other_user = find_other_user(@exchange)
     find_my_exchanges
     @exchanges_infos = build_exchanges_info
+    # raise
   end
 
   def show
@@ -130,7 +131,9 @@ class ExchangesController < ApplicationController
   end
 
   def find_my_exchanges
-    @my_exchanges = current_user.accommodation.modalities.map(&:exchange)
+    @my_exchanges = current_user.accommodation.exchanges.sort_by { |exchange|
+      exchange.messages.last&.created_at || exchange.created_at
+    }.reverse
   end
 
   def build_exchanges_info

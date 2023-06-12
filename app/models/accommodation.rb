@@ -1,6 +1,7 @@
 class Accommodation < ApplicationRecord
   belongs_to :user
   has_many :modalities, dependent: :destroy
+  has_many :exchanges, through: :modalities
   has_many_attached :photos
 
   validates :title, presence: true
