@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-3">
       <h4><br>Messages<br></h4>
+
       <% @exchanges_infos.each do |exchange| %>
         <%= link_to edit_exchange_path(exchange[0]) do %>
           <div class="div p-3">
