@@ -26,7 +26,7 @@
     max-width: 300px;
     max-height: 380px;
     margin: 25px auto;
-    border-radius: 20px;
+    border-radius: 0.6rem;
     margin-bottom: 15px;
     p {
       font-size: 12px;
@@ -38,7 +38,7 @@
       font-weight: bold;
       margin: 0;
       margin-right: 50px;
-      color: #474747;
+      color: #676767;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -98,7 +98,7 @@ div {
   padding-left: 2%;
   h6 {
     margin-left: 20px;
-    color: #747474;
+    color: #676767;
   }
   h2 {
     display: block;

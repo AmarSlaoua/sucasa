@@ -18,7 +18,7 @@
   .main-photo img {
     width: 100%;
     height: auto;
-    border-radius: 30px;
+    border-radius: 0.6rem;
   }
 }
 
@@ -30,7 +30,7 @@
   .secondary-photo img {
     width: 100%;
     height: auto;
-    border-radius: 30px;
+    border-radius: 0.6rem;
   }
 }
 
@@ -64,7 +64,7 @@
   .main-photo img {
     width: 100%;
     height: auto;
-    border-radius: 30px;
+    border-radius: 0.6rem;
   }
 
   .secondary-photos {
@@ -76,13 +76,13 @@
 
   .secondary-photo {
     flex-basis: 100%;
-    border-radius: 30px;
+    border-radius: 0.6rem;
   }
 
   .secondary-photo img {
     width: 100%;
     height: auto;
-    border-radius: 30px;
+    border-radius: 0.6rem;
   }
 }
 
@@ -167,7 +167,7 @@
 .equipement-1, .equipement-2, .equipement-3, .equipement-4, .equipement-5, .equipement-6, .equipement-7{
   border: 0.8px solid rgb(193, 193, 193);
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 0.6rem;
   margin-right: 20px;
 }
 
@@ -191,7 +191,7 @@
 .user-1, .user-2, .user-3{
   border: 0.8px solid rgb(193, 193, 193);
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 0.6rem;
   margin-right: 20px;
 }
 
@@ -268,7 +268,7 @@
 .container-booking-block2{
   border: 0.8px solid #bababa;
   background-color: white;
-  border-radius: 20px;
+  border-radius: 0.6rem;
   padding: 8%;
   width: 380px;
   height: 40%;
@@ -313,10 +313,10 @@
 
 .offer-button{
   border: 0.8px solid #b6b6b6;
-border-radius: 20px;
+border-radius: 0.6rem;
 padding: 15px;
-padding-left: 100px;
-padding-right: 100px;
+padding-left: 110px;
+padding-right: 110px;
 background-color: #F2C14E;
 box-shadow: 0 0 30px 2px #d0d0d0;
 }
@@ -428,13 +428,13 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 
 .exchange-first-block, .exchange-second-block, .exchange-third-block, .exchange-fourth-block{
   background-color: white;
-  border-radius: 30px;
+  border-radius: 0.6rem;
   padding-top: 40px;
   padding-bottom: 40px;
   margin-bottom: 15px;
     border: 0.8px solid #bababa;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 0.6rem;
     width: 810px;
     height: 40%;
     box-shadow: 0 0 30px 2px #d0d0d0;
