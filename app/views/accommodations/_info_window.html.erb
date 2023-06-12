@@ -3,6 +3,6 @@
       <%= cl_image_tag accommodation.photos[0].key, height: 130, width: 220, crop: :fill %>
       <h6 class="title"><%= accommodation.title %></h6>
       <h6> <i class="fa-solid fa-person"></i> <%= accommodation.nb_of_guests %> people </h6>
-      <h6> <%= accommodation.user.first_name %> -- <%= accommodation.user.job %> </h6>
+      <h6> <%= accommodation.user.first_name %> | <%= accommodation.user.job %> </h6>
   <% end %>
 </div>

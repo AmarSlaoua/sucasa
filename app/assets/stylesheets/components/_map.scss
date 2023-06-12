@@ -50,11 +50,14 @@
   position: sticky;
   top: 0;
   height: 100vh;
+  margin-top: 6.5%;
+  border-radius: 0.6rem;
 }
 
 .map-wrapper {
   width: 300%;
   height: 100%;
+  border-radius: 0.6rem;
 }
 
 .info-map-window a {
@@ -64,7 +67,7 @@
 }
 
 .info-map-window{
-  border: 0px;
+  border-radius: 0.6rem;
 }
 
 .info-map-window i{
@@ -82,7 +85,7 @@
 }
 
 .mapboxgl-popup-content img {
-border-radius: 0px;
+  border-radius: 0.6rem;
 }
 
 
@@ -104,5 +107,15 @@ element.style {
 
 .mapboxgl-popup-content {
   text-align: start;
-  border-radius: 15px;
+  border-radius: 0.6rem;
+}
+
+.mapboxgl-ctrl-geocoder--icon-close, .mapboxgl-ctrl-geocoder--icon-loading{
+  display: none;
+}
+
+.mapboxgl-ctrl-geocoder--input{
+  background-color: var(--bs-body-bg);
+  border-radius: 0.6rem;
+
 }

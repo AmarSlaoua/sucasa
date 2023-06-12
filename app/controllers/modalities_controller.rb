@@ -9,6 +9,7 @@ class ModalitiesController < ApplicationController
       @modality.check_in = Date.parse(check_in)
       @modality.check_out = Date.parse(check_out)
     end
+
     if @modality.update(params_modalities)
       redirect_to edit_exchange_path(@modality.exchange)
     else
