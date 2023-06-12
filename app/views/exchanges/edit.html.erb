@@ -2,10 +2,8 @@
 
 <div class="container-msg">
   <div class="row">
-
     <div class="col-3">
       <h4><br>Messages<br></h4>
-      
       <% @exchanges_infos.each do |exchange| %>
         <%= link_to edit_exchange_path(exchange[0]) do %>
           <div class="div p-3">
@@ -16,7 +14,6 @@
                 <div class="name-msg-left"><%= exchange[1].first_name %></div>
                 <div class="msg-left"><%= exchange[2] %></div>
               </div>
-
             </div>
           </div>
         <% end %>
@@ -28,19 +25,20 @@
       data-controller="exchange-subscription"
       data-exchange-subscription-exchange-id-value="<%= @exchange.id %>">
       <h4><br>Talk to <%= @other_user.first_name %> ... <br><br> </h4>
-
-      <div class="messages" data-exchange-subscription-target="messages">
-        <% @exchange.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
-        <% end %>
+      <div class="flex-msg-input">
+        <div class="messages" data-exchange-subscription-target="messages" style="max-height: 540px; overflow-y: auto;">
+          <% @exchange.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
+        <div class="msg-input">
+          <%= simple_form_for [@exchange, @message],
+          html: { data: { action: "turbo:submit-end->exchange-subscription#resetForm" }, class: "d-flex" } do |f|%>
+            <%= f.input :content, placeholder: "Type something", label: false, wrapper_html: {class: "flex-grow-1"} %>
+            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <% end %>
+        </div>
       </div>
-
-      <%= simple_form_for [@exchange, @message],
-        html: { data: { action: "turbo:submit-end->exchange-subscription#resetForm" }, class: "d-flex" } do |f|%>
-          <%= f.input :content, placeholder: "Type something", label: false, wrapper_html: {class: "flex-grow-1"} %>
-          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-        <% end %>
-
     </div>
 
     <div class="col-4">
@@ -63,82 +61,83 @@
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Step 1
+                  Duration
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :duration, placeholder: "How long do you want to exchange ?" %>
+                  <%= f.input :duration, placeholder: "For how long ?" %> <p style="font-size: 10px;">💡<em> Agree with your buddy and choose a travel duration.</em></p>
+                  <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Step 2
+                  Dates
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %> <p style="font-size: 10px;">💡<em> Decide with your buddy and choose the dates for your exchange.</em></p>
+                  <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Step 3
+                Keys
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :keys, placeholder: "How about the keys ? 🗝" %>
+                  <%= f.input :keys, placeholder: "How about the keys ? 🗝" %> <p style="font-size: 10px;">💡<em>Explain where you would like to leave the keys (at the office, in-person, to a trusted neighbor, on a key lockbox...).</em></p>
+                  <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingFour">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                Step 4
+                Petsitting
                 </button>
               </h2>
               <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %>
+                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %> <p style="font-size: 10px;">💡<em>Can you take care of your host's pet ?</em></p>
+                  <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingFive">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Step 5
+                Transportation
                 </button>
               </h2>
               <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :transportation, placeholder: "Does your host can use your transportation ? 🚲" %>
+                  <%= f.input :transportation, placeholder: "Is your transportation available?" %> <p style="font-size: 10px;">💡<em>If you wish to provide transportation options to your guest, you can discuss it and specify it here (bicycle, car, etc.). </em></p>
+                  <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingSix">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                Step 6
+                Others
                 </button>
               </h2>
               <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :others, placeholder: "Anything else to tell your colleague ? 🤔" %>
+                  <%= f.input :others, placeholder: "Anything else ?" %> <p style="font-size: 10px;">💡<em>Add any additional information here.</em></p>
+                  <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
           </div>
             <%= f.hidden_field :progress%>
-            <div class="separator">
-            </div>
-            <%= f.submit "+ Submit" %>
-            <div class="separator">
-            </div>
           <% end %>
         </div>
 
@@ -149,82 +148,83 @@
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Step 1
+                  Duration
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :duration, placeholder: "How long do you want to exchange ?" %>
+                  <%= f.input :duration, placeholder: "For how long ?" %> <p style="font-size: 10px;">💡<em>Agree with your buddy and choose a travel duration.</em></p>
+                <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Step 2
+                  Dates
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %> <p style="font-size: 10px;">💡<em> Decide with your buddy and choose the dates for your exchange.</em></p>
+                <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Step 3
+                Keys
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :keys, placeholder: "How about the keys ? 🗝" %>
+                  <%= f.input :keys, placeholder: "How about the keys ?" %> <p style="font-size: 10px;">💡<em>Explain where you would like to leave the keys (at the office, in-person, to a trusted neighbor, on a key lockbox...).</em></p>
+                <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingFour">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                Step 4
+                Petsitting
                 </button>
               </h2>
               <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %>
+                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %> <p style="font-size: 10px;">💡<em>Can you take care of your host's pet ?</em></p>
+                <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingFive">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Step 5
+                Transportation
                 </button>
               </h2>
               <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :transportation, placeholder: "Does your host can use your transportation ? 🚲" %>
+                  <%= f.input :transportation, placeholder: "Is your transportation available?" %> <p style="font-size: 10px;">💡<em>If you wish to provide transportation options to your guest, you can discuss it and specify it here (bicycle, car, etc.). </em></p>
+                <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingSix">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                Step 6
+                Others
                 </button>
               </h2>
               <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :others, placeholder: "Anything else to tell your colleague ? 🤔" %>
+                  <%= f.input :others, placeholder: "Anything else ?" %> <p style="font-size: 10px;">💡<em>Add any additional information here.</em></p>
+                <%= f.submit "+ Submit" %>
                 </div>
               </div>
             </div>
           </div>
             <%= f.hidden_field :progress%>
-            <div class="separator">
-            </div>
-            <%= f.submit "+ Submit" %>
-            <div class="separator">
-            </div>
           <% end %>
         </div>
 

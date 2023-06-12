@@ -4,12 +4,6 @@ body {
   background-color: #f8f8f8;
 }
 
-
-.main-container {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
 element.style {
 }
 @media (min-width: 768px)
@@ -34,16 +28,12 @@ element.style {
     padding: 0;
 }
 
-.title-container {
-  margin-left: 5%;
-}
-
 // article
 .flex-article{
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 9%;
+  padding-left: 7%;
   padding-top: 3%;
   padding-bottom: 3%;
   background-color: white;
