@@ -389,7 +389,7 @@ picture28 = URI.open("https://blog.kitchenmagic.com/hs-fs/hubfs/RotM%20Feb%20202
 
 pictures7 = [picture25, picture26, picture27, picture28]
 
-picture29 = URI.open("https://www.rentcafe.com/blog/wp-content/uploads/sites/62/2020/09/Small-Living-Room-Ideas-Decorate-vertically.jpg")
+picture29 = URI.open("https://hips.hearstapps.com/hmg-prod/images/modern-living-room-black-white-1656377050.jpg")
 picture30 = URI.open("https://uploads-ssl.webflow.com/5db0fce271caa26ad1ca0613/5e18cc88d27bcf43c704809b_1-bedroom-apartment.jpg")
 picture31 = URI.open("https://hips.hearstapps.com/hmg-prod/images/allisonknizekdesign-erikabiermanphoto-5-1674499280.jpg")
 picture32 = URI.open("https://cdn.apartmenttherapy.info/image/upload/v1556038329/at/house%20tours/archive/Farah%20Toronto/66075f0f7f5be8a1dee33b281cc3fc03c901788a.jpg")
