@@ -5,7 +5,7 @@
 
     <div class="col-3">
       <h4><br>Messages<br></h4>
-      
+
       <% @exchanges_infos.each do |exchange| %>
         <%= link_to edit_exchange_path(exchange[0]) do %>
           <div class="div p-3">
@@ -166,7 +166,7 @@
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                  <%= f.input :dates, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %>
                 </div>
               </div>
             </div>
