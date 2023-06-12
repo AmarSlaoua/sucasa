@@ -348,6 +348,29 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 // SHOW EXHANGE
 // main infos
 
+.m-3 {
+  margin: 0px !important;
+}
+
+.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+  padding-left: 0px !important;
+}
+
+.exchange-show .image-clickable{
+  border-radius: 0.6em;
+}
+
+.flex-valid-exchange-main-infos{
+border-radius: 0.6em;
+}
+
+.exchange-first-block{
+  padding-top: 0px !important;
+  h5{
+    padding-top: 40px;
+  }
+}
+
 .flex-valid-exchange-main-infos{
   display: flex;
   justify-content: flex-start;
@@ -411,7 +434,11 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 }
 
 .photo-exchange{
-  margin: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
 }
 
 .exchange-show{

@@ -2,27 +2,31 @@
 <div class="map-exchange-valid">
   <div class="map-exchange-flex-1">
     <div class="exchange-show">
-      <h3>Your Stay at  <%= @other_user_modality.accommodation.user.first_name %>'s</h3>
-      <% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
-        <div class="container">
-          <h3>Comment on your exchange with <%= @other_user_modality.accommodation.user.first_name %> !</h3>
-            <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
-            <%= f.input :content %>
-            <%= f.submit "Publish comment" %>
+      <div class="container-accommodation-form">
+        <div class="accommodation-form">
+          <div class="accommodation-text">
+            <h3>Your Stay at  <%= @other_user_modality.accommodation.user.first_name %>'s</h3>
+            <% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
+              <div class="container">
+                <h4>Comment on your exchange with <%= @other_user_modality.accommodation.user.first_name %> !</h4>
+                  <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
+                  <%= f.input :content %>
+                  <%= f.submit "Publish comment" %>
+                <% end %>
+              </div>
             <% end %>
+          </div>
         </div>
-      <% end %>
-
+      </div>
       <div class="container-exchange-show">
         <div class="container">
-                <div class="main-photo photo-exchange">
-                  <%= cl_image_tag @other_user_modality.accommodation.photos.first.key, height: 310, width: 490, crop: :fill, class: "image-clickable" %>
-                </div>
+
 
           <div class ="m-3 exchange">
             <div class="exchange-first-block">
+                  <%= cl_image_tag @other_user_modality.accommodation.photos.first.key, height: 500, width: 810, crop: :fill, class: "image-clickable" %>
               <h5>Main infos</h5>
               <div class="flex-valid-exchange-main-infos">
                 <div class="valid-block valid-exchange-duration">
@@ -92,7 +96,7 @@
   </div>
     <div class="map-container">
       <div class="map-wraper">
-        <div style="width: 100%; height: 800px;"
+        <div style="width: 100%; height: 780px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

@@ -9,7 +9,7 @@ export default class extends Controller {
   connect() {
     const options = {
       mode: "range",
-      minDate: "today",
+      // minDate: "today",
       dateFormat: "d-m-Y",
       altInput: true
       };
