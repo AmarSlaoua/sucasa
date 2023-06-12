@@ -65,6 +65,7 @@ require 'date'
 
 
 class ExchangesController < ApplicationController
+
   def create
     @accommodation = Accommodation.find(params[:exchange][:accommodation_id])
     @exchange = Exchange.new(exchange_params)
@@ -86,6 +87,16 @@ class ExchangesController < ApplicationController
     @other_user = find_other_user(@exchange)
     find_my_exchanges
     @exchanges_infos = build_exchanges_info
+    @modality_form = MODALITY_FORM
+    @attributes = @my_modality.attributes
+    @attributes.delete("check_out")
+    @attributes.delete("id")
+    @attributes.delete("progress")
+    @index_first_empty_input = []
+    @attributes.each_with_index { |(_key, value), index|
+      @index_first_empty_input << index if value == "" || value.nil?
+    }
+    @index_first_empty_input = @index_first_empty_input.first
   end
 
   def show
