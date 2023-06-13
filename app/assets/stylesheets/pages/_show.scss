@@ -87,6 +87,9 @@
 }
 
 // user+accommodation infos
+
+
+
 .container{
   margin-left:6%;
   margin-right: 3%;
@@ -273,7 +276,6 @@
   width: 380px;
   height: 40%;
   box-shadow: 0 0 30px 2px #d0d0d0;
-  margin-top: 20px;
   h5{
     font-weight: bolder;
     font-size: 18px;
@@ -348,6 +350,27 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 // SHOW EXHANGE
 // main infos
 
+.m-3 {
+  margin: 0px !important;
+}
+
+
+.exchange-show .image-clickable{
+  border-radius: 0.6em;
+}
+
+.flex-valid-exchange-main-infos{
+border-radius: 0.6em;
+margin-left: 36px;
+}
+
+.exchange-first-block{
+  padding-top: 0px !important;
+  h5{
+    padding-top: 40px;
+  }
+}
+
 .flex-valid-exchange-main-infos{
   display: flex;
   justify-content: flex-start;
@@ -355,8 +378,8 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 
 .valid-block{
   border-right: 1px solid rgba(129, 129, 129, 0.363);
-  padding-right: 80px;
-  padding-left: 80px;
+  padding-right: 15%;
+  padding-left: 3%;
   margin-bottom: 10px;
   h6{
     font-weight: bolder;
@@ -385,10 +408,9 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 .flex-valid-exchange-secondary-infos{
   display: flex;
   justify-content: flex-start;
-  margin-left: 50px;
+  margin-left: 36px;
   .valid-block{
-  padding-right: 40px;
-  padding-left: 40px;
+  padding-right: 12%;
   margin-bottom: 10px;
 }
 }
@@ -398,6 +420,10 @@ box-shadow: 0 0 30px 2px #d0d0d0;
   h5{
     margin: 0px;
     margin-bottom: 15px;
+  }
+  p{
+    padding-left: 6%;
+    padding-right: 6%;
   }
 }
 
@@ -411,7 +437,11 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 }
 
 .photo-exchange{
-  margin: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
 }
 
 .exchange-show{
@@ -439,8 +469,10 @@ box-shadow: 0 0 30px 2px #d0d0d0;
     height: 40%;
     box-shadow: 0 0 30px 2px #d0d0d0;
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: 20px;
+    margin-right: 10px;
 }
+
 
 .map-exchange-valid {
   display: flex;
@@ -456,4 +488,23 @@ box-shadow: 0 0 30px 2px #d0d0d0;
   color: black;
   transition: 0.2s;
   transform: scale3d(1.025, 1.025, 1)
+}
+
+.flex-picture-buddy-valid{
+  display: flex;
+  h6{
+    padding-top: 3%;
+  }
+}
+
+.exchange-third-block.last-block{
+  padding-left: 60px;
+  h5{
+    font-weight: bolder;
+    margin-bottom: 3%;
+  }
+}
+
+.accommodation-form.review-main{
+  padding: 4%;
 }

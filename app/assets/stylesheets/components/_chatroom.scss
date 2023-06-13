@@ -14,11 +14,14 @@
   left: 0;
   width: 45%;
   margin-left: 26%;
-  padding: 10px;
+  padding: 12px;
   border-top: 1px solid #ddd;
   text-align: center;
-  border: transparent
+  border: transparent;
+  margin-bottom: 1%;
 }
+
+
 
 .col-4 .form-control{
   border-radius: 0.6rem;
@@ -30,17 +33,9 @@
 }
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
-  color: #303030;
+  color: #F2C14E;
 }
 
-.form-check-input[type="checkbox"]:checked {
-  background-color: #F2C14E;
-  border: solid transparent;
-}
-
-.form-check-input[type="checkbox"] {
-  border: solid transparent;
-}
 
 .was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
   background-color: #F2C14E;
@@ -61,6 +56,7 @@
 .col-4 .form-control:hover
  {
   border: 3px solid #F2C14E;
+  border-radius: 0.6rem;
   opacity: 0.6;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
@@ -101,6 +97,7 @@
   // margin-bottom: 35px;
   bottom: 0;
   // width: 100%;
+  margin-top: 30px;
 }
 
 .link-validate a{
@@ -108,15 +105,13 @@
   color: white;
   border-radius: 0.6rem;
   padding: 12px;
-  // padding-left: 50px;
-  // padding-right: 50px;
-  margin-left: 20%;
+  padding-left: 26.8%;
+  padding-right: 26.8%;
   opacity: 1;
-
 }
 
 .link-validate a:hover{
-  opacity: 1;
+  opacity: 0.8;
 }
 
 
@@ -160,13 +155,20 @@
 
 .col-5{
   width: 47%;
-  margin-right: 2%;
   padding-left: 2%;
+  margin-right: 2%;
+  padding-right: 2%;
+  height: 730px;
   border-right: 0.8px solid rgba(0, 0, 0, 0.562);
   border-left: 0.8px solid  rgba(0, 0, 0, 0.562);
   h4{
     font-weight: bold;
   }
+}
+
+.avatar.mr-3.msg{
+  margin-top: 2%;
+  margin-right: 1%;
 }
 
 .col-3{
@@ -181,7 +183,7 @@
 
 .col-4{
   width: 25%;
-  margin-bottom: 5%;
+  margin-bottom: 3.4%;
   padding-right: 2%;
   h4{
     font-weight: bold;
@@ -197,6 +199,7 @@
   color: #676767;
 }
 
+
 .div-left .name-msg-left{
   font-size: smaller;
   font-weight: bolder;
@@ -205,6 +208,12 @@
 .div-left:hover{
   color: rgb(79, 79, 79);
 }
+
+.messages-container {
+  height: 610px;
+  overflow-y: auto;
+}
+
 
 .messages i{
   font-size: smaller;
@@ -216,6 +225,7 @@
   color: #3d3d3d;
   font-weight: lighter;
   font-size: 14px;
+  padding-left: 8%;
 }
 
 .align-items-center{
@@ -223,19 +233,82 @@
   padding-bottom: 10%;
 }
 
-.messages{
-  padding: 5px;
-}
-
 .d-flex .avatar{
   width: 50px;
   height: 50px;
 }
 
+.p-3 {
+  padding: 0px !important;
+}
+
+.p-3.active.active{
+  background-color: #f3f3f3;
+  border-radius: 0.6rem;
+}
+
 .p-3 .align-items-center:hover{
   background-color: #f3f3f3;
+  border-radius: 0.6rem;
+}
+
+.p-3 .align-items-center{
+  padding-right: 25px;
+  padding-left: 30px;
+  padding: 20px;
 }
 
 .container-msg{
   background-color: white;
+}
+
+.accordion .form-label{
+  display: none;
+}
+
+
+.accordion .form-check-input[type="checkbox"] {
+  background-color: rgb(246, 246, 246);
+}
+
+.form-check-input[type="checkbox"]:hover {
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem #F2C14E;
+}
+
+.form-check-input[type="checkbox"]:checked {
+  background-color: #F2C14E;
+  border: solid transparent;
+}
+
+.form-check-input[type="checkbox"] {
+  border: solid transparent;
+}
+
+.accordion {
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem transparent;
+  --bs-accordion-bg: transparent;
+  --bs-accordion-active-bg: transparent;
+}
+
+.accordion-header:hover {
+  background-color: #f0f0f0;
+}
+
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.selected.inRange, .flatpickr-day.startRange.inRange, .flatpickr-day.endRange.inRange, .flatpickr-day.selected:focus, .flatpickr-day.startRange:focus, .flatpickr-day.endRange:focus, .flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover, .flatpickr-day.selected.prevMonthDay, .flatpickr-day.startRange.prevMonthDay, .flatpickr-day.endRange.prevMonthDay, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.startRange.nextMonthDay, .flatpickr-day.endRange.nextMonthDay {
+  background: #F2C14E;
+  box-shadow: none;
+  color: #fff;
+  border-color: #F2C14E;
+}
+
+.accordion p{
+  color: #808080;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-top: 0px;
+}
+
+.flex-msg-input{
+  display: flex;
+  flex-direction: column;
 }

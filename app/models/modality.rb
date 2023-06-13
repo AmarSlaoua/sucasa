@@ -3,6 +3,6 @@ class Modality < ApplicationRecord
   belongs_to :exchange
   has_one :review
 
-  enum progress: { pending: 0, next: 1 }
+  enum progress: { pending: 0, next: 1 }, _default: 0
 
 end
