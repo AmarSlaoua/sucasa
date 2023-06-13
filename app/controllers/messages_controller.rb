@@ -9,7 +9,9 @@ class MessagesController < ApplicationController
       ExchangeChannel.broadcast_to(
         @exchange,
         { message: render_to_string(partial: "message", locals: { message: @message }),
-          exchanges_infos: render_to_string(partial: "exchanges/exchanges_infos", locals: { exchanges_infos: @exchanges_infos, exchange: @exchange}) }
+          exchanges_infos: render_to_string(partial: "exchanges/exchanges_infos", locals: { exchanges_infos: @exchanges_infos, exchange: @exchange}),
+          current_user_id: current_user.id
+        }
       )
       head :ok
     else

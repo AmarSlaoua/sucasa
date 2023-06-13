@@ -95,10 +95,10 @@ class ExchangesController < ApplicationController
       @attributes[element]
     end
 
-    find_last_input
+    @occurence = @my_modality.find_last_input(@test_final)
+    # raise
     progress_toggle
   end
-
 
   def show
     @exchange = Exchange.find(params[:id])
@@ -128,25 +128,19 @@ class ExchangesController < ApplicationController
     )
   end
 
-
-  def find_my_exchanges
-    @my_exchanges = current_user.accommodation.modalities.map(&:exchange)
-  end
-
-
   def progress_toggle
     if @my_modality.progress == "pending"
       @my_modality.progress = "next"
     end
   end
 
-  def find_last_input
-    if @my_modality.progress == "pending"
-      @occurence = @test_final.index { |i| i.nil? || i == "" }
-    elsif @my_modality.progress == "next"
-      @occurence = @test_final.index { |i| i.nil? || i == "" } - 1
-    else
-      raise
-    end
-  end
+  # def find_last_input
+  #   if @my_modality.progress == "pending"
+  #     @occurence = @test_final.index { |i| i.nil? || i == "" }
+  #   elsif @my_modality.progress == "next"
+  #     @occurence = @test_final.index { |i| i.nil? || i == "" } - 1
+  #   else
+  #     raise
+  #   end
+  # end
 end

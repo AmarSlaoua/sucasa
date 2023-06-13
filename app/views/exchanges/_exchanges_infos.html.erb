@@ -1,18 +1,19 @@
-<div class="col-3" data-exchange-subscription-target="exchanges">
-  <h4><br>Messages<br></h4>
-
-  <% exchanges_infos.each do |exchange| %>
-    <%= link_to edit_exchange_path(exchange[0]) do %>
-      <div class="div p-3">
-        <div class="d-flex align-items-center">
-          <%= cl_image_tag exchange[1].photo.key, crop: :fill, class: "avatar mr-3" %>
-
-          <div class="div-left">
-            <div class="name-msg-left"><%= exchange[1].first_name %></div>
-            <div class="msg-left"><%= exchange[2] %></div>
+<div class="row">
+  <div class="col-3">
+    <h4><br>Messages<br></h4>
+    <div class="messages-container">
+      <% @exchanges_infos.each do |exchange| %>
+        <%= link_to edit_exchange_path(exchange[0]) do %>
+          <div class="div p-3 <%= exchange[0] == @exchange ? 'active' : '' %>">
+            <div class="d-flex align-items-center">
+              <%= cl_image_tag exchange[1].photo.key, crop: :fill, class: "avatar mr-3" %>
+              <div class="div-left">
+                <div class="name-msg-left"><%= exchange[1].first_name %></div>
+                <div class="msg-left"><%= exchange[2] %></div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>

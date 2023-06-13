@@ -4,5 +4,14 @@
     <strong><%= message.user.first_name %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
-  <p><%= message.content %></p>
+  <p>
+    <% if modality.present? %>
+      <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr'})do |f|%>
+        <%= f.input :duration %>
+        <%= f.submit %>
+      <% end %>
+    <% else %>
+      <%= message.content %>
+    <% end %>
+  </p>
 </div>
