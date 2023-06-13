@@ -69,8 +69,8 @@ class ExchangesController < ApplicationController
     @accommodation = Accommodation.find(params[:exchange][:accommodation_id])
     @exchange = Exchange.new(exchange_params)
     if @exchange.save
-      create_modality(current_user.accommodation.id)
-      create_modality(@accommodation.id)
+      @exchange.create_modality(current_user.accommodation)
+      @exchange.create_modality(@accommodation)
       redirect_to edit_exchange_path(@exchange)
     else
       render :new, status: :unprocessable_entity
@@ -81,20 +81,18 @@ class ExchangesController < ApplicationController
     @exchange = Exchange.find(params[:id])
     @message = Message.new
     @exchange_modalities = Modality.where(exchange: @exchange)
-    @my_modality = find_my_modality(@exchange.id)
-    @other_user_modality = find_other_user_modality(@exchange.id)
-    @other_user = find_other_user(@exchange)
+    @my_modality = @exchange.find_my_modality(current_user)
+    @other_user_modality = @exchange.find_other_user_modality(current_user)
+    @other_user = @exchange.find_other_user(current_user)
     find_my_exchanges
-    @exchanges_infos = build_exchanges_info
-    # raise
+    @exchanges_infos = Exchange.build_exchanges_info(current_user)
   end
 
   def show
+    @exchange = Exchange.find(params[:id])
     @review = Review.new
-    # @my_modality = Modality.where(exchange: Exchange.find(params[:id]), accommodation: current_user.accommodation)
-    # @other_user_modality = Modality.find_by("exchange_id = ? AND accommodation_id != ?", Exchange.find(params[:id]).id, current_user.accommodation.id)
     @date_today = Date.today
-    @other_user_modality = find_other_user_modality(params[:id])
+    @other_user_modality = @exchange.find_other_user_modality(current_user)
     accommodation = @other_user_modality.accommodation
     @markers = [{
       lat: accommodation.latitude,
@@ -106,42 +104,15 @@ class ExchangesController < ApplicationController
 
   private
 
+  def find_my_exchanges
+    @my_exchanges = current_user.accommodation.modalities.map(&:exchange)
+  end
+
   def exchange_params
     params.require(:exchange).permit(
       :check_in,
       :check_out,
       :duration
     )
-  end
-
-  def create_modality(accommodation_id)
-    Modality.create(accommodation_id: accommodation_id, exchange_id: @exchange.id)
-  end
-
-  def find_other_user(exchange)
-    Modality.find_by("exchange_id = ? AND accommodation_id != ?", exchange.id, current_user.accommodation.id).accommodation.user
-  end
-
-  def find_other_user_modality(exchange_id)
-    Modality.find_by("exchange_id = ? AND accommodation_id != ?", exchange_id, current_user.accommodation.id)
-  end
-
-  def find_my_modality(exchange_id)
-    Modality.find_by("exchange_id = ? AND accommodation_id = ?", exchange_id, current_user.accommodation.id)
-  end
-
-  def find_my_exchanges
-    @my_exchanges = current_user.accommodation.exchanges.sort_by { |exchange|
-      exchange.messages.last&.created_at || exchange.created_at
-    }.reverse
-  end
-
-  def build_exchanges_info
-    @my_exchanges.map do |exchange|
-      another_modality = Modality.find_by("exchange_id = ? AND accommodation_id != ?", exchange.id, current_user.accommodation.id)
-      another_user = another_modality.accommodation.user
-      last_message = exchange.messages.last&.content || "Send the first message!"
-      [exchange, another_user, last_message]
-    end
   end
 end

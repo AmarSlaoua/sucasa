@@ -1,32 +1,13 @@
 <%= render "components/navbar" %>
 
 <div class="container-msg">
-  <div class="row">
+  <div class="row" data-controller="exchange-subscription"
+       data-exchange-subscription-exchange-id-value="<%= @exchange.id %>">
 
-    <div class="col-3">
-      <h4><br>Messages<br></h4>
-
-      <% @exchanges_infos.each do |exchange| %>
-        <%= link_to edit_exchange_path(exchange[0]) do %>
-          <div class="div p-3">
-            <div class="d-flex align-items-center">
-              <%= cl_image_tag exchange[1].photo.key, crop: :fill, class: "avatar mr-3" %>
-
-              <div class="div-left">
-                <div class="name-msg-left"><%= exchange[1].first_name %></div>
-                <div class="msg-left"><%= exchange[2] %></div>
-              </div>
-
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render "exchanges/exchanges_infos", exchanges_infos: @exchanges_infos, exchange: @exchange %>
 
 
-    <div class="chatroom col-5"
-      data-controller="exchange-subscription"
-      data-exchange-subscription-exchange-id-value="<%= @exchange.id %>">
+    <div class="chatroom col-5">
       <h4><br>Talk to <%= @other_user.first_name %> ... <br><br> </h4>
 
       <div class="messages" data-exchange-subscription-target="messages">
@@ -38,6 +19,7 @@
       <%= simple_form_for [@exchange, @message],
         html: { data: { action: "turbo:submit-end->exchange-subscription#resetForm" }, class: "d-flex" } do |f|%>
           <%= f.input :content, placeholder: "Type something", label: false, wrapper_html: {class: "flex-grow-1"} %>
+          <%= f.hidden_field :exchanges_infos, value: @exchanges_infos %>
           <%= f.submit "Send", class: "btn btn-primary mb-3" %>
         <% end %>
 

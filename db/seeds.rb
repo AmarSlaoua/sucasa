@@ -811,6 +811,7 @@ m1_e1 = Modality.new(
   accommodation_id: super_acco_somya.id,
   exchange_id: e1.id,
   duration: 10,
+  dates: "2023-01-10 to 2023-01-20"
   check_in: Date.parse("2023-01-10"),
   check_out: Date.parse("2023-01-20"),
   keys: "Office",

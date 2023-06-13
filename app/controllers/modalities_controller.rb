@@ -33,7 +33,8 @@ class ModalitiesController < ApplicationController
       :petsitting,
       :transportation,
       :others,
-      :progress
+      :progress,
+      :dates
     )
 
   end
