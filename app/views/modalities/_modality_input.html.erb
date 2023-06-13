@@ -1,0 +1,33 @@
+<% if @modality_form[@occurence] == "duration" %>
+<p>For the exchange, <%= @other_user.first_name %> offers a duration of : <%= @my_modality.duration%> days.</p>
+<% elsif @modality_form[@occurence] == "dates" %>
+<p>For the exchange, <%= @other_user.first_name %> proposes from : <%= @my_modality.dates%>.</p>
+<% elsif @modality_form[@occurence] == "keys" %>
+<p>For the handover keys of <%= @other_user.first_name %>'s house, <%= @other_user.first_name %> offers to : <%= @my_modality.keys%>.</p>
+<% elsif @modality_form[@occurence] == "petsitting" %>
+<p>If you have a pet which requires petsitting, <%= @other_user.first_name %> agrees to petsitting : <%= @my_modality.petsitting == false ? "NO" : "YES" %>.</p>
+<% elsif @modality_form[@occurence] == "transportation" %>
+<p><%= @other_user.first_name %> offers to provide you with : <%= @my_modality.transportation%>.</p>
+<% elsif @modality_form[@occurence] == "others" %>
+<p>Other important topic <%= @other_user.first_name %> wanted to address = <%= @my_modality.others == "" ? "nothing to add" : @my_modality.others %>.</p>
+<% end %>
+
+  <div class="separator">
+  </div>
+
+  <%= simple_form_for(@my_modality, as: :modality, method: :patch, url: modality_path(@my_modality), data: { controller: 'flatpickr' }) do |f|%>
+    <%= f.hidden_field @modality_form[@occurence].to_sym%>
+    <%= f.hidden_field :progress, value: "pending"%>
+    <%= f.submit "Agree. Let's put it in our contract." %>
+  <% end %>
+
+  <div class="separator">
+  </div>
+
+  <%= simple_form_for(@my_modality, as: :modality, method: :patch, url: modality_path(@my_modality), data: { controller: 'flatpickr' }) do |f|%>
+    <%= f.input @modality_form[@occurence].to_sym, label: false%>
+    <%= f.hidden_field :progress, value: "next"%>
+    <%= f.submit "Don't agree. Make a counter-offer." %>
+  <% end %>
+  <div class="separator">
+  </div>

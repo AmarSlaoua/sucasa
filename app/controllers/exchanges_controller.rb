@@ -86,7 +86,18 @@ class ExchangesController < ApplicationController
     @other_user = find_other_user(@exchange)
     find_my_exchanges
     @exchanges_infos = build_exchanges_info
+
+    @modality_form = MODALITY_FORM
+    @attributes = @my_modality.attributes
+
+    @test_final = @modality_form.map do |element|
+      @attributes[element]
+    end
+
+    find_last_input
+    progress_toggle
   end
+
 
   def show
     @review = Review.new
@@ -141,4 +152,21 @@ class ExchangesController < ApplicationController
       [exchange, another_user, last_message]
     end
   end
+
+  def progress_toggle
+    if @my_modality.progress == "pending"
+      @my_modality.progress = "next"
+    end
+  end
+
+  def find_last_input
+    if @my_modality.progress == "pending"
+      @occurence = @test_final.index { |i| i.nil? || i == "" }
+    elsif @my_modality.progress == "next"
+      @occurence = @test_final.index { |i| i.nil? || i == "" } - 1
+    else
+      raise
+    end
+  end
+
 end
