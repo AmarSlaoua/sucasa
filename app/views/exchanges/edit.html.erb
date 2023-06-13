@@ -31,6 +31,8 @@
           <% @exchange.messages.each do |message| %>
             <%= render "messages/message", message: message %>
           <% end %>
+          <%= render "modalities/modality_input" %>
+
         </div>
         <div class="msg-input">
           <%= simple_form_for [@exchange, @message],
@@ -44,6 +46,8 @@
 
     <div class="col-4">
       <h4><br>... And shape your exchange <br><br></h4>
+      <%= render "modalities/modality_form" %>
+
 
       <%#################### Nav tabs bootstrap <%####################%>
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

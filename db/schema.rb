@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_152348) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_12_142158) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -100,6 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_152348) do
     t.bigint "exchange_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "dates"
     t.index ["accommodation_id"], name: "index_modalities_on_accommodation_id"
     t.index ["exchange_id"], name: "index_modalities_on_exchange_id"
   end
