@@ -2,13 +2,14 @@
 <div class="map-exchange-valid">
   <div class="map-exchange-flex-1">
     <div class="exchange-show">
-      <div class="container-accommodation-form">
-        <div class="accommodation-form">
+      <div class="container-accommodation-form review">
+        <div class="accommodation-form review-main">
           <div class="accommodation-text">
-            <h3>Your Stay at  <%= @other_user_modality.accommodation.user.first_name %>'s</h3>
-            <% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
+            <h3>Your exchange with <%= @other_user_modality.accommodation.user.first_name %> 🗝️</h3>
+            <div class="container-accommodation-form review">
+              <% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
               <div class="container">
-                <h4>Comment on your exchange with <%= @other_user_modality.accommodation.user.first_name %> !</h4>
+                <h4>Comment your exchange :</h4>
                   <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
                   <%= f.hidden_field :user_id, value: current_user.id %>
                   <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
@@ -17,13 +18,12 @@
                 <% end %>
               </div>
             <% end %>
+            </div>
           </div>
         </div>
       </div>
       <div class="container-exchange-show">
         <div class="container">
-
-
           <div class ="m-3 exchange">
             <div class="exchange-first-block">
                   <%= cl_image_tag @other_user_modality.accommodation.photos.first.key, height: 500, width: 810, crop: :fill, class: "image-clickable" %>
@@ -43,7 +43,6 @@
                 </div>
               </div>
             </div>
-
             <div class="exchange-second-block">
               <h5>Modalities</h5>
               <div class="flex-valid-exchange-secondary-infos">
@@ -70,20 +69,26 @@
               <div class="exchange-other-infos">
                 <div class="exchange-user-info">
                   <h5>Your buddy</h5>
-                  <p> <%= @other_user_modality.accommodation.user.first_name %> <%= @other_user_modality.accommodation.user.last_name.upcase %> | <%= @other_user_modality.accommodation.user.job %></p>
+                  <div class="flex-picture-buddy-valid">
+                    <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg" %>
+                    <h6> <b><%= @other_user_modality.accommodation.user.first_name %> <%= @other_user_modality.accommodation.user.last_name.upcase %> | <%= @other_user_modality.accommodation.user.job %></h6> </b>
+                  </div>
+                    <p> <%= @other_user_modality.accommodation.user.bio %> </p>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="exchange-third-block last-block">
+            <h5>Accommodation details</h5>
+            <p><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;&nbsp;<b>Address</b></p>
+            <p> <%= @other_user_modality.accommodation.address %></p>
+            <div class="separator"></div>
+              <p><i class="fa-solid fa-person-shelter"></i>&nbsp;&nbsp;&nbsp; <b>Number of bedrooms</b></p>
+              <p><%= @other_user_modality.accommodation.nb_of_bedrooms %> bedrooms</p>
+              <div class="separator"></div>
+                <p><i class="fa-solid fa-bed"></i> &nbsp;&nbsp;&nbsp;<b>Number of beds</b></p>
+                <p><%= @other_user_modality.accommodation.nb_of_beds %> beds</p>
                 <div class="separator"></div>
-                <div class="exchange-acco-details">
-                  <h5>Accommodation details</h5>
-                  <p><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;&nbsp;<b>Address</b></p>
-                  <p> <%= @other_user_modality.accommodation.address %></p>
-                  <div class="separator"></div>
-                  <p><i class="fa-solid fa-person-shelter"></i>&nbsp;&nbsp;&nbsp; <b>Number of bedrooms</b></p>
-                  <p><%= @other_user_modality.accommodation.nb_of_bedrooms %> bedrooms</p>
-                  <div class="separator"></div>
-                  <p><i class="fa-solid fa-bed"></i> &nbsp;&nbsp;&nbsp;<b>Number of beds</b></p>
-                  <p><%= @other_user_modality.accommodation.nb_of_beds %> beds</p>
-                  <div class="separator"></div>
                   <p><i class="fa-solid fa-shower"></i> &nbsp;&nbsp;&nbsp;<b>Number of bathrooms</b></p>
                   <p><%= @other_user_modality.accommodation.nb_of_bathrooms %> bathrooms</p>
                 </div>
@@ -91,17 +96,17 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-    <div class="map-container">
-      <div class="map-wraper">
-        <div style="width: 100%; height: 780px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div class="map-container">
+          <div class="map-wraper">
+            <div style="width: 100%; height: 780px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
 <%= render 'components/footer' %>

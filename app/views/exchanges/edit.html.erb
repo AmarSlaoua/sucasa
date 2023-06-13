@@ -4,20 +4,21 @@
   <div class="row">
     <div class="col-3">
       <h4><br>Messages<br></h4>
-      <% @exchanges_infos.each do |exchange| %>
-        <%= link_to edit_exchange_path(exchange[0]) do %>
-          <div class="div p-3">
-            <div class="d-flex align-items-center">
-              <%= cl_image_tag exchange[1].photo.key, crop: :fill, class: "avatar mr-3" %>
-
-              <div class="div-left">
-                <div class="name-msg-left"><%= exchange[1].first_name %></div>
-                <div class="msg-left"><%= exchange[2] %></div>
+      <div class="messages-container">
+        <% @exchanges_infos.each do |exchange| %>
+          <%= link_to edit_exchange_path(exchange[0]) do %>
+            <div class="div p-3 <%= exchange[0] == @exchange ? 'active' : '' %>">
+              <div class="d-flex align-items-center">
+                <%= cl_image_tag exchange[1].photo.key, crop: :fill, class: "avatar mr-3" %>
+                <div class="div-left">
+                  <div class="name-msg-left"><%= exchange[1].first_name %></div>
+                  <div class="msg-left"><%= exchange[2] %></div>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
 
 
@@ -66,7 +67,7 @@
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :duration, placeholder: "For how long ?" %> <p style="font-size: 10px;">💡<em> Agree with your buddy and choose a travel duration.</em></p>
+                  <%= f.input :duration, placeholder: "For how long ?" %> <p style="font-size: 10px;">💡 Agree with your buddy and choose a travel duration.</p>
                   <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -79,7 +80,7 @@
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %> <p style="font-size: 10px;">💡<em> Decide with your buddy and choose the dates for your exchange.</em></p>
+                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %> <p style="font-size: 10px;">💡 Decide with your buddy and choose the dates for your exchange.</p>
                   <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -92,7 +93,7 @@
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :keys, placeholder: "How about the keys ? 🗝" %> <p style="font-size: 10px;">💡<em>Explain where you would like to leave the keys (at the office, in-person, to a trusted neighbor, on a key lockbox...).</em></p>
+                  <%= f.input :keys, placeholder: "How about the keys ? 🗝" %> <p style="font-size: 10px;">💡 Explain where you would like to leave the keys (at the office, in-person, to a trusted neighbor, on a key lockbox...).</p>
                   <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -105,7 +106,7 @@
               </h2>
               <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %> <p style="font-size: 10px;">💡<em>Can you take care of your host's pet ?</em></p>
+                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %> <p style="font-size: 10px;">💡 Can you take care of your host's pet ?</p>
                   <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -118,7 +119,7 @@
               </h2>
               <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :transportation, placeholder: "Is your transportation available?" %> <p style="font-size: 10px;">💡<em>If you wish to provide transportation options to your guest, you can discuss it and specify it here (bicycle, car, etc.). </em></p>
+                  <%= f.input :transportation, placeholder: "Is your transportation available?" %> <p style="font-size: 10px;">💡 If you wish to provide transportation options to your guest, you can discuss it and specify it here (bicycle, car, etc.).</p>
                   <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -131,7 +132,7 @@
               </h2>
               <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :others, placeholder: "Anything else ?" %> <p style="font-size: 10px;">💡<em>Add any additional information here.</em></p>
+                  <%= f.input :others, placeholder: "Anything else ?" %> <p style="font-size: 10px;">💡 Add any additional information here.</p>
                   <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -153,7 +154,7 @@
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :duration, placeholder: "For how long ?" %> <p style="font-size: 10px;">💡<em>Agree with your buddy and choose a travel duration.</em></p>
+                  <%= f.input :duration, placeholder: "For how long ?" %> <p style="font-size: 10px;">💡 Agree with your buddy and choose a travel duration.</p>
                 <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -166,7 +167,7 @@
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %> <p style="font-size: 10px;">💡<em> Decide with your buddy and choose the dates for your exchange.</em></p>
+                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %> <p style="font-size: 10px;">💡 Decide with your buddy and choose the dates for your exchange.</p>
                 <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -179,7 +180,7 @@
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :keys, placeholder: "How about the keys ?" %> <p style="font-size: 10px;">💡<em>Explain where you would like to leave the keys (at the office, in-person, to a trusted neighbor, on a key lockbox...).</em></p>
+                  <%= f.input :keys, placeholder: "How about the keys ?" %> <p style="font-size: 10px;">💡 Explain where you would like to leave the keys (at the office, in-person, to a trusted neighbor, on a key lockbox...).</p>
                 <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -192,7 +193,7 @@
               </h2>
               <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %> <p style="font-size: 10px;">💡<em>Can you take care of your host's pet ?</em></p>
+                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %> <p style="font-size: 10px;">💡 Can you take care of your host's pet ?</p>
                 <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -205,7 +206,7 @@
               </h2>
               <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :transportation, placeholder: "Is your transportation available?" %> <p style="font-size: 10px;">💡<em>If you wish to provide transportation options to your guest, you can discuss it and specify it here (bicycle, car, etc.). </em></p>
+                  <%= f.input :transportation, placeholder: "Is your transportation available?" %> <p style="font-size: 10px;">💡 If you wish to provide transportation options to your guest, you can discuss it and specify it here (bicycle, car, etc.).</p>
                 <%= f.submit "+ Submit" %>
                 </div>
               </div>
@@ -218,7 +219,7 @@
               </h2>
               <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <%= f.input :others, placeholder: "Anything else ?" %> <p style="font-size: 10px;">💡<em>Add any additional information here.</em></p>
+                  <%= f.input :others, placeholder: "Anything else ?" %> <p style="font-size: 10px;">💡 Add any additional information here.</p>
                 <%= f.submit "+ Submit" %>
                 </div>
               </div>
