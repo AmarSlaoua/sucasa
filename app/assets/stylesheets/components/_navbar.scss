@@ -33,6 +33,14 @@
   padding: 15px;
 }
 
+.dropdown-item{
+  background-color: 0.8 var(--bs-body-bg)
+}
+
+.dropdown-item:hover{
+  background-color: rgb(224, 224, 224)
+}
+
 .separator-nav{
   border-top: 1px solid #e3e3e3;
 }
