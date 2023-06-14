@@ -49,9 +49,17 @@
   flex: 1;
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 103vh;
   margin-top: 6.5%;
   border-radius: 0.6rem;
+}
+
+.map-container.exchange{
+  margin-top: 0px;
+  margin-right: 0px;
+  width: 90%;
+  position: relative;
+  top: 0;
 }
 
 .map-wrapper {

@@ -11,6 +11,8 @@
 @import url(components/_wrapper.scss);
 @import url(components/_chatroom.scss);
 @import url(components/_map.scss);
+@import url(components/_about_show.css);
+@import url(components/_responsive.css);
 
 // Accommodation/index Title+Subtitle
 .container {
@@ -20,20 +22,40 @@
       align-items: center;
       }
     .title-subtitle p {
-      margin-top: 3%;
+      margin-top: 4%;
       margin-left: 1%;
+      margin-bottom: 1.5%;
     }
   }
   .container-all-accommodations h4 {
     padding-top: 2%;
-    color: #000000;
-  }
+    color: var(--bs-heading-color);
+    padding-right: 1%;
+    padding-left: 4px;
+    margin-bottom: 0px;
+    }
   .container-all-accommodations p {
     color: #747474;
   }
 }
 
+.banner.lp{
+  height: 45vh;
+}
 
-// .main-container, .main-container-pp, .main-container-lp, .map-exchange-valid {
+//   .map-exchange-valid .main-container-pp,{
 //   transform: scale(0.95899);
 // }
+
+.main-container-lp, .main-container, {
+transform: scale(0.96899);
+background-color: white;
+}
+
+.wrapper{
+  background-color: white;
+}
+
+body{
+  background-color: white;
+}
