@@ -1,148 +1,57 @@
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="pills-currentuser-tab" data-bs-toggle="pill" data-bs-target="#currentuser" type="button" role="tab" aria-controls="pills-currentuser" aria-selected="true"><%= current_user.first_name %></button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pills-otheruser-tab" data-bs-toggle="pill" data-bs-target="#otheruser" type="button" role="tab" aria-controls="pills-otheruser" aria-selected="false"><%= @other_user.first_name %></button>
-        </li>
-      </ul>
+      <div class="div" data-exchange-subscription-target="modality">
 
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="currentuser" role="tabpanel" aria-labelledby="currentuser-tab">
-            <%= simple_form_for(@my_modality, as: :modality, method: :patch, url: modality_path(@my_modality), data: { controller: 'flatpickr' }) do |f|%>
-          <div class="accordion" id="accordionExample">
-            <% @modality_form.each_with_index do |element, index| %>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="heading<%=index%>">
+        <div class="tab-content" id="myTabContent" data-exchange-subscription-target="modality">
+          <div class="tab-pane fade show active" id="currentuser" role="tabpanel" aria-labelledby="currentuser-tab">
 
-                  <% if index == @occurence%>
+              <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr', action: "turbo:submit-end->exchange-subscription#resetForm" }) do |f|%>
+              <%= f.input :progress, input_html: {value: 1, hidden: true }, label: false %>
+            <div class="accordion" id="accordionExample">
+              <% Modality::STEPS.each_with_index do |element, index| %>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading<%=index%>">
 
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="true" aria-controls="collapse<%=index%>">
-                    <%= "#{element}" %>
-                  </button>
-                </h2>
-                <div id="collapse<%=index%>" class="accordion-collapse collapse show" aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <% if element == "dates" %>
-                      <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                    <% if index == @occurence%>
+
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="true" aria-controls="collapse<%=index%>">
+                      <%= "#{element}" %>
+                    </button>
+                  </h2>
+                  <div id="collapse<%=index%>" class="accordion-collapse collapse show" aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <% if element == "dates" %>
+                        <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                        <%= f.submit "+ Submit" %>
+                      <% else %>
+                          <%= f.input "#{element}".to_sym, label: false%>
+                          <%= f.submit "+ Submit" %>
+                      <% end %>
+                    </div>
+                  </div>
+
                     <% else %>
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="false" aria-controls="collapse<%=index%>">
+                      <%= "#{element}" %>
+                    </button>
+                  </h2>
+                  <div id="collapse<%=index%>" class="accordion-collapse collapse" aria-labelledby="heading<%=@modality_input_counter%>" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <% if element == "dates" %>
+                        <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                        <%= f.submit "+ Submit" %>
+                      <% else %>
                         <%= f.input "#{element}".to_sym, label: false%>
-                    <% end %>
+                        <%= f.submit "+ Submit" %>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
 
-                  <% else %>
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="false" aria-controls="collapse<%=index%>">
-                    <%= "#{element}" %>
-                  </button>
-                </h2>
-                <div id="collapse<%=index%>" class="accordion-collapse collapse" aria-labelledby="heading<%=@modality_input_counter%>" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <% if element == "dates" %>
-                      <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
-                    <% else %>
-                      <%= f.input "#{element}".to_sym, label: false%>
                     <% end %>
-                  </div>
                 </div>
 
-                  <% end %>
-              </div>
-
-            <% end%>
+              <% end%>
+            </div>
+              <%= f.hidden_field :progress%>
+            <% end %>
           </div>
-            <%= f.hidden_field :progress%>
-            <div class="separator">
-            </div>
-            <%= f.submit "+ Submit" %>
-            <div class="separator">
-            </div>
-          <% end %>
         </div>
-
-        <div class="tab-pane fade" id="otheruser" role="tabpanel" aria-labelledby="otheruser-tab">
-          <%= simple_form_for(@other_user_modality, as: :modality, method: :patch, url: modality_path(@other_user_modality), data: { controller: 'flatpickr' }) do |f|%>
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Step 1
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <%= f.input :duration, placeholder: "How long do you want to exchange ?" %>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Step 2
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <%= f.input :check_in, as: :string, label: 'Choose your dates ! 🗓', placeholder: "Pick your dates !",  input_html: { data: { flatpickr_target: "checkIn" } } %>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Step 3
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <%= f.input :keys, placeholder: "How about the keys ? 🗝" %>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                Step 4
-                </button>
-              </h2>
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <%= f.input :petsitting, placeholder: "Can you take care of your host's pet ? 🐶" %>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingFive">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Step 5
-                </button>
-              </h2>
-              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <%= f.input :transportation, placeholder: "Does your host can use your transportation ? 🚲" %>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingSix">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                Step 6
-                </button>
-              </h2>
-              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <%= f.input :others, placeholder: "Anything else to tell your colleague ? 🤔" %>
-                </div>
-              </div>
-            </div>
-          </div>
-            <%= f.hidden_field :progress%>
-            <div class="separator">
-            </div>
-            <%= f.submit "+ Submit" %>
-            <div class="separator">
-            </div>
-          <% end %>
-        </div>
-
       </div>

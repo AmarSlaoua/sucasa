@@ -346,7 +346,6 @@ picture4 = URI.open("https://i.pinimg.com/originals/15/4f/e4/154fe4a84ed87ff5b5c
 
 pictures1 = [picture1, picture2, picture3, picture4]
 
-
 picture5 = URI.open("https://cdn.mos.cms.futurecdn.net/vcKypmJpoxLHNrtjDyJnVa.jpg")
 picture6 = URI.open("https://houstonapartmentsoneldridge.com/wp-content/uploads/2018/12/Apartments-for-rent-houston-tx-bedroom-1024x638.jpg")
 picture7 = URI.open("https://www.bhg.com/thmb/-fMaB0U41bSke7O7bhH1cMl3g2s=/1244x0/filters:no_upscale():strip_icc()/black-white-modern-bathroom-plants-9a32b43a-8b9d4a315d88430882bfeef9c5d25d68.jpg")

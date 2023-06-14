@@ -4,12 +4,15 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.exchange = @exchange
     @message.user = current_user
+    @message.display_both!
     if @message.save
       @exchanges_infos = Exchange.build_exchanges_info(current_user)
       ExchangeChannel.broadcast_to(
         @exchange,
-        { message: render_to_string(partial: "message", locals: { message: @message }),
-          exchanges_infos: render_to_string(partial: "exchanges/exchanges_infos", locals: { exchanges_infos: @exchanges_infos, exchange: @exchange}) }
+        { message: render_to_string(partial: "message", locals: { message: @message, modality: nil }),
+          current_user_id: current_user.id
+          #ajouter modality_form ici pour que js
+        }
       )
       head :ok
     else

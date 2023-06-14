@@ -18,7 +18,6 @@ class Exchange < ApplicationRecord
     Modality.find_by("exchange_id = ? AND accommodation_id != ?", self.id, current_user.accommodation.id)
   end
 
-
   def self.build_exchanges_info(current_user)
     my_exchanges = current_user.accommodation.exchanges.sort_by { |exchange|
       exchange.messages.last&.created_at || exchange.created_at

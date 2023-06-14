@@ -1,8 +1,30 @@
-<div id="message-<%= message.id %>">
-  <%= cl_image_tag message.user.photo.key, crop: :fill, class: "avatar mr-3 msg" %>
-  <small>
-    <strong><%= message.user.first_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
-</div>
+<% if modality.present? %>
+  <div id="message-<%= message.id %>">
+    <%# raise %>
+    <%= cl_image_tag message.user.photo.key, crop: :fill, class: "avatar mr-3 msg" %>
+    <small>
+      <strong><%= message.user.first_name %></strong>
+      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    </small>
+      <p>
+        <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' })do |f|%>
+          <%= f.input Modality::STEPS[message.occurence].to_sym %>
+          <%= f.submit "Make a counter-offer" %>
+        <% end %>
+
+        <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' })do |f|%>
+          <%= f.input :progress, input_html: {value: 2, hidden: true }, label: false %>
+          <%= f.submit "I agree !" %>
+        <% end %>
+      </p>
+  </div>
+<% elsif message.display_both? || (message.display_to_message_user? && message.user == current_user) %>
+  <div id="message-<%= message.id %>">
+    <%= cl_image_tag message.user.photo.key, crop: :fill, class: "avatar mr-3 msg" %>
+      <small>
+        <strong><%= message.user.first_name %></strong>
+        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+      </small>
+      <p><%= raw(message.content) %></p>
+  </div>
+<% end %>
