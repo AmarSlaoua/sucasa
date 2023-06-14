@@ -441,7 +441,7 @@ acco1 = Accommodation.new(
 )
 pictures1.each do |picture|
   file = URI.open(picture)
-  acco1.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco1.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco1.save!
 puts "..."
@@ -462,7 +462,7 @@ acco2 = Accommodation.new(
 )
 pictures2.each do |picture|
   file = URI.open(picture)
-  acco2.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco2.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco2.save!
 puts "..."
@@ -483,7 +483,7 @@ acco3 = Accommodation.new(
 )
 pictures3.each do |picture|
   file = URI.open(picture)
-  acco3.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco3.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco3.save!
 puts "..."
@@ -504,7 +504,7 @@ acco4 = Accommodation.new(
 )
 pictures4.each do |picture|
   file = URI.open(picture)
-  acco4.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco4.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco4.save!
 puts "..."
@@ -525,7 +525,7 @@ acco5 = Accommodation.new(
 )
 pictures5.each do |picture|
   file = URI.open(picture)
-  acco5.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco5.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco5.save!
 puts "..."
@@ -546,7 +546,7 @@ acco6 = Accommodation.new(
 )
 pictures6.each do |picture|
   file = URI.open(picture)
-  acco6.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco6.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco6.save!
 puts "..."
@@ -567,7 +567,7 @@ acco7 = Accommodation.new(
 )
 pictures7.each do |picture|
   file = URI.open(picture)
-  acco7.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco7.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco7.save!
 puts "..."
@@ -588,7 +588,7 @@ acco8 = Accommodation.new(
 )
 pictures8.each do |picture|
   file = URI.open(picture)
-  acco8.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco8.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco8.save!
 puts "..."
@@ -609,7 +609,7 @@ acco9 = Accommodation.new(
 )
 pictures9.each do |picture|
   file = URI.open(picture)
-  acco9.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco9.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco9.save!
 puts "..."
@@ -630,7 +630,7 @@ acco10 = Accommodation.new(
 )
 pictures10.each do |picture|
   file = URI.open(picture)
-  acco10.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco10.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco10.save!
 puts "..."
@@ -651,7 +651,7 @@ acco11 = Accommodation.new(
 )
 pictures11.each do |picture|
   file = URI.open(picture)
-  acco11.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco11.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco11.save!
 puts "..."
@@ -672,7 +672,7 @@ acco12 = Accommodation.new(
 )
 pictures12.each do |picture|
   file = URI.open(picture)
-  acco12.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  acco12.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 acco12.save!
 puts "..."
@@ -726,7 +726,7 @@ super_acco_somya = Accommodation.new(
 )
 super_pictures1.each do |picture|
   file = URI.open(picture)
-  super_acco_somya.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  super_acco_somya.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 super_acco_somya.save!
 puts "..."
@@ -747,7 +747,7 @@ super_acco_romain = Accommodation.new(
 )
 super_pictures2.each do |picture|
   file = URI.open(picture)
-  super_acco_romain.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  super_acco_romain.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 super_acco_romain.save!
 puts "..."
@@ -768,7 +768,7 @@ super_acco_amar = Accommodation.new(
 )
 super_pictures3.each do |picture|
   file = URI.open(picture)
-  super_acco_amar.photos.attach(io: file, filename: "cosyflat.png", content_type: "image/jpg")
+  super_acco_amar.photos.attach(io: file, filename: "cosyflat.jpg", content_type: "image/jpg")
 end
 super_acco_amar.save!
 puts "..."
