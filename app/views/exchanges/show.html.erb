@@ -2,49 +2,58 @@
 <div class="map-exchange-valid">
   <div class="map-exchange-flex-1">
     <div class="exchange-show">
-      <div class="container-accommodation-form review">
-        <div class="accommodation-form review-main">
-          <div class="accommodation-text">
-            <h3>Your exchange with <%= @other_user_modality.accommodation.user.first_name %> 🗝️</h3>
-            <div class="container-accommodation-form review">
-              <% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
-              <div class="container">
-                <h4>Comment your exchange :</h4>
-                  <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
-                  <%= f.hidden_field :user_id, value: current_user.id %>
-                  <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
-                  <%= f.input :content %>
-                  <%= f.submit "Publish comment" %>
-                <% end %>
-              </div>
-            <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="container-exchange-show">
         <div class="container">
           <div class ="m-3 exchange">
+          <h3>🎉 Your exchange is finalized !</h3>
             <div class="exchange-first-block">
-                  <%= cl_image_tag @other_user_modality.accommodation.photos.first.key, height: 500, width: 810, crop: :fill, class: "image-clickable" %>
+              <%= cl_image_tag @other_user_modality.accommodation.photos.first.key, height: 600, width: 953, crop: :fill, class: "image-clickable" %>
               <h5>Main infos</h5>
-              <div class="flex-valid-exchange-main-infos">
-                <div class="valid-block valid-exchange-duration">
-                  <h6>Duration</h6>
-                  <p><%= @other_user_modality.duration %> days</p>
-                </div>
-                <div class="valid-block valid-exchange-arrival">
-                  <h6>Arrival</h6>
-                  <p><%= @other_user_modality.check_in %></p>
-                </div>
-                <div class="valid-block valid-block-last valid-exchange-departure">
-                  <h6>Departure</h6>
-                  <p><%= @other_user_modality.check_out %></p>
+                <div class="flex-valid-exchange-main-infos">
+                  <div class="valid-block valid-exchange-duration">
+                    <h6>Duration</h6>
+                    <p><%= @other_user_modality.duration %> days</p>
+                  </div>
+                  <div class="valid-block valid-exchange-arrival">
+                    <h6>Arrival</h6>
+                    <p><%= @other_user_modality.check_in %></p>
+                  </div>
+                  <div class="valid-block valid-block-last valid-exchange-departure">
+                    <h6>Departure</h6>
+                    <p><%= @other_user_modality.check_out %></p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="exchange-second-block">
-              <h5>Modalities</h5>
+              <div class="exchange-second-block">
+                <div class="flex-me">
+                  <div class="flex-picture-buddy-valid 1">
+                    <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <h6> <b>My Contract </h6> </b>
+                  </div>
+              <div class="flex-valid-exchange-secondary-infos my">
+                <div class="valid-block valid-exchange-keys">
+                  <h6>Keys</h6>
+                <p> <%= @other_user_modality.keys %> </p>
+                </div>
+                <div class="valid-block valid-exchange-petsitting">
+                  <h6>Petsitting</h6>
+                  <p> <%= @other_user_modality.petsitting %></p>
+                </div>
+                <div class="valid-block valid-exchange-transportation">
+                  <h6>Transportation</h6>
+                  <p><%= @other_user_modality.transportation %></p>
+                </div>
+                      <div class="valid-block valid-block-last valid-exchange-others">
+                  <h6>Others</h6>
+                  <p> <%= @other_user_modality.others %> </p>
+                </div>
+              </div>
+              </div>
+              <div class="flex-him">
+                                <div class="flex-picture-buddy-valid 1">
+                    <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <h6> <b><%= @other_user_modality.accommodation.user.first_name %>'s' contract </h6> </b>
+                  </div>
               <div class="flex-valid-exchange-secondary-infos">
                 <div class="valid-block valid-exchange-keys">
                   <h6>Keys</h6>
@@ -63,22 +72,21 @@
                   <p> <%= @other_user_modality.others %> </p>
                 </div>
               </div>
-            </div>
-
-            <div class="exchange-third-block">
-              <div class="exchange-other-infos">
-                <div class="exchange-user-info">
-                  <h5>Your buddy</h5>
-                  <div class="flex-picture-buddy-valid">
-                    <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg" %>
-                    <h6> <b><%= @other_user_modality.accommodation.user.first_name %> <%= @other_user_modality.accommodation.user.last_name.upcase %> | <%= @other_user_modality.accommodation.user.job %></h6> </b>
-                  </div>
-                    <p> <%= @other_user_modality.accommodation.user.bio %> </p>
-                </div>
               </div>
             </div>
+
+
           </div>
           <div class="exchange-third-block last-block">
+          <div class="map-wraper">
+            <div style="width: 100%; height: 500px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+
+        </div>
+        <div class="acco-details-valid-final">
             <h5>Accommodation details</h5>
             <p><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;&nbsp;<b>Address</b></p>
             <p> <%= @other_user_modality.accommodation.address %></p>
@@ -94,14 +102,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="map-container">
-          <div class="map-wraper">
-            <div style="width: 100%; height: 780px;"
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
           </div>
         </div>
@@ -109,4 +109,24 @@
     </div>
   </div>
 </div>
+      <div class="container-accommodation-form review">
+        <div class="accommodation-form review-main">
+          <div class="accommodation-text">
+              <div class="container-accommodation-form review">
+                <% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
+                <div class="container">
+                  <h4>Comment your exchange :</h4>
+                    <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+                    <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
+                    <%= f.input :content %>
+                    <%= f.submit "Publish comment" %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
 <%= render 'components/footer' %>
