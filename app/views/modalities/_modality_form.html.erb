@@ -12,6 +12,7 @@
           <div class="tab-pane fade show active" id="currentuser" role="tabpanel" aria-labelledby="currentuser-tab">
 
               <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr', action: "turbo:submit-end->exchange-subscription#resetForm" }) do |f|%>
+              <%= f.input :progress, input_html: {value: 1, hidden: true } %>
             <div class="accordion" id="accordionExample">
               <% modality_form.each_with_index do |element, index| %>
                 <div class="accordion-item">

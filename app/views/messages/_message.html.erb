@@ -4,14 +4,19 @@
     <strong><%= message.user.first_name %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
-  <p>
     <% if modality.present? %>
-      <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr'})do |f|%>
-        <%= f.input :duration %>
-        <%= f.submit %>
-      <% end %>
+      <p>
+        <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' })do |f|%>
+          <%= f.input modality_form[occurence].to_sym %>
+          <%= f.submit "Make a counter-offer" %>
+        <% end %>
+
+        <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' })do |f|%>
+          <%= f.input :progress, input_html: {value: 2, hidden: true } %>
+          <%= f.submit "I agree" %>
+        <% end %>
+      </p>
     <% else %>
-      <%= message.content %>
+      <p><%= raw(message.content) %></p>
     <% end %>
-  </p>
 </div>
