@@ -5,7 +5,7 @@
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p>
-    <% if modality.present? %>
+    <% if modality&.present? %>
       <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr'})do |f|%>
         <%= f.input :duration %>
         <%= f.submit %>

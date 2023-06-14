@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
       @exchanges_infos = Exchange.build_exchanges_info(current_user)
       ExchangeChannel.broadcast_to(
         @exchange,
-        { message: render_to_string(partial: "message", locals: { message: @message }),
+        { message: render_to_string(partial: "message", locals: { message: @message, modality: nil }),
           exchanges_infos: render_to_string(partial: "exchanges/exchanges_infos", locals: { exchanges_infos: @exchanges_infos, exchange: @exchange}),
           current_user_id: current_user.id
         }

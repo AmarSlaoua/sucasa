@@ -31,10 +31,12 @@
           <% else %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# modif %>
-              <% if current_user.accommodation.modalities.last.nil? %>
-                <%= link_to "Look for an exchange !", accommodations_path, class: "dropdown-item" %>
-              <% else %>
-                <%= link_to "Messages", edit_exchange_path(Exchange.find(current_user.accommodation.modalities.last.exchange_id)), class: "dropdown-item" %>
+              <% if current_user.accommodation.present? %>
+                <% if current_user.accommodation&.modalities&.last&.nil? %>
+                  <%= link_to "Look for an exchange !", accommodations_path, class: "dropdown-item" %>
+                <% else %>
+                  <%= link_to "Messages", edit_exchange_path(Exchange.find(current_user.accommodation.modalities.last.exchange_id)), class: "dropdown-item" %>
+                <% end %>
               <% end %>
               <div class="separator-nav"></div>
               <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
