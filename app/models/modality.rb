@@ -7,12 +7,12 @@ class Modality < ApplicationRecord
   STEPS = ["duration", "dates", "keys", "petsitting", "transportation", "others"]
 
   def find_last_input(test_final)
-    if self.progress == "pending"
-      @occurence = test_final.index { |i| i.nil? || i == "" }
-    elsif self.progress == "next"
-      @occurence = test_final.index { |i| i.nil? || i == "" } - 1
-    elsif self.progress == "confirmed"
-      @occurence = test_final.index { |i| i.nil? || i == "" } - 1
+    if self.pending?
+      @occurence = test_final.index(&:blank?)
+    elsif self.next?
+      @occurence = test_final.index(&:blank?) - 1
+    elsif self.confirmed?
+      @occurence = test_final.index(&:blank?)
     else
       raise
     end

@@ -6,6 +6,7 @@
               <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr', action: "turbo:submit-end->exchange-subscription#resetForm" }) do |f|%>
               <%= f.input :progress, input_html: {value: 1, hidden: true }, label: false %>
             <div class="accordion" id="accordionExample">
+            <%= modality.accommodation.user.first_name %>
               <% Modality::STEPS.each_with_index do |element, index| %>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading<%=index%>">
@@ -50,7 +51,7 @@
 
               <% end%>
             </div>
-              <%= f.hidden_field :progress%>
+              <%#= f.hidden_field :progress%>
             <% end %>
           </div>
         </div>

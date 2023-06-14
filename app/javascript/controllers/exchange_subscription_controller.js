@@ -24,9 +24,13 @@ export default class extends Controller {
             this.#insertMessageAndScrollDown(data.message_for_other_user);
           }
         }
-        if (data.modality_form) {
-          console.log(data.modality_form);
-          this.modalityTarget.outerHTML = data.modality_form;
+
+        if (data.modality_form && data.other_modality_form) {
+          if (data.current_user_id === this.currentUserIdValue) {
+            this.modalityTarget.outerHTML = data.modality_form;
+          } else {
+            this.modalityTarget.outerHTML = data.other_modality_form;
+          }
         }
 
         if (data.confirmation_message){

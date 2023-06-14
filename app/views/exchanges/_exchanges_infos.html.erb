@@ -9,7 +9,7 @@
               <%= cl_image_tag exchange[1].photo.key, crop: :fill, class: "avatar mr-3" %>
               <div class="div-left">
                 <div class="name-msg-left"><%= exchange[1].first_name %></div>
-                <div class="msg-left"><%= exchange[2] %></div>
+                <div class="msg-left"><%=  raw(exchange[2]) %></div>
               </div>
             </div>
           </div>

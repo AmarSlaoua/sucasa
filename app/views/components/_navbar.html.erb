@@ -31,7 +31,7 @@
           <% else %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# modif %>
-              <% if current_user.accommodation.present? %>
+              <% if current_user.accommodation&.modalities&.present? %>
                 <% if current_user.accommodation&.modalities&.last&.nil? %>
                   <%= link_to "Look for an exchange !", accommodations_path, class: "dropdown-item" %>
                 <% else %>
