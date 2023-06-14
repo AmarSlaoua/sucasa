@@ -21,3 +21,6 @@ application.register("map", MapController)
 
 import ProgressController from "./progress_controller"
 application.register("progress", ProgressController)
+
+import ScrollHorizontalController from "./scroll_horizontal_controller"
+application.register("scrollhorizontal", ScrollHorizontalController)

@@ -11,12 +11,36 @@
         </div>
         <div class="photos-accommodation-index">
           <div class="main-photo">
+          <button data-bs-toggle="modal" data-bs-target="#exampleModal">
             <%= cl_image_tag @accommodation.photos.first.key, height: 610, width: 810, crop: :fill, class: "image-clickable" %>
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <%= cl_image_tag @accommodation.photos.first.key, height: 610, width: 810, crop: :fill, class: "image-clickable" %>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="secondary-photos">
             <% @accommodation.photos[1..-1].each do |photo| %>
               <div class="secondary-photo">
-                <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill, class: "image-clickable" %>
+                <button data-bs-toggle="modal" data-bs-target="#photoModal<%= photo.id %>">
+                  <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill, class: "image-clickable" %>
+                </button>
+                <div class="modal fade" id="photoModal<%= photo.id %>" tabindex="-1" aria-labelledby="photoModalLabel<%= photo.id %>" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <%= cl_image_tag photo.key, height: 610, width: 810, crop: :fill, class: "image-clickable" %>
+                    </div>
+                  </div>
+                </div>
               </div>
             <% end %>
           </div>
