@@ -31,7 +31,7 @@ export default class extends Controller {
 
         if (data.confirmation_message){
           console.log(data.confirmation_message)
-          this.#insertMessageAndScrollDown(data.confirmation_message)
+          this.#insertMessageAndScrollDown(data.confirmation_message.content)
         }
         // this.#insertMessageAndScrollDown(data.message)
         // console.log(data.modality_form)

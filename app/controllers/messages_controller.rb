@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.exchange = @exchange
     @message.user = current_user
+    @message.display_both!
     if @message.save
       @exchanges_infos = Exchange.build_exchanges_info(current_user)
       ExchangeChannel.broadcast_to(

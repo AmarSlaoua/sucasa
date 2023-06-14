@@ -24,7 +24,7 @@ class ExchangesController < ApplicationController
     @exchanges_infos = Exchange.build_exchanges_info(current_user)
 
 
-    @modality_form = MODALITY_FORM
+    @modality_form = Modality::STEPS
     @attributes = @my_modality.attributes
 
     @test_final = @modality_form.map do |element|

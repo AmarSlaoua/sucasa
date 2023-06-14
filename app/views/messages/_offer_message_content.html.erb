@@ -1,14 +1,14 @@
 
-  <% if modality_form[occurence] == "duration" %>
+  <% if Modality::STEPS[occurence] == "duration" %>
     For the exchange, you offered a duration of : <%= modality.duration %> days.
-  <% elsif modality_form[occurence] == "dates" %>
+  <% elsif Modality::STEPS[occurence] == "dates" %>
     For the exchange, you propose from : <%= modality.dates%>.
-  <% elsif modality_form[occurence] == "keys" %>
+  <% elsif Modality::STEPS[occurence] == "keys" %>
     For the keys handover of your home, you offered to : <%= modality.keys%>.
-  <% elsif modality_form[occurence] == "petsitting" %>
+  <% elsif Modality::STEPS[occurence] == "petsitting" %>
     If <%= other_user.first_name %> has a pet which requires petsitting, you agreed to petsitting : <%= modality.petsitting == false ? "NO" : "YES" %>.
-  <% elsif modality_form[occurence] == "transportation" %>
+  <% elsif Modality::STEPS[occurence] == "transportation" %>
     You offered to provide <%= other_user.first_name %> with : <%= modality.transportation%>.
-  <% elsif modality_form[occurence] == "others" %>
+  <% elsif Modality::STEPS[occurence] == "others" %>
     Other important topic you wanted to address = <%= modality.others == "" ? "nothing to add" : modality.others %>.
   <% end %>Waiting for <%= other_user.first_name %>'s approval.

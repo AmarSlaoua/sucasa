@@ -1,20 +1,12 @@
       <div class="div" data-exchange-subscription-target="modality">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-currentuser-tab" data-bs-toggle="pill" data-bs-target="#currentuser" type="button" role="tab" aria-controls="pills-currentuser" aria-selected="true"><%= current_user.first_name %></button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-otheruser-tab" data-bs-toggle="pill" data-bs-target="#otheruser" type="button" role="tab" aria-controls="pills-otheruser" aria-selected="false"><%= @other_user.first_name %></button>
-          </li>
-        </ul>
 
         <div class="tab-content" id="myTabContent" data-exchange-subscription-target="modality">
           <div class="tab-pane fade show active" id="currentuser" role="tabpanel" aria-labelledby="currentuser-tab">
 
               <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr', action: "turbo:submit-end->exchange-subscription#resetForm" }) do |f|%>
-              <%= f.input :progress, input_html: {value: 1, hidden: true } %>
+              <%= f.input :progress, input_html: {value: 1, hidden: true }, label: false %>
             <div class="accordion" id="accordionExample">
-              <% modality_form.each_with_index do |element, index| %>
+              <% Modality::STEPS.each_with_index do |element, index| %>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading<%=index%>">
 

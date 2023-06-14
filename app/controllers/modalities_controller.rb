@@ -6,7 +6,7 @@ class ModalitiesController < ApplicationController
     @modality = Modality.find(params[:id])
     @exchange = @modality.exchange
     @other_user = @exchange.find_other_user(current_user)
-    @modality_form = MODALITY_FORM
+    @modality_form = Modality::STEPS
     @attributes = @modality.attributes
 
     if params[:modality]["progress"].present?
@@ -26,35 +26,42 @@ class ModalitiesController < ApplicationController
     end
 
     if @modality.update(params_modalities)
-      if @modality.progress == "confirmed"
+      if @modality.confirmed?
         # @message = Message.new(exchange: @exchange, content: render_to_string(partial: "messages/confirmation_message", locals: { modality: @modality, user: @other_user}))
-        @message = Message.new(exchange: @exchange, content: render_to_string(partial: "messages/confirmation_message"), locals: {modality: @modality} )
+        @message = Message.new(exchange: @exchange, user: current_user, content: render_to_string(partial: "messages/confirmation_message", locals: {modality: @modality, occurence: @occurence, other_user: @other_user} ))
         @message.save
+        @message.display_both!
         ExchangeChannel.broadcast_to(
           @exchange,
           {
-            confirmation_message: @message, locals: { modality: @modality }
+            confirmation_message: @message,
+            modality_form: render_to_string(partial: "modalities/modality_form",
+                                            locals: { modality: @modality,
+                                                      user: current_user,
+                                                      occurence: @occurence })
           }
         )
 
         @modality.progress = 0
+        @modality.pending!
       else
-        @message_for_current_user = Message.new(user: current_user, exchange: @exchange, content: render_to_string(partial: "messages/offer_message_content", locals: { modality_form: @modality_form, occurence: @occurence, modality: @modality, other_user: @other_user }))
+        @message_for_current_user = Message.new(user: current_user, exchange: @exchange, content: render_to_string(partial: "messages/offer_message_content", locals: { occurence: @occurence, modality: @modality, other_user: @other_user }))
         @message_for_current_user.save
+        @message_for_current_user.display_to_message_user!
 
-        @category_value = 1
-        @message_for_other_user = Message.new(user: current_user, category: 1, exchange: @exchange, content: render_to_string(partial: "messages/offer_message_content", locals: { modality_form: @modality_form, occurence: @occurence, modality: @modality, other_user: @other_user }))
+        # @category_value = 1
+        @message_for_other_user = Message.new(user: current_user, category: 1, exchange: @exchange, occurence: @occurence, content: render_to_string(partial: "messages/offer_message_content", locals: { occurence: @occurence, modality: @modality, other_user: @other_user }))
         @message_for_other_user.save
+        @message_for_other_user.display_to_other_user!
 
         ExchangeChannel.broadcast_to(
           @exchange,
           {
-            message_for_current_user: render_to_string(partial: "messages/message", locals: { message: @message_for_current_user, modality: nil, modality_form: @modality_form, occurence: @occurence }),
-            message_for_other_user: render_to_string(partial: "messages/message", locals: { message: @message_for_other_user, modality: @modality, modality_form: @modality_form, occurence: @occurence }),
+            message_for_current_user: render_to_string(partial: "messages/message", locals: { message: @message_for_current_user, modality: nil, occurence: @occurence }),
+            message_for_other_user: render_to_string(partial: "messages/message", locals: { message: @message_for_other_user, modality: @modality, occurence: @occurence }),
             modality_form: render_to_string(partial: "modalities/modality_form",
                                                       locals: { modality: @modality,
                                                                 user: @other_user,
-                                                                modality_form: @modality_form,
                                                                 occurence: @occurence }),
             current_user_id: current_user.id
           }
