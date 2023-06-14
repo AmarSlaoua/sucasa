@@ -23,6 +23,11 @@
   height: auto;
 }
 
+.logo-img-partner{
+  width: 80px;
+  height: auto;
+}
+
 .dropdown-menu {
   border-radius: 0.6rem;
   border-color: white;
@@ -48,7 +53,9 @@
 .nav-link{
 color: rgb(110, 110, 110);
 margin-right: 10px;
+font-size: 15px;
 }
+
 
 .nav-link:hover {
 color: #262626;
@@ -57,4 +64,9 @@ margin-right: 10px;
 
 .avatar {
   cursor: pointer;
+}
+
+.flex-logos{
+  display: flex;
+
 }

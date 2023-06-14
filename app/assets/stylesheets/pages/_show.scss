@@ -34,61 +34,14 @@
   }
 }
 
-// photos taille max mon macbook
-@media screen and (max-width: 1024px) {
-  .photos-accommodation-index {
-    flex-direction: column;
-  }
-  .main-photo,
-  .secondary-photo {
-    flex-basis: 100%;
-    max-width: 100%;
-    margin-right: 0;
-  }
-}
-
-// photos taille min mon macbook
-@media screen and (min-width: 1024px) {
-  .photos-accommodation-index {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-
-  .main-photo {
-    max-width: 820px;
-    margin-right: 10px;
-    margin-bottom: 20px;
-  }
-
-  .main-photo img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.6rem;
-  }
-
-  .secondary-photos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    flex-basis: 25.5%;
-  }
-
-  .secondary-photo {
-    flex-basis: 100%;
-    border-radius: 0.6rem;
-  }
-
-  .secondary-photo img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.6rem;
-  }
-}
 
 // user+accommodation infos
 
-
+.flex-container-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .container{
   margin-left:6%;
@@ -132,7 +85,6 @@
     margin-top: 3%;
   }
   h4{
-    font-weight: bolder;
     color: black;
   }
   .container-first-infos h1{
@@ -299,11 +251,6 @@
   }
 }
 
-.flex-container-review {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 
 .offer-button {
@@ -349,6 +296,7 @@ box-shadow: 0 0 30px 2px #d0d0d0;
 
 // SHOW EXHANGE
 // main infos
+
 
 .m-3 {
   margin: 0px !important;
@@ -507,4 +455,100 @@ margin-left: 36px;
 
 .accommodation-form.review-main{
   padding: 4%;
+}
+
+.modal-dialog.modal-lg {
+  max-width: 60%; /* Adjust the value as per your preference */
+}
+
+.modal-content {
+  width: 90%; /* Adjust the value as per your preference */
+  height: auto; /* Adjust the value as per your preference */
+  border-radius: 0.6rem;
+}
+
+// RESPONSIVE
+// à revoir
+@media (min-width: 0px) and (max-width: 647px) {
+  .photos-accommodation-index {
+    flex-direction: column;
+  }
+  .secondary-photo {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+    .flex-pp-details-booking {
+    font-size: smaller;
+    width: 83%;
+  }
+}
+
+
+
+@media (min-width: 647px) and (max-width: 721px) {
+  .flex-pp-details-booking {
+    font-size: smaller;
+    width: 100px;
+    padding-left: 40%;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 955px){
+  .flex-pp-details-booking {
+    max-height: 40%;
+}
+
+}
+
+@media (min-width: 0px) and (max-width: 1189px) {
+  .flex-pp-details-booking {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container-pp-details-block3 {
+  display: none;
+}
+}
+
+
+// photos taille min mon macbook
+@media screen and (min-width: 150px) {
+  .photos-accommodation-index {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+
+  .main-photo {
+    max-width: 820px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+
+  .main-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+  }
+
+  .secondary-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-basis: 25.5%;
+  }
+
+  .secondary-photo {
+    flex-basis: 100%;
+    border-radius: 0.6rem;
+  }
+
+  .secondary-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+  }
 }
