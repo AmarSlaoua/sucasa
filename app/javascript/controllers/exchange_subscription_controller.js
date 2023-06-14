@@ -12,22 +12,35 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ExchangeChannel", id: this.exchangeIdValue },
       { received: (data)  => {
-        console.log("cc")
-        this.modalityTarget.outerHTML = data.other_user_modality_form
+        console.dir(data)
+        if (data.message) {
+          this.#insertMessageAndScrollDown(data.message);
+        }
+
+        if (data.message_for_other_user && data.message_for_current_user){
+          if (data.current_user_id === this.currentUserIdValue) {
+            this.#insertMessageAndScrollDown(data.message_for_current_user);
+          } else {
+            this.#insertMessageAndScrollDown(data.message_for_other_user);
+          }
+        }
+        if (data.modality_form) {
+          console.log(data.modality_form);
+          this.modalityTarget.outerHTML = data.modality_form;
+        }
+
+        if (data.confirmation_message){
+          console.log(data.confirmation_message)
+          this.#insertMessageAndScrollDown(data.confirmation_message.content)
+        }
         // this.#insertMessageAndScrollDown(data.message)
         // console.log(data.modality_form)
         // data.message = JSON.stringify(data.message)
-        console.dir(data.message)
         // this.#insertExchangesInfos(data.exchanges_infos)
         // this.#insertMessageAndScrollDown(data.offer_message)
         // this.#insertModalityForm(data.modality_form)
         // console.log(typeof data.current_user_id)
         // console.log(typeof this.currentUserIdValue)
-        if (data.current_user_id === this.currentUserIdValue) {
-          this.#insertMessageAndScrollDown(data.message_for_current_user);
-        } else {
-          this.#insertMessageAndScrollDown(data.message);
-        }
       }}
     )
     console.log(`Subscribed to the chatroom with the id ${this.exchangeIdValue}.`)
