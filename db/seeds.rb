@@ -52,7 +52,7 @@ puts "Creating 15 fake users..."
 pp1 = URI.open("https://avatars.githubusercontent.com/u/130504907?v=4")
 pp2 = URI.open("https://media.licdn.com/dms/image/C5603AQHt6A6O0trmNg/profile-displayphoto-shrink_800_800/0/1517839980887?e=2147483647&v=beta&t=w088gT-EsnExEo6RtRHpylKlUYDY215BOB-81WRYCrA")
 pp3 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1683008769/aoe1v4frlvgve2uei7f4.jpg")
-pp4 = URI.open("https://media.gettyimages.com/id/1139722168/fr/photo/milieu-adulte-dhomme-souriant-sur-le-fond-gris.jpg?s=612x612&w=gi&k=20&c=XRJrRbYB9kWitMJtBeZIPpxLsdq3-1TqGlSGjkwOgSE=")
+pp3 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1683008769/aoe1v4frlvgve2uei7f4.jpg")
 pp5 = URI.open("https://img.freepik.com/photos-premium/femme-sourire-son-visage_266745-287.jpg?w=2000")
 pp6 = URI.open("https://img.freepik.com/photos-premium/femme-sourire-son-visage-sourit_910718-48.jpg?w=2000")
 pp7 = URI.open("https://media.istockphoto.com/id/966638378/fr/photo/portrait-dun-homme-latino-souriant.jpg?s=612x612&w=0&k=20&c=llIfoWoEuXfQ_is3HTaU9NgR6R7xLw-vDltJxTt6WIA=")
