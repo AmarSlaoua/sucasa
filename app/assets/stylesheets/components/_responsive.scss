@@ -1,0 +1,249 @@
+// LP ABOUT
+
+@media (max-width: 1189px){
+  .container-about{
+    justify-content: center;
+    max-width: 100%;
+  }
+  .flex-about-first-block {
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
+    align-items: center;
+}
+.about-main-key {
+  margin-left: 2%;
+  text-align: center;
+}
+.flex-about-first-block.second {
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+  align-items: center;
+  padding-right: 15%;
+padding-left: 15%;
+}
+}
+
+@media (max-width: 747px){
+  .flex-about-first-block.first {
+background-color: white;
+}
+}
+
+// NAVBAR
+
+@media (min-width: 0px) and (max-width: 520px) {
+  .flex-rea-block{
+    h6, p, i{
+    display: none;
+  }
+  }
+  .navbar {
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 0.5rem;
+    --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
+    --bs-navbar-hover-color: rgba(var(--bs-emphasis-color-rgb), 0.8);
+    --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
+    --bs-navbar-active-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-brand-padding-y: 0.3125rem;
+    --bs-navbar-brand-margin-end: 1rem;
+    --bs-navbar-brand-font-size: 1.25rem;
+    --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-nav-link-padding-x: 0.5rem;
+    --bs-navbar-toggler-padding-y: 0.25rem;
+    --bs-navbar-toggler-padding-x: 0.75rem;
+    --bs-navbar-toggler-font-size: 1.25rem;
+    --bs-navbar-toggler-icon-bg: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2874, 74, 74, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);
+    --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
+    --bs-navbar-toggler-border-radius: var(--bs-border-radius);
+    --bs-navbar-toggler-focus-width: 0.25rem;
+    --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+  }
+  .footer {
+    background: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0px 50px;
+    color: rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+    h6{
+      display: none;
+    }
+  }
+  }
+
+
+// HOME
+
+@media (min-width: 768px)
+
+{
+    display: inline-block;
+}
+.items-center {
+    align-items: center;
+}
+.inline-flex {
+    display: inline-flex;
+}
+
+.my-4 {
+    margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
+}
+*, :after, :before {
+    border-style: solid;
+    border-width: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+@media (max-width: 1155px){
+  .flex-article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 7%;
+    /* padding-top: 3%; */
+    /* background-color: white; */
+    margin-top: 1%;
+    p{
+      font-size: smaller;
+    }
+    .article-img{
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 992px){
+.container-lg, .container-md, .container-sm, .container {
+    max-width: 93%;
+}
+}
+
+
+
+// INDEX
+
+@media (max-width: 1189px){
+  .container.lp {
+      max-width: 100%;
+  }
+  .cards-container{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 946px){
+  .map-container {
+      display: none;
+  }
+  .map-accommodations-lp{
+    margin: 0px;
+  }
+  .cards-container{
+    justify-content: center;
+  }
+  .container.lp{
+    margin: 0px;
+  }
+}
+
+
+// SHOW
+@media (min-width: 0px) and (max-width: 647px) {
+  .photos-accommodation-index {
+    flex-direction: column;
+  }
+  .secondary-photo {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+    .flex-pp-details-booking {
+    font-size: smaller;
+    width: 83%;
+  }
+}
+
+
+
+@media (min-width: 647px) and (max-width: 721px) {
+  .flex-pp-details-booking {
+    font-size: smaller;
+    width: 100px;
+    padding-left: 40%;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 955px){
+  .flex-pp-details-booking {
+    max-height: 40%;
+}
+
+}
+
+@media (min-width: 0px) and (max-width: 1189px) {
+  .flex-pp-details-booking {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container-pp-details-block3 {
+  display: none;
+}
+}
+
+
+// photos taille min mon macbook
+@media screen and (min-width: 150px) {
+  .photos-accommodation-index {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+
+  .main-photo {
+    max-width: 820px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+
+  .main-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+  }
+
+  .secondary-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-basis: 25.5%;
+  }
+
+  .secondary-photo {
+    flex-basis: 100%;
+    border-radius: 0.6rem;
+  }
+
+  .secondary-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+  }
+}

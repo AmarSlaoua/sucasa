@@ -70,3 +70,18 @@ margin-right: 10px;
   display: flex;
 
 }
+
+.nav-item.dropdown{
+  i{
+    font-size: 22px;
+    margin-top: 7px;
+    cursor: pointer;
+    padding-right: 15px;
+    padding-left: 8px;
+    opacity: 0.8;
+
+  }
+  i:hover{
+    opacity: 1;
+  }
+}

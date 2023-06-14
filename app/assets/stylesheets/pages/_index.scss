@@ -12,6 +12,7 @@
 @import url(components/_chatroom.scss);
 @import url(components/_map.scss);
 @import url(components/_about_show.css);
+@import url(components/_responsive.css);
 
 // Accommodation/index Title+Subtitle
 .container {
@@ -42,36 +43,11 @@
   height: 45vh;
 }
 
-@media (max-width: 1189px){
-  .container.lp {
-      max-width: 100%;
-  }
-  .cards-container{
-    justify-content: center;
-  }
-}
-
-@media (max-width: 946px){
-  .map-container {
-      display: none;
-  }
-  .map-accommodations-lp{
-    margin: 0px;
-  }
-  .cards-container{
-    justify-content: center;
-  }
-  .container.lp{
-    margin: 0px;
-  }
-}
-
-
 //   .map-exchange-valid .main-container-pp,{
 //   transform: scale(0.95899);
 // }
 
- .container-lp.about, .main-container-lp, .main-container, {
+.main-container-lp, .main-container, {
 transform: scale(0.96899);
 background-color: white;
 }

@@ -1,37 +1,42 @@
 .flex-about-first-block {
-  padding-top: 4%;
+  padding-top: 5%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-bottom: 4%;
+  padding-bottom: 5%;
+  justify-content: center;
 }
 
 .flex-about-first-block.first{
   background-color: #f8f9fa;
 border-radius: 0.6rem;
-padding-right: 5%;
-  .img-about{
-    margin-right: 5%;
-    margin-left: 5%;
-  }
+padding-right: 15%;
+padding-left: 15%;
+p{
+  text-align: justify;
+}
 }
 
 .flex-about-first-block.second{
-padding-left: 5%;
-  .img-about{
-    margin-right: 5%;
+  padding-right: 15%;
+  padding-left: 15%;
+  p{
+    text-align: justify;
+    width: 90%;
   }
 }
 
 .flex-about-first-block.second{
   flex-direction: row-reverse;
+  justify-content: center;
+
   .img-about{
-    margin-left: 5%;
+    margin-left: 10%;
   }
 }
 
 .about-main-key{
-  margin-left: 2%;
+  margin-left: 5%;
   i{
     margin-right: 7%;
     margin-left: 2%;
@@ -54,13 +59,12 @@ margin-bottom: 0px;
 }
 
 .container-lp.about{
-  padding-right: 10%;
-  padding-left: 10%;
   background-color: white;
 }
 
 .banner.about2{
   height: 40vh;
+  margin-top: 0%;
 }
 
 .hero-bg{
@@ -79,32 +83,30 @@ margin-bottom: 0px;
   }
 }
 
+.article-img.abouttest:hover{
+  height: 338px;
+  width: 338px;
+  transition: 0.4s;
+}
 
-@media (max-width: 1189px){
-  .container-about{
-    justify-content: center;
-    max-width: 100%;
+.article-img.abouttest{
+  transition: 0.4s;
+  padding-left: 5%;
+  p{
+    margin-right: 0%;
   }
-  .flex-about-first-block {
-    display: flex;
-    flex-direction: column;
-    padding: 4%;
-    align-items: center;
-}
-.about-main-key {
-  margin-left: 2%;
-  text-align: center;
-}
-.flex-about-first-block.second {
-  display: flex;
-  flex-direction: column;
-  padding: 4%;
-  align-items: center;
-}
 }
 
-@media (max-width: 747px){
-  .flex-about-first-block.first {
-background-color: white;
+.about-main-key.first-block{
+  margin-left: 15%;
 }
+
+
+.flex-about-first-block.first.smile{
+  padding-left: 18%;
+
+}
+
+.article-img.smile img{
+  padding-right: 7%;
 }
