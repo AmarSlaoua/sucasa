@@ -6,14 +6,18 @@
       <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
     </small>
       <p>
-        <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' })do |f|%>
-          <%= f.input Modality::STEPS[message.occurence].to_sym %>
-          <%= f.submit "Make a counter-offer" %>
-        <% end %>
+        <% if @occurence < Modality::STEPS.count %>
+          <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' }) do |f|%>
+            <%= f.input Modality::STEPS[message.occurence].to_sym %>
+            <%= f.submit "Make a counter-offer" %>
+          <% end %>
 
-        <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' })do |f|%>
-          <%= f.input :progress, input_html: {value: 2, hidden: true }, label: false %>
-          <%= f.submit "I agree !" %>
+          <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' }) do |f|%>
+            <%= f.input :progress, input_html: {value: 2, hidden: true }, label: false %>
+            <%= f.submit "I agree !" %>
+          <% end %>
+        <% else %>
+          C'est gagné!!!
         <% end %>
       </p>
   </div>
