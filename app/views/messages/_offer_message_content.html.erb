@@ -1,14 +1,16 @@
 
-  <% if Modality::STEPS[occurence] == "duration" %>
-    For the exchange, you offered a duration of : <%= modality.duration %> days.
-  <% elsif Modality::STEPS[occurence] == "dates" %>
-    For the exchange, you propose from : <%= modality.dates%>.
-  <% elsif Modality::STEPS[occurence] == "keys" %>
-    For the keys handover of your home, you offered to : <%= modality.keys%>.
-  <% elsif Modality::STEPS[occurence] == "petsitting" %>
-    If <%= other_user.first_name %> has a pet which requires petsitting, you agreed to petsitting : <%= modality.petsitting == false ? "NO" : "YES" %>.
-  <% elsif Modality::STEPS[occurence] == "transportation" %>
-    You offered to provide <%= other_user.first_name %> with : <%= modality.transportation%>.
-  <% elsif Modality::STEPS[occurence] == "others" %>
-    Other important topic you wanted to address = <%= modality.others == "" ? "nothing to add" : modality.others %>.
-  <% end %>Waiting for <%= other_user.first_name %>'s approval.
+ <div class="proposed-modality">
+    <% if Modality::STEPS[occurence] == "duration" %>
+      ⏱️ For the exchange, you offered a duration of : <%= modality.duration %> days.
+    <% elsif Modality::STEPS[occurence] == "dates" %>
+      📅 For the exchange, you propose from : <%= modality.dates%>.
+    <% elsif Modality::STEPS[occurence] == "keys" %>
+      🗝️ For the keys handover of your home, you offered to : <%= modality.keys%>.
+    <% elsif Modality::STEPS[occurence] == "petsitting" %>
+      🐱 If <%= other_user.first_name %> has a pet which requires petsitting, you agreed to petsitting : <%= modality.petsitting == false ? "NO" : "YES" %>.
+    <% elsif Modality::STEPS[occurence] == "transportation" %>
+      🚲 You offered to provide <%= other_user.first_name %> with : <%= modality.transportation%>.
+    <% elsif Modality::STEPS[occurence] == "others" %>
+      🏠 Other important topic you wanted to address = <%= modality.others == "" ? "nothing to add" : modality.others %>.
+    <% end %>Waiting for <%= other_user.first_name %>'s approval.
+  </div>
