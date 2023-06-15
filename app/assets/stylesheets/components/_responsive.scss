@@ -1,5 +1,12 @@
 // LP ABOUT
 
+@media (min-width: 1400px){
+  .container.hp {
+      max-width: 92% !important;
+  }
+
+}
+
 @media (max-width: 1189px){
   .container-about{
     justify-content: center;

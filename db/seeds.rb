@@ -15,15 +15,15 @@ puts "DB deleted !"
 ###################################   CREATING COMPANIES   ##################################################
 
 puts "Creating 3 fake companies ... "
-file1 = URI.open("https://www.creativosonline.org/wp-content/uploads/2022/07/Logotipo-carrefour.jpg")
+file1 = URI.open("https://pbs.twimg.com/profile_images/1536721483560628225/qZo6oCQn_400x400.jpg")
 file2 = URI.open("https://oxygen-ladefense.fr/wp-content/uploads/2020/06/logo-bioburger.jpg")
 file3 = URI.open("https://img.freepik.com/icones-gratuites/mac-os_318-10374.jpg")
 
 c1 = Company.new(
-  name: "Carrefour",
-  industry: "Retail"
+  name: "Le Wagon",
+  industry: "Education"
 )
-c1.photo.attach(io: file1, filename: "logocarrefour.jpg", content_type: "image/jpg")
+c1.photo.attach(io: file1, filename: "logo.jpg", content_type: "image/jpg")
 c1.save!
 puts "..."
 
@@ -52,7 +52,7 @@ puts "Creating 15 fake users..."
 pp1 = URI.open("https://avatars.githubusercontent.com/u/130504907?v=4")
 pp2 = URI.open("https://media.licdn.com/dms/image/C5603AQHt6A6O0trmNg/profile-displayphoto-shrink_800_800/0/1517839980887?e=2147483647&v=beta&t=w088gT-EsnExEo6RtRHpylKlUYDY215BOB-81WRYCrA")
 pp3 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1683008769/aoe1v4frlvgve2uei7f4.jpg")
-pp4 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1683008769/aoe1v4frlvgve2uei7f4.jpg")
+pp4 = URI.open("https://img.freepik.com/free-photo/handsome-young-man-with-new-stylish-haircut_176420-19636.jpg")
 pp5 = URI.open("https://img.freepik.com/photos-premium/femme-sourire-son-visage_266745-287.jpg?w=2000")
 pp6 = URI.open("https://img.freepik.com/photos-premium/femme-sourire-son-visage-sourit_910718-48.jpg?w=2000")
 pp7 = URI.open("https://media.istockphoto.com/id/966638378/fr/photo/portrait-dun-homme-latino-souriant.jpg?s=612x612&w=0&k=20&c=llIfoWoEuXfQ_is3HTaU9NgR6R7xLw-vDltJxTt6WIA=")
@@ -320,9 +320,9 @@ add6 = "9 Rue du Commandant Jean Louis Tulasne, 62100 Calais"
 add7 = "8 Rue des Écrivains, 67000 Strasbourg"
 add8 = "13 Rue d'Aix, 13001 Marseille"
 add9 = "41 Cr Gambetta, 34070 Montpellier"
-add10 = "3 Pl. Georges Clemenceau, 64200 Biarritz"
-add11 = "23 Rue Gosselet, 59000 Lille"
-add12 = "5 Rue des Cordeliers, 44000 Nantes"
+add10 = "7-21 Bradbury Pl, Belfast BT7 1RQ, United Kingdom"
+add11 = "Iserstraße 12, 14513 Teltow, Germany"
+add12 = "Via Ponti Rossi, 113, 80141 Napoli NA, Italy"
 
 
 t1 = "Modern Apartment in the Heart of the City"

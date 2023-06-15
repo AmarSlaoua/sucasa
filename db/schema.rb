@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_14_134731) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,7 +129,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_134731) do
     t.string "first_name"
     t.string "last_name"
     t.string "bio"
-    t.bigint "company_id"
+    t.bigint "company_id", null: false
     t.string "job"
     t.string "seniority"
     t.index ["company_id"], name: "index_users_on_company_id"
