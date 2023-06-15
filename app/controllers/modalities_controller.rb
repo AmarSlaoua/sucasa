@@ -6,10 +6,13 @@ class ModalitiesController < ApplicationController
     @modality = Modality.find(params[:id])
     @exchange = @modality.exchange
     @other_user = @exchange.find_other_user(current_user)
+
     @my_modality = @exchange.find_my_modality(current_user)
     @other_user_modality = @exchange.find_other_user_modality(current_user)
+
     @modality_form = Modality::STEPS
     @attributes = @modality.attributes
+
     if params[:modality]["progress"].present?
       params[:modality]["progress"] = params[:modality]["progress"].to_i
       @modality.progress = params[:modality]["progress"].to_i
@@ -27,12 +30,12 @@ class ModalitiesController < ApplicationController
 
     if @modality.update(params_modalities)
       @occurence = @modality.find_last_input(@test_final)
+
       puts "****************"
       puts @occurence
       puts "****************"
 
-      if @modality.confirmed? ## validation
-        # @message = Message.new(exchange: @exchange, content: render_to_string(partial: "messages/confirmation_message", locals: { modality: @modality, user: @other_user}))
+      if @modality.confirmed?
         @message = Message.new(exchange: @exchange, user: current_user, content: render_to_string(partial: "messages/confirmation_message", locals: {modality: @modality, occurence: @occurence, other_user: @other_user} ))
         @message.save
         @message.display_both!
@@ -45,40 +48,51 @@ class ModalitiesController < ApplicationController
                                                       user: current_user,
                                                       occurence: @occurence }),
             other_modality_form: render_to_string(partial: "modalities/modality_form",
-                                            locals: { modality: @other_user_modality,
-                                                      user: @other_user,
-                                                      occurence: @occurence }),
+                                                  locals: { modality: @other_user_modality,
+                                                            user: @other_user,
+                                                            occurence: @occurence }),
             current_user_id: current_user.id
           }
         )
-
-        @modality.progress = 0
         @modality.pending!
-      else ## Proposition
-        @message_for_current_user = Message.new(user: current_user, exchange: @exchange, content: render_to_string(partial: "messages/offer_message_content", locals: { occurence: @occurence, modality: @modality, other_user: @other_user }))
+      else
+        @message_for_current_user = Message.new(user: current_user,
+                                                exchange: @exchange,
+                                                content: render_to_string(partial: "messages/offer_message_content",
+                                                                          locals: { occurence: @occurence,
+                                                                                    modality: @modality,
+                                                                                    other_user: @other_user }))
         @message_for_current_user.save
         @message_for_current_user.display_to_message_user!
 
-        # @category_value = 1
-        @message_for_other_user = Message.new(user: current_user, category: 1, exchange: @exchange, occurence: @occurence, content: render_to_string(partial: "messages/offer_message_content", locals: { occurence: @occurence, modality: @modality, other_user: @other_user }))
+        @message_for_other_user = Message.new(user: current_user,
+                                              category: 1,
+                                              exchange: @exchange,
+                                              occurence: @occurence,
+                                              content: render_to_string(partial: "messages/offer_message_content",
+                                                                        locals: { occurence: @occurence,
+                                                                                  modality: @modality,
+                                                                                  other_user: @other_user }))
         @message_for_other_user.save
         @message_for_other_user.display_to_other_user!
 
         ExchangeChannel.broadcast_to(
           @exchange,
           {
-            message_for_current_user: render_to_string(partial: "messages/message", locals: { message: @message_for_current_user, modality: nil, occurence: @occurence }),
-            message_for_other_user: render_to_string(partial: "messages/message", locals: { message: @message_for_other_user, modality: @modality, occurence: @occurence }),
-            # modality_form: render_to_string(partial: "modalities/modality_form",
-            #                                           locals: { modality: @modality,
-            #                                                     user: @current_user,
-            #                                                     occurence: @occurence }),
+            message_for_current_user: render_to_string(partial: "messages/message",
+                                                       locals: { message: @message_for_current_user,
+                                                                 modality: nil,
+                                                                 occurence: @occurence }),
+            message_for_other_user: render_to_string(partial: "messages/message",
+                                                     locals: { message: @message_for_other_user,
+                                                               modality: @modality,
+                                                               occurence: @occurence }),
             current_user_id: current_user.id
           }
         )
+        @modality.next!
       end
       head :ok
-      # redirect_to edit_exchange_path(@modality.exchange)
     else
       render :edit, status: :unprocessable_entity
     end

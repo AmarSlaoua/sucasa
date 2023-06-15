@@ -1,58 +1,99 @@
-      <div class="div" data-exchange-subscription-target="modality">
+<div class="div" data-exchange-subscription-target="modality">
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="currentuser" role="tabpanel" aria-labelledby="currentuser-tab">
+      <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr', action: "turbo:submit-end->exchange-subscription#resetForm" }) do |f|%>
+              <%# <%= f.input :progress, input_html: {value: 1, hidden: true }, label: false %>
+        <div class="accordion" id="accordionExample">
+          <% Modality::STEPS.each_with_index do |element, index| %>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading<%=index%>">
 
-        <div class="tab-content" id="myTabContent" data-exchange-subscription-target="modality">
-          <div class="tab-pane fade show active" id="currentuser" role="tabpanel" aria-labelledby="currentuser-tab">
+<%# Validated items %>
+<%# ################################################################################################################################# %>
 
-              <%= simple_form_for(modality, as: :modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr', action: "turbo:submit-end->exchange-subscription#resetForm" }) do |f|%>
-              <%= f.input :progress, input_html: {value: 1, hidden: true }, label: false %>
-            <div class="accordion" id="accordionExample">
-            <%= modality.accommodation.user.first_name %>
-              <% Modality::STEPS.each_with_index do |element, index| %>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading<%=index%>">
+              <% if index < @occurence%>
+                <div class="validated">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="false" aria-controls="collapse<%=index%>">
+                    <%= "#{element.capitalize}" %>
+                  </button>
+                </div>
+              </h2>
 
-                    <% if index == @occurence%>
+              <div id="collapse<%=index%>" class="accordion-collapse collapse" aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <% if element == "dates" %>
+                  <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                  <p style="font-size: 10px;"><%= Modality::TIPS[index] %>.</p>
+                  <%= f.submit "+ Submit" %>
+                  <% else %>
+                  <%= f.input "#{element}".to_sym, label: false %>
+                  <p style="font-size: 10px;"><%= Modality::TIPS[index] %>.</p>
+                  <%= f.submit "+ Submit" %>
+                  <% end %>
+                </div>
+              </div>
 
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="true" aria-controls="collapse<%=index%>">
-                      <%= "#{element}" %>
-                    </button>
-                  </h2>
-                  <div id="collapse<%=index%>" class="accordion-collapse collapse show" aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <% if element == "dates" %>
-                        <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
-                        <%= f.submit "+ Submit" %>
-                      <% else %>
-                          <%= f.input "#{element}".to_sym, label: false%>
-                          <%= f.submit "+ Submit" %>
-                      <% end %>
-                    </div>
-                  </div>
+<%# In progress item %>
+<%# ################################################################################################################################# %>
 
+              <% elsif index == @occurence%>
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="true" aria-controls="collapse<%=index%>">
+                  <%= "#{element.capitalize}" %>
+                </button>
+              </h2>
+                <div id="collapse<%=index%>" class="accordion-collapse collapse show" aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <% if element == "dates" %>
+                    <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                    <p style="font-size: 10px;"><%= Modality::TIPS[index] %>.</p>
+                    <%= f.submit "+ Submit" %>
                     <% else %>
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="false" aria-controls="collapse<%=index%>">
-                      <%= "#{element}" %>
-                    </button>
-                  </h2>
+                    <%= f.input "#{element}".to_sym, label: false %>
+                    <p style="font-size: 10px;"><%= Modality::TIPS[index] %>.</p>
+                    <%= f.submit "+ Submit" %>
+                    <% end %>
+                  </div>
+                </div>
+
+<%# To-do items %>
+<%# ################################################################################################################################# %>
+
+                <% else %>
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="false" aria-controls="collapse<%=index%>">
+                    <%= "#{element.capitalize}" %>
+                  </button>
+                </h2>
                   <div id="collapse<%=index%>" class="accordion-collapse collapse" aria-labelledby="heading<%=@modality_input_counter%>" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <% if element == "dates" %>
-                        <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
-                        <%= f.submit "+ Submit" %>
+                      <%= f.input "#{element}".to_sym, as: :string, label: false,  input_html: { data: { flatpickr_target: "checkIn" } } %>
+                      <p style="font-size: 10px;"><%= Modality::TIPS[index] %>.</p>
+                      <%= f.submit "+ Submit" %>
                       <% else %>
-                        <%= f.input "#{element}".to_sym, label: false%>
-                        <%= f.submit "+ Submit" %>
+                      <%= f.input "#{element}".to_sym, label: false %>
+                      <p style="font-size: 10px;"><%= Modality::TIPS[index] %>.</p>
+                      <%= f.submit "+ Submit" %>
                       <% end %>
                     </div>
                   </div>
-
-                    <% end %>
-                </div>
-
-              <% end%>
+              <% end %>
             </div>
-              <%#= f.hidden_field :progress%>
-            <% end %>
-          </div>
+          <% end%>
         </div>
-      </div>
+        <%#= f.hidden_field :progress%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="<%= 100/(Modality::STEPS.count) * @occurence %>" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar custom-bg-progress progress-bar-striped progress-bar-animated" style="width: <%= 100/(Modality::STEPS.count) * @occurence %>%"></div>
+  </div>
+
+  <div class="link-validate">
+    <% if @occurence >= 5 %>
+      <%= link_to "Validate exchange", exchange_path(@exchange) %>
+    <% else %>
+      <span id="inactive-link">Validate exchange</span>
+    <% end %>
+  </div>
+</div>

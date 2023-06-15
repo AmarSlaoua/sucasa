@@ -23,7 +23,6 @@ class ExchangesController < ApplicationController
     find_my_exchanges
     @exchanges_infos = Exchange.build_exchanges_info(current_user)
 
-
     @modality_form = Modality::STEPS
     @attributes = @my_modality.attributes
 
@@ -39,6 +38,7 @@ class ExchangesController < ApplicationController
     @exchange = Exchange.find(params[:id])
     @review = Review.new
     @date_today = Date.today
+    @my_modality = @exchange.find_my_modality(current_user)
     @other_user_modality = @exchange.find_other_user_modality(current_user)
     accommodation = @other_user_modality.accommodation
     @markers = [{
@@ -68,14 +68,4 @@ class ExchangesController < ApplicationController
       @my_modality.progress = "next"
     end
   end
-
-  # def find_last_input
-  #   if @my_modality.progress == "pending"
-  #     @occurence = @test_final.index { |i| i.nil? || i == "" }
-  #   elsif @my_modality.progress == "next"
-  #     @occurence = @test_final.index { |i| i.nil? || i == "" } - 1
-  #   else
-  #     raise
-  #   end
-  # end
 end
