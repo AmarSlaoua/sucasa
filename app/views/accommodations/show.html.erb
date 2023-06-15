@@ -74,7 +74,7 @@
                       <i class="fa-solid fa-calendar"></i><p><%= @accommodation.user.seniority %> years of services </p>
                     </div>
                     <div class="user-item user-3">
-                      <i class="fa-solid fa-globe"></i><p><%= @accommodation.user.company.name %> </p>
+                      <i class="fa-solid fa-building"></i><p><%= @accommodation.user.company.name %> </p>
                     </div>
                   </div>
                 </div>
@@ -89,7 +89,7 @@
           <div class="flex-container-review">
             <div class="container-booking-block2">
               <% if @reviews.length == 0 %>
-                <h5><%= @accommodation.user.first_name %> has never done an exchange.<br> Be their first ! 🗝️</h5>
+                <h5><%= @accommodation.user.first_name %> has never done an exchange.<br> Be the first ! 🗝️</h5>
               <% else %>
               <h5><%= @accommodation.user.first_name %> has already done <%= pluralize(@reviews.length, 'exchange') %></h5>
               <% @reviews.each do |review| %>
@@ -162,5 +162,6 @@
     </div>
   </div>
 </div>
+
 
 <%= render 'components/footer' %>

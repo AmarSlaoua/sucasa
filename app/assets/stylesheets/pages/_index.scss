@@ -47,10 +47,15 @@
 //   transform: scale(0.95899);
 // }
 
-.main-container-lp, .main-container, {
+.main-container-lp, .main-container{
 transform: scale(0.96899);
 background-color: white;
 }
+
+.all-final {
+  transform: scale(0.9);
+  background-color: white;
+  }
 
 .wrapper{
   background-color: white;
@@ -58,4 +63,8 @@ background-color: white;
 
 body{
   background-color: white;
+}
+
+.banner-lp.about.valid{
+  margin-right: 55%;
 }

@@ -1,107 +1,125 @@
 <%= render 'components/navbar' %>
-<div class="map-exchange-valid">
-  <div class="map-exchange-flex-1">
-    <div class="exchange-show">
-      <div class="container-exchange-show">
-        <div class="container">
-          <div class ="m-3 exchange">
-          <h3>🎉 Your exchange is finalized !</h3>
-            <div class="exchange-first-block">
-              <%= cl_image_tag @other_user_modality.accommodation.photos.first.key, height: 600, width: 953, crop: :fill, class: "image-clickable" %>
-              <h5>Main infos</h5>
-                <div class="flex-valid-exchange-main-infos">
-                  <div class="valid-block valid-exchange-duration">
-                    <h6>Duration</h6>
-                    <p><%= @other_user_modality.duration %> days</p>
-                  </div>
-                  <div class="valid-block valid-exchange-arrival">
-                    <h6>Arrival</h6>
-                    <p><%= @other_user_modality.check_in %></p>
-                  </div>
-                  <div class="valid-block valid-block-last valid-exchange-departure">
-                    <h6>Departure</h6>
-                    <p><%= @other_user_modality.check_out %></p>
-                  </div>
-                </div>
-              </div>
-              <div class="exchange-second-block">
-                <div class="flex-me">
-                  <div class="flex-picture-buddy-valid 1">
-                    <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <h6> <b>My Contract </h6> </b>
-                  </div>
-              <div class="flex-valid-exchange-secondary-infos my">
-                <div class="valid-block valid-exchange-keys">
-                  <h6>Keys</h6>
-                <p> <%= @other_user_modality.keys %> </p>
-                </div>
-                <div class="valid-block valid-exchange-petsitting">
-                  <h6>Petsitting</h6>
-                  <p> <%= @other_user_modality.petsitting %></p>
-                </div>
-                <div class="valid-block valid-exchange-transportation">
-                  <h6>Transportation</h6>
-                  <p><%= @other_user_modality.transportation %></p>
-                </div>
-                      <div class="valid-block valid-block-last valid-exchange-others">
-                  <h6>Others</h6>
-                  <p> <%= @other_user_modality.others %> </p>
-                </div>
-              </div>
-              </div>
-              <div class="flex-him">
-                                <div class="flex-picture-buddy-valid 1">
-                    <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <h6> <b><%= @other_user_modality.accommodation.user.first_name %>'s' contract </h6> </b>
-                  </div>
-              <div class="flex-valid-exchange-secondary-infos">
-                <div class="valid-block valid-exchange-keys">
-                  <h6>Keys</h6>
-                <p> <%= @other_user_modality.keys %> </p>
-                </div>
-                <div class="valid-block valid-exchange-petsitting">
-                  <h6>Petsitting</h6>
-                  <p> <%= @other_user_modality.petsitting %></p>
-                </div>
-                <div class="valid-block valid-exchange-transportation">
-                  <h6>Transportation</h6>
-                  <p><%= @other_user_modality.transportation %></p>
-                </div>
-                      <div class="valid-block valid-block-last valid-exchange-others">
-                  <h6>Others</h6>
-                  <p> <%= @other_user_modality.others %> </p>
-                </div>
-              </div>
-              </div>
-            </div>
+<div class="banner about" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= cl_image_path @other_user_modality.accommodation.photos.first.key, height: 340, width: 560, crop: :fill %>)">
+    <div class="banner-lp about valid">
+      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🎉 You are ready to exchange !</h1>
+    </div>
+</div>
 
 
-          </div>
-          <div class="exchange-third-block last-block">
-          <div class="map-wraper">
-            <div style="width: 100%; height: 500px;"
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-            </div>
-
+<div class="all-final">
+  <div class="flex-all-infos-valid">
+    <div class="flex-exchange-first-block">
+      <div class="flex-buddies-info-main-infos">
+          <h4> Accommodation infos</h4>
+        <div style="width: 100%; height: 340px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
+
         <div class="acco-details-valid-final">
-            <h5>Accommodation details</h5>
+          <h5> 🏠<b>&nbsp;&nbsp;&nbsp;Where you'll stay</b></h5>
+          <div class="highlight-valid">
             <p><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;&nbsp;<b>Address</b></p>
             <p> <%= @other_user_modality.accommodation.address %></p>
-            <div class="separator"></div>
-              <p><i class="fa-solid fa-person-shelter"></i>&nbsp;&nbsp;&nbsp; <b>Number of bedrooms</b></p>
-              <p><%= @other_user_modality.accommodation.nb_of_bedrooms %> bedrooms</p>
-              <div class="separator"></div>
-                <p><i class="fa-solid fa-bed"></i> &nbsp;&nbsp;&nbsp;<b>Number of beds</b></p>
-                <p><%= @other_user_modality.accommodation.nb_of_beds %> beds</p>
-                <div class="separator"></div>
-                  <p><i class="fa-solid fa-shower"></i> &nbsp;&nbsp;&nbsp;<b>Number of bathrooms</b></p>
-                  <p><%= @other_user_modality.accommodation.nb_of_bathrooms %> bathrooms</p>
+          </div>
+          <div class="highlight-valid">
+            <p><i class="fa-solid fa-person-shelter"></i>&nbsp;&nbsp;&nbsp; <b>Number of bedrooms</b></p>
+            <p><%= @other_user_modality.accommodation.nb_of_bedrooms %> bedrooms</p>
+          </div>
+          <div class="highlight-valid">
+            <p><i class="fa-solid fa-bed"></i> &nbsp;&nbsp;&nbsp;<b>Number of beds</b></p>
+            <p><%= @other_user_modality.accommodation.nb_of_beds %> beds</p>
+          </div>
+          <div class="highlight-valid">
+            <p><i class="fa-solid fa-shower"></i> &nbsp;&nbsp;&nbsp;<b>Number of bathrooms</b></p>
+            <p><%= @other_user_modality.accommodation.nb_of_bathrooms %> bathrooms</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex-main-validate">
+          <h4> Exchange infos</h4>
+          <div class="main-infos-block1">
+            <h5>🗝️<b>&nbsp;&nbsp;&nbsp;Main infos</b></h5>
+              <div class="flex-valid-exchange-main-infos">
+                <div class="valid-block valid-exchange-duration">
+                  <h6><i class="fa-solid fa-calendar"></i><b> &nbsp;&nbsp;Duration</b></h6>
+                  <p><%= @other_user_modality.duration %> days</p>
+                </div>
+                <div class="valid-block valid-exchange-arrival">
+                  <h6><i class="fa-solid fa-plane-arrival"></i><b> &nbsp;&nbsp;Arrival</b></h6>
+                  <p><%= @other_user_modality.check_in %></p>
+                </div>
+                <div class="valid-block valid-block-last valid-exchange-departure">
+                  <h6><i class="fa-solid fa-plane-departure"></i><b> &nbsp;&nbsp;Departure</b></h6>
+                  <p><%= @other_user_modality.check_out %></p>
                 </div>
               </div>
             </div>
+
+            <div class="flex-secondary-infos-valid">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">My preferences</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"><%= @other_user_modality.accommodation.user.first_name %>'s preferences</button>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                    <div class="flex-me">
+                      <div class="flex-picture-buddy-valid 1">
+                        <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;
+                        <h6> <b>Prénom Nom </h6> </b>
+                      </div>
+                      <div class="valid-exchange-secondary-infos my">
+                        <div class="valid-block valid-exchange-keys">
+                          <h6><b><i class="fa-solid fa-key"></i> &nbsp;&nbsp;Keys</b></h6>
+                          <p> <%= @other_user_modality.keys %> </p>
+                        </div>
+                        <div class="valid-block valid-exchange-petsitting">
+                          <h6><i class="fa-solid fa-paw"></i> <b> &nbsp;&nbsp;Petsitting</b></h6>
+                          <p> <%= @other_user_modality.petsitting %></p>
+                        </div>
+                        <div class="valid-block valid-exchange-transportation">
+                          <h6><i class="fa-solid fa-bicycle"></i><b> &nbsp;&nbsp;Transportation</b></h6>
+                          <p><%= @other_user_modality.transportation %></p>
+                        </div>
+                        <div class="valid-block valid-block-last valid-exchange-others">
+                          <h6><i class="fa-solid fa-suitcase"></i><b> &nbsp;&nbsp;Others</b></h6>
+                          <p> <%= @other_user_modality.others %> </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0"><div class="flex-him">
+                    <div class="flex-picture-buddy-valid 1">
+                      <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;
+                      <h6> <b><%= @other_user_modality.accommodation.user.first_name %> <%= @other_user_modality.accommodation.user.last_name.upcase %> </h6> </b>
+                    </div>
+                    <div class="valid-exchange-secondary-infos him">
+                      <div class="valid-block valid-exchange-keys">
+                        <h6><b><i class="fa-solid fa-key"></i> &nbsp;&nbsp;Keys</b></h6>
+                        <p> <%= @other_user_modality.keys %> </p>
+                      </div>
+                      <div class="valid-block valid-exchange-petsitting">
+                        <h6><i class="fa-solid fa-paw"></i><b> &nbsp;&nbsp;Petsitting</b></h6>
+                        <p> <%= @other_user_modality.petsitting %></p>
+                      </div>
+                      <div class="valid-block valid-exchange-transportation">
+                        <h6><i class="fa-solid fa-bicycle"></i><b> &nbsp;&nbsp;Transportation</b></h6>
+                        <p><%= @other_user_modality.transportation %></p>
+                      </div>
+                      <div class="valid-block valid-block-last valid-exchange-others">
+                        <h6><i class="fa-solid fa-suitcase"></i><b> &nbsp;&nbsp;Others</b></h6>
+                        <p> <%= @other_user_modality.others %> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -109,24 +127,6 @@
     </div>
   </div>
 </div>
-      <div class="container-accommodation-form review">
-        <div class="accommodation-form review-main">
-          <div class="accommodation-text">
-              <div class="container-accommodation-form review">
-                <% if @other_user_modality.review.nil? && @date_today > @other_user_modality.check_out%>
-                <div class="container">
-                  <h4>Comment your exchange :</h4>
-                    <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
-                    <%= f.hidden_field :user_id, value: current_user.id %>
-                    <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
-                    <%= f.input :content %>
-                    <%= f.submit "Publish comment" %>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
 <%= render 'components/footer' %>
