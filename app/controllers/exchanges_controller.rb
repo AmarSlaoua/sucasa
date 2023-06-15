@@ -23,15 +23,9 @@ class ExchangesController < ApplicationController
     find_my_exchanges
     @exchanges_infos = Exchange.build_exchanges_info(current_user)
 
-    @modality_form = Modality::STEPS
-    @attributes = @my_modality.attributes
-
-    @test_final = @modality_form.map do |element|
-      @attributes[element]
-    end
-
-    @occurence = @my_modality.find_last_input(@test_final)
+    @occurence = @my_modality.find_last_input
     progress_toggle
+    # raise
   end
 
   def show

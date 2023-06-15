@@ -128,5 +128,25 @@
   </div>
 </div>
 
+      <div class="container-accommodation-form review">
+        <div class="accommodation-form review-main">
+          <div class="accommodation-text">
+              <div class="container-accommodation-form review">
+                <% if @other_user_modality.review.nil? && @date_today > @my_modality.check_out%>
+                <div class="container">
+                  <h4>Comment your exchange :</h4>
+                    <%= simple_form_for [@other_user_modality, @review], method: :post, url: modality_reviews_path(@other_user_modality) do |f|%>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+                    <%= f.hidden_field :modality_id, value: @other_user_modality.id %>
+                    <%= f.input :content %>
+                    <%= f.submit "Publish comment" %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
 <%= render 'components/footer' %>
