@@ -1,6 +1,5 @@
 <% if modality.present? %>
   <div id="message-<%= message.id %>">
-    <%# raise %>
     <%= cl_image_tag message.user.photo.key, crop: :fill, class: "avatar mr-3 msg" %>
     <small>
       <strong><%= message.user.first_name %></strong>

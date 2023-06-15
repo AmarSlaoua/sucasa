@@ -1,16 +1,1 @@
  <p>Modality agreed!!</p>
- <p>Home of <%= modality.accommodation.user.first_name %> </p>
-
- <% if Modality::STEPS[occurence] == "duration" %>
-   <p> Duration of : <%= modality.duration %> days.</p>
-  <% elsif Modality::STEPS[occurence] == "dates" %>
-   <p> From : <%= modality.dates%>.</p>
-  <% elsif Modality::STEPS[occurence] == "keys" %>
-   <p> Keys handover : <%= modality.keys%>.</p>
-  <% elsif Modality::STEPS[occurence] == "petsitting" %>
-   <p> Petsitting : <%= modality.petsitting == false ? "NO" : "YES" %>.</p>
-  <% elsif Modality::STEPS[occurence] == "transportation" %>
-   <p> Transportation : <%= modality.transportation%>.</p>
-  <% elsif Modality::STEPS[occurence] == "others" %>
-   <p> Other important topics : <%= modality.others == "" ? "nothing to add" : modality.others %>.</p>
-  <% end %>

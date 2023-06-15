@@ -115,6 +115,19 @@
   opacity: 0.8;
 }
 
+#inactive-link {
+  background-color: #b3b3b2;
+  color: white;
+  border-radius: 0.6rem;
+  padding: 12px;
+  // padding-left: 26.8%;
+  // padding-right: 26.8%;
+  opacity: 1;
+  width: 100%;
+  margin-top: 30px;
+  bottom: 0
+}
+
 
 .edit_modality input[type="submit"] {
   color: #F2C14E;
@@ -312,4 +325,13 @@
 .flex-msg-input{
   display: flex;
   flex-direction: column;
+}
+
+.validated{
+  background-color: green;
+}
+
+
+.custom-bg-progress{
+  background-color: #F2C14E;
 }
