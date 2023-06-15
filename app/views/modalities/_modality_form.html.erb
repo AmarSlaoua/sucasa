@@ -11,7 +11,7 @@
 <%# Validated items %>
 <%# ################################################################################################################################# %>
 
-              <% if index < @occurence%>
+              <% if index < occurence %>
                 <div class="validated">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="false" aria-controls="collapse<%=index%>">
                     <%= "#{element.capitalize}" %>
@@ -36,7 +36,7 @@
 <%# In progress item %>
 <%# ################################################################################################################################# %>
 
-              <% elsif index == @occurence%>
+              <% elsif index == occurence%>
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>" aria-expanded="true" aria-controls="collapse<%=index%>">
                   <%= "#{element.capitalize}" %>
                 </button>
@@ -85,12 +85,13 @@
     </div>
   </div>
 
-  <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="<%= 100/(Modality::STEPS.count) * @occurence %>" aria-valuemin="0" aria-valuemax="100">
-    <div class="progress-bar custom-bg-progress progress-bar-striped progress-bar-animated" style="width: <%= 100/(Modality::STEPS.count) * @occurence %>%"></div>
+  <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="<%= 100/(Modality::STEPS.count - 1) * occurence %>" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar custom-bg-progress progress-bar-striped progress-bar-animated" style="width: <%= 100/(Modality::STEPS.count - 1) * occurence %>%"></div>
   </div>
 
   <div class="link-validate">
-    <% if @occurence >= 5 %>
+    <%# if modality.exchange.modalities.map(&:progress) == ["finished", "finished"] %>
+    <% if occurence >= 5 %>
       <%= link_to "Validate exchange", exchange_path(@exchange) %>
     <% else %>
       <span id="inactive-link">Validate exchange</span>

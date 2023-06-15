@@ -1,16 +1,18 @@
 <% if modality.present? %>
-  <div class="offer-msg-avatar-name", id="message-<%= message.id %>">
+<div class="offer-msg-avatar-name", id="message-<%= message.id %>">
+       <p class="info-offer-msg">
+        <% if @occurence < Modality::STEPS.count %>
+          <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' }) do |f|%>
+            <%= f.input Modality::STEPS[message.occurence].to_sym, :label => "For the #{Modality::STEPS[message.occurence].to_s.capitalize}, #{message.user.first_name} proposes :" %>
+            <%= f.submit "📝 Make a counter-offer", class:"button-counter-offer" %>
+          <% end %>
 
-      <p class="info-offer-msg">
-        <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' })do |f|%>
-          <%= f.input Modality::STEPS[message.occurence].to_sym, :label => "For the #{Modality::STEPS[message.occurence].to_s.capitalize}, #{message.user.first_name} proposes :" %>
-          <%= f.submit "📝 Make a counter-offer", class:"button-counter-offer" %>
-
-        <% end %>
-
-        <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' })do |f|%>
-          <%= f.input :progress, input_html: {value: 2, hidden: true }, label: false %>
-          <%= f.submit "✔️ Validate the offer", class:"button-agreed-offer" %>
+          <%= simple_form_for(modality, method: :patch, url: modality_path(modality), data: { controller: 'flatpickr' }) do |f|%>
+            <%= f.input :progress, input_html: {value: 2, hidden: true }, label: false %>
+            <%= f.submit "✔️ Validate the offer", class:"button-agreed-offer" %>
+          <% end %>
+        <% else %>
+          <p>Modalities are already defined !</p>
         <% end %>
       </p>
   </div>
