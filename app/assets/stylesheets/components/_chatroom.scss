@@ -125,7 +125,9 @@
   opacity: 1;
   width: 100%;
   margin-top: 30px;
-  bottom: 0
+  bottom: 0;
+  padding-right: 26%;
+  padding-left: 26%;
 }
 
 
@@ -177,6 +179,7 @@
   border-left: 0.8px solid  rgba(0, 0, 0, 0.562);
   h4{
     font-weight: bold;
+    font-size: 20px;
   }
 }
 
@@ -192,6 +195,7 @@
     font-weight: bold;
     margin-bottom: 8%;
     padding-left: 5%;
+    font-size: 20px;
   }
 }
 
@@ -201,6 +205,7 @@
   padding-right: 2%;
   h4{
     font-weight: bold;
+    font-size: 20px;
   }
 }
 
@@ -328,10 +333,114 @@
 }
 
 .validated{
-  background-color: green;
+  opacity: 0.8;
+  background-color: #d7d7d7;
 }
 
+.validated:hover{
+  opacity: 1;
+}
 
 .custom-bg-progress{
   background-color: #F2C14E;
+}
+
+.progress{
+  margin-top: 7%;
+}
+
+.agreed-notification{
+  background-color: #e2e2e2;
+  border-radius: 0.6rem;
+  // box-shadow: 0 0 10px 0.2px #d0d0d0;
+  height: 95%;
+  width: 95%;
+  margin-left: 2%;
+  p{
+    font-weight: 500;
+  }
+}
+
+.proposed-modality{
+  font-size: small;
+  font-weight: lighter;
+  background-color: #f8f8f8;
+  border-radius: 0.6rem;
+  padding: 1%;
+  box-shadow: 0 0 10px 1px #d0d0d0;
+  height: 95%;
+  width: 95%;
+  margin-left: 2%;
+}
+
+.offer-msg-avatar-name{
+  background-color: #f8f8f8;
+  border-radius: 0.6rem;
+  height: 95%;
+  width: 95%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  font-size: small;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  box-shadow: 0 0 10px 1px #d0d0d0;
+  p{padding-left: 1px;
+  padding-right: 1px;
+  }
+}
+
+.offer-msg-avatar-name{
+  .mb-3.string.optional{
+    border-bottom: solid 0.7px rgba(128, 128, 128, 0.705);
+    padding-bottom: 3%;
+  }
+  .form-control.is-valid.string.optional{
+    height: 90%;
+  }
+  .form-control.is-valid.string.optional:focus{
+    border: 3px solid #F2C14E;
+    opacity: 0.6;
+    outline: none !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    background-color: white;
+  }
+
+  .form-control.is-valid.string.optional:hover
+   {
+    border: 3px solid #F2C14E;
+    border-radius: 0.6rem;
+    opacity: 0.6;
+    outline: none !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    background-color: white;
+    webkit-transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, -webkit-box-shadow 200ms ease;
+    transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, -webkit-box-shadow 200ms ease;
+    transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, box-shadow 200ms ease;
+    transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, box-shadow 200ms ease, -webkit-box-shadow 200ms ease;  outline: none;
+  }
+}
+
+
+
+.button-counter-offer{
+  color: #F2C14E !important ;
+  font-size: 15px;
+}
+
+.button-agreed-offer{
+  color: #efc86c !important ;
+  font-size: 15px;
+}
+
+.offer-msg-avatar-name{
+  padding: 3%;
+}
+
+.mb-3.string.required.message_content.flex-grow-1{
+.form-control.string.required{
+  border-radius: 0.6rem 0px 0px 0.6rem !important;
+}
+.btn.btn-primary.mb-3{
+  border-radius: 0rem 0.6rem 0.6rem 0rem !important;
+}
 }

@@ -72,7 +72,7 @@
                     <div class="flex-me">
                       <div class="flex-picture-buddy-valid 1">
                         <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;
-                        <h6> <b>Prénom Nom </h6> </b>
+                        <h6> <b> <%= current_user.first_name %> <%= current_user.last_name.upcase %> </h6> </b>
                       </div>
                       <div class="valid-exchange-secondary-infos my">
                         <div class="valid-block valid-exchange-keys">
