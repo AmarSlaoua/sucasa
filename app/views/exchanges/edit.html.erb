@@ -33,7 +33,7 @@
       <div class="msg-input">
         <%= simple_form_for [@exchange, @message],
         html: { data: { action: "turbo:submit-end->exchange-subscription#resetForm" }, class: "d-flex" } do |f|%>
-          <%= f.input :content, placeholder: "Type something", label: false, wrapper_html: {class: "flex-grow-1"} %>
+          <%= f.input :content, placeholder: "Type something", label: false, autocomplete: false, wrapper_html: {class: "flex-grow-1"} %>
           <%= f.submit "Send", class: "btn btn-primary mb-3" %>
         <% end %>
       </div>
@@ -43,9 +43,11 @@
     <div class="col-4">
       <h4><br>... And shape your exchange <br><br></h4>
       <%= render "modalities/modality_form", modality: @my_modality, other_user: @other_user %>
-      <div class="link-validate">
-        <%= link_to "Validate exchange", exchange_path(@exchange) %>
-      </div>
+
+      <%# <div class="link-validate"> %>
+        <%# <%= link_to "Validate exchange", exchange_path(@exchange) %>
+      <%# </div> %>
+
     </div>
   </div>
 </div>

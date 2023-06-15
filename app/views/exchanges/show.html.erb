@@ -12,40 +12,40 @@
                 <div class="flex-valid-exchange-main-infos">
                   <div class="valid-block valid-exchange-duration">
                     <h6>Duration</h6>
-                    <p><%= @other_user_modality.duration %> days</p>
+                    <p><%= @my_modality.duration %> days</p>
                   </div>
                   <div class="valid-block valid-exchange-arrival">
                     <h6>Arrival</h6>
-                    <p><%= @other_user_modality.check_in %></p>
+                    <p><%= @my_modality.check_in %></p>
                   </div>
                   <div class="valid-block valid-block-last valid-exchange-departure">
                     <h6>Departure</h6>
-                    <p><%= @other_user_modality.check_out %></p>
+                    <p><%= @my_modality.check_out %></p>
                   </div>
                 </div>
               </div>
               <div class="exchange-second-block">
                 <div class="flex-me">
                   <div class="flex-picture-buddy-valid 1">
-                    <%= cl_image_tag @other_user_modality.accommodation.user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar mr-3 msg valid" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <h6> <b>My Contract </h6> </b>
                   </div>
               <div class="flex-valid-exchange-secondary-infos my">
                 <div class="valid-block valid-exchange-keys">
                   <h6>Keys</h6>
-                <p> <%= @other_user_modality.keys %> </p>
+                <p> <%= @my_modality.keys %> </p>
                 </div>
                 <div class="valid-block valid-exchange-petsitting">
                   <h6>Petsitting</h6>
-                  <p> <%= @other_user_modality.petsitting %></p>
+                  <p> <%= @my_modality.petsitting %></p>
                 </div>
                 <div class="valid-block valid-exchange-transportation">
                   <h6>Transportation</h6>
-                  <p><%= @other_user_modality.transportation %></p>
+                  <p><%= @my_modality.transportation %></p>
                 </div>
                       <div class="valid-block valid-block-last valid-exchange-others">
                   <h6>Others</h6>
-                  <p> <%= @other_user_modality.others %> </p>
+                  <p> <%= @my_modality.others %> </p>
                 </div>
               </div>
               </div>
